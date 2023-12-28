@@ -160,14 +160,16 @@ flex-shrink: 0;
 @media only screen and (max-width: 40em) {
   .sideNav{
   max-width: 40em;
+  position:static;
 }
   body{
     flex-direction: column;
   }
   .col{
-    padding-left:12px;
-    padding-right:12px;
-    justify-content: center;
+    padding-left:24px;
+    padding-right:24px;
+    overflow-y: hidden; 
+    overflow-x: visible;
   }
   .filter-buttons{
     display:flex;
