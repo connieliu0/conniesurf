@@ -17,23 +17,28 @@
       </div>
       <div class="filter-buttons">
         <button onclick="filterGallery('all')" id="all">Everything</button>
-        <button onclick="filterGallery('yes')" id="yes">Highlights</button>
+        <button onclick="filterGallery('highlights')" id="highlights">
+          Highlights
+        </button>
         <button onclick="filterGallery('⚘')" id="⚘">Art + Tech</button>
         <button onclick="filterGallery('✎')" id="✎">Research</button>
         <button onclick="filterGallery('comic')" id="comic">Comic</button>
-        <button onclick="filterGallery('art')" id="art">Art</button>
+        <button onclick="filterGallery('illos')" id="illos">Illos</button>
         <button onclick="filterGallery('♫')" id="♫">Video</button>
         <button onclick="filterGallery('✉')" id="✉">Notes</button>
       </div>
-      <div>
+      <div id="aside">
         if you’re looking for my product designer website it’s
         <a href="connie-liu.me" target="_blank">here</a> (come back soon)!
       </div>
     </div>
-
-    <p id="cat"></p>
-    <p id="desc"></p>
-    <div id="gallery"></div>
+    <div class="col">
+      <div class="line">
+        <p id="cat"></p>
+        <em><p id="desc"></p></em>
+      </div>
+      <div id="gallery"></div>
+    </div>
     <script src="script.js"></script>
   </body>
 </html>

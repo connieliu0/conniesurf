@@ -1,4 +1,16 @@
 {
+  "header": [
+    {
+      "all": "everything that I ever made!",
+      "⚘": "we at the intersection of art and technology (?)",
+      "highlights": "top 5 items of the year",
+      "✎": "research I did under Professor Aditya Vashishtha",
+      "comic": "abstract my thoughts even further",
+      "illos": "always searching for something",
+      "♫": "you remember too much; but where can I put it down?",
+      "✉": "connect the dots"
+    }
+  ],
   "objects": [
     {
       "year": "2023",
@@ -21,7 +33,7 @@
             "src": "./image/cover/comic1.jpeg",
             "alt": "comic"
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": ""
         },
         {
@@ -31,7 +43,7 @@
             "src": "./image/cover/comic2.jpeg",
             "alt": "comic"
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": ""
         },
         {
@@ -41,17 +53,17 @@
             "src": "./image/cover/taper.png",
             "alt": "generative art"
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://taper.badquar.to/11/returning_thoughts.html"
         },
         {
-          "type": "art",
+          "type": "illos",
           "title": "",
           "cover": {
             "src": "./image/cover/worm.png",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": ""
         },
         {
@@ -71,7 +83,7 @@
             "src": "ACM CSCW Paper",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://drive.google.com/file/d/1-M5135iIvryrAhIIVdbmFt6He5aLGpRe/view?usp=sharing"
         },
         {
@@ -81,7 +93,7 @@
             "src": "./image/cover/printer.png",
             "alt": "watercolor printer"
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://www.youtube.com/watch?v=z2-qOuOYdPk&t=42s&ab_channel=ConnieLiu"
         },
         {
@@ -91,7 +103,7 @@
             "src": "Maybe I like how illogical it is. How slow and messy and how the outcome really doesn’t feel worth it.",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://corny.substack.com/p/on-slowness"
         }
       ]
@@ -107,7 +119,7 @@
             "src": "Maybe this is why I like portfolio websites so much.",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://corny.substack.com/p/on-the-web-as-a-metaphor"
         },
         {
@@ -117,7 +129,7 @@
             "src": "How much data was my entire life? 2TB? 4?",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://corny.substack.com/p/on-collecting-and-saving-the-past"
         }
       ]

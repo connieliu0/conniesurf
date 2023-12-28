@@ -1,4 +1,7 @@
 // script.js
+let texts = {};
+const cat = document.getElementById("cat");
+const desc = document.getElementById("desc");
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch JSON data
 
@@ -6,11 +9,13 @@ document.addEventListener("DOMContentLoaded", function () {
     .then((response) => response.json())
     .then((data) => {
       // Generate UI components
+      texts = data.header;
+      console.log(texts);
       const gallery = document.getElementById("gallery");
       data.objects.forEach((item) => {
         const itemElement = document.createElement("div");
         itemElement.innerHTML = `<p>${item.year}</p><p>${item.desc}</p>`;
-        itemElement.className = "container line yes";
+        itemElement.className = "container line highlights";
         gallery.appendChild(itemElement);
         const galleries = item.gallery;
         galleries.forEach((card) => {
@@ -23,11 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
           if (card.type == "♫" || card.type == "⚘") {
             anchorElement.style.backgroundImage = "url(" + card.cover.src + ")";
             anchorElement.innerHTML = `<p class="type">${card.type}</p><p class="title">${card.title}</p>`;
-          } else if (card.type == "comic" || card.type == "art") {
+          } else if (card.type == "comic" || card.type == "illos") {
             anchorElement.innerHTML = `<img src=${card.cover.src} class="zoomable"></img>`;
           } else {
             anchorElement.innerHTML = `<div class="text"><p class="type">${card.type}</p><p class="title">${card.title}</p><p class="desc">${card.cover.src}</p></div>`;
           }
+          cat.innerHTML = "all";
+          desc.innerHTML = texts[0]["all"];
           // anchorElement.appendChild(galElement);
           gallery.appendChild(anchorElement);
         });
@@ -40,6 +47,9 @@ function filterGallery(category) {
   // var chosen = document.getElementById(category);
   // chosen.classList.add("active");
   items.forEach((item) => {
+    cat.innerHTML = category;
+    desc.innerHTML = texts[0][category];
+    console.log(texts[category]);
     if (category === "all" || item.classList.contains(category)) {
       item.style.display = "flex";
       // bodyElement.style.backgroundImage = "none"; // Change background color
