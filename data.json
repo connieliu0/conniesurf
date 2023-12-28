@@ -1,0 +1,126 @@
+{
+  "objects": [
+    {
+      "year": "2023",
+      "desc": "graduated college, moved to nyc, took infinite video, started running 2 miles a week, had another reckoning with where I'm going",
+      "gallery": [
+        {
+          "type": "♫",
+          "title": "poem reading",
+          "cover": {
+            "src": "./image/cover/reading.png",
+            "alt": "homevideo"
+          },
+          "featured": "no",
+          "link": "https://drive.google.com/file/d/19k0Tzz-Jo-G3J-sXP_hSfQzSS_T6TRBM/view?usp=sharing"
+        },
+        {
+          "type": "comic",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/comic1.jpeg",
+            "alt": "comic"
+          },
+          "featured": "yes",
+          "link": ""
+        },
+        {
+          "type": "comic",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/comic2.jpeg",
+            "alt": "comic"
+          },
+          "featured": "yes",
+          "link": ""
+        },
+        {
+          "type": "⚘",
+          "title": "Returning Thoughts",
+          "cover": {
+            "src": "./image/cover/taper.png",
+            "alt": "generative art"
+          },
+          "featured": "yes",
+          "link": "https://taper.badquar.to/11/returning_thoughts.html"
+        },
+        {
+          "type": "art",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/worm.png",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": ""
+        },
+        {
+          "type": "♫",
+          "title": "vlog #1460",
+          "cover": {
+            "src": "./image/cover/vlog.png",
+            "alt": "homevideo"
+          },
+          "featured": "no",
+          "link": "https://volvox.observer/trueself/liu"
+        },
+        {
+          "type": "✎",
+          "title": "Fact-checks are for the Top 0.1%”: Examining Reach, Awareness, and Relevance of Fact-Checking in Rural India ",
+          "cover": {
+            "src": "ACM CSCW Paper",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://drive.google.com/file/d/1-M5135iIvryrAhIIVdbmFt6He5aLGpRe/view?usp=sharing"
+        },
+        {
+          "type": "⚘",
+          "title": "Watercolor Printer",
+          "cover": {
+            "src": "./image/cover/printer.png",
+            "alt": "watercolor printer"
+          },
+          "featured": "yes",
+          "link": "https://www.youtube.com/watch?v=z2-qOuOYdPk&t=42s&ab_channel=ConnieLiu"
+        },
+        {
+          "type": "✉",
+          "title": "on slowness",
+          "cover": {
+            "src": "Maybe I like how illogical it is. How slow and messy and how the outcome really doesn’t feel worth it.",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://corny.substack.com/p/on-slowness"
+        }
+      ]
+    },
+    {
+      "year": "2022",
+      "desc": "had a reckoning about where I'm going",
+      "gallery": [
+        {
+          "type": "✉",
+          "title": "on the web as a metphor",
+          "cover": {
+            "src": "Maybe this is why I like portfolio websites so much.",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://corny.substack.com/p/on-the-web-as-a-metaphor"
+        },
+        {
+          "type": "✉",
+          "title": "on collecting and saving the past",
+          "cover": {
+            "src": "How much data was my entire life? 2TB? 4?",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://corny.substack.com/p/on-collecting-and-saving-the-past"
+        }
+      ]
+    }
+  ]
+}
