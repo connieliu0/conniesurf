@@ -1,7 +1,7 @@
 /* styles.css */
 #cat{
   text-transform: uppercase;
-  font-size:20px;
+  font-size:1.3rem;
 }
 #top h2{
   margin:0px;
@@ -20,7 +20,7 @@ body{
   color:#00F;
 }
 .type{
-  font-size: 24px;
+  font-size: 1.5rem;
 }
 .col{
   display:flex;
@@ -73,7 +73,7 @@ flex-wrap: wrap;
   margin: 4px 2px;
   cursor: pointer;
   display:block;
-  font-size: 16px;
+  font-size: 1rem;
   font-family: "Arial Narrow", sans-serif;
 }
 .sideNav .filter-buttons button:hover{
@@ -110,7 +110,7 @@ border: 1px dashed blue;
 }
 .♫, .⚘, .✎, .✉{
   border: 1px solid blue;
-  font-size:14px;
+  font-size: 0.9rem;
 }
 .zoomable {
   transition: transform ; /* Add a smooth transition effect */
