@@ -2,15 +2,14 @@
 let texts = {};
 const cat = document.getElementById("cat");
 const desc = document.getElementById("desc");
+let anchorElement;
 document.addEventListener("DOMContentLoaded", function () {
   // Fetch JSON data
-
   fetch("data.json")
     .then((response) => response.json())
     .then((data) => {
       // Generate UI components
       texts = data.header;
-      console.log(texts);
       const gallery = document.getElementById("gallery");
       data.objects.forEach((item) => {
         const itemElement = document.createElement("div");
@@ -19,9 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
         gallery.appendChild(itemElement);
         const galleries = item.gallery;
         galleries.forEach((card) => {
-          const anchorElement = document.createElement("a");
-          anchorElement.href = card.link;
-          anchorElement.target = "_blank";
+          if (card.link.length > 0) {
+            anchorElement = document.createElement("a");
+            anchorElement.href = card.link;
+            anchorElement.target = "_blank";
+          } else {
+            anchorElement = document.createElement("div");
+          }
           // const galElement = document.createElement("div");
           anchorElement.className =
             "container card " + card.type + " " + card.featured;
@@ -46,6 +49,7 @@ function filterGallery(category) {
   const items = document.querySelectorAll(".container");
   // var chosen = document.getElementById(category);
   // chosen.classList.add("active");
+  // document.body.style.backgroundImage = 'url("./image/bg2.jpg")';
   items.forEach((item) => {
     cat.innerHTML = category;
     desc.innerHTML = texts[0][category];

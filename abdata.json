@@ -1,0 +1,52 @@
+{
+  "what": {
+    "top": "<h1>WHAT?</h1><p>I find a lot of joy in learning new things and attempting to do them, even if I tumble and fail in the process.</p>",
+    "center": "<img src='./image/home.gif'/><ol><li>interface design</li><li>illustration (hopefully riso)</li><li>graphic design</li><li>websites</li><li>photos that I put on snapchat</li><li>vague writing</li><li>routines</li></ol>",
+    "bottom": "<p>I’m almost 50, and here is the best thing I have learned so far: every strange thing you’ve ever been into, every failed hobby or forgotten instrument, everything you have ever learned will come back to you, will serve you when you need it. No love, however brief, is wasted.<a href='https://twitter.com/louisethebaker/status/1379961867922239497?lang=en' target='_blank'>- Louise Miller</a></p>"
+  },
+  "where": {
+    "top": "<h1>WHERE?</h1><p>here’s my full work cv</p>",
+    "center": "<p>currently designing for enterprise administrators at atlassian, previously designing for AI system documentation for reward reports for RL lab, CMS and program discovery at dreambound, design systems at mintlify, data quality at scale ai, live media cms at nytimes, rapid testing registration at simple healthkit, social media automation at buzzfeed, vegan review community at abillion, a computational art showcase for p5.js via google summer of code.</p>",
+    "bottom": "<p>I enjoy designing 0 to 1 products - if you're looking for my product design specific site it's connie-liu.me</p>"
+  },
+  "when": {
+    "top": "<h1>WHEN?</h1>",
+    "center": "<img src='./image/about/train.png'alt='on the train'/>",
+    "bottom": ""
+  },
+  "why": {
+    "top": "<h1>WHY?</h1>",
+    "bottom": "<p>when I was younger I got really existential about the purpose of my life and then I realized I wanted to leave a positive impact on the world. originally I saw that in the form of going into environmental science but I was really bad at the wet lab and kept on spilling chemicals on myself, but I also didn't like how a lot of environmental science work was on assaying and discovering the problem. I wanted to solve problems, and also was really into art at the time. I discovered marisa.lu's design portfolio during a snow day in high school and wanted to do design ever since. </p><p>since in college I did hack4impact, the civic digital fellowship, internships at news media, and research to try and understand what tech for social good meant. those experiences and this <a href='https://dl.acm.org/doi/10.1145/1978942.1979275' target='_blank'>paper</a> I read affirmed how hard it is to use tech as a blanket solution for all the world's problems. even so, I want to make the world a better place, and will continually improve on my skills until I get good enough to do so.</p>",
+    "center": ""
+  },
+  "how": {
+    "top": "<h1>HOW?</h1><h1>(„• ֊ •„)੭</h1><p>cliu55567@gmail.com or dm me @conliuart on socials</p><p>here is my <a href='linkedin.com/in/connieliu23' target='_blank'>linkedin</a></p>",
+    "center": "",
+    "bottom": ""
+  },
+  "media": {
+    "top": "<h1>MEDIA</h1>",
+    "center": "<ol><li>the farewell</li><li>little women</li><li>everything everywhere all at once</li><li>and of course studio ghibli</li></ol>",
+    "bottom": ""
+  },
+  "art": {
+    "top": "<h1>ART</h1><p>most are from lucky risograph</p>",
+    "center": "<img src='./image/about/riso.png'alt='risos'/>",
+    "bottom": ""
+  },
+  "music": {
+    "top": "<h1>MUSIC</h1>",
+    "center": "<p>Mitski, Laufey, New Jeans, TENNIS, Last Dinosaurs, Alice Longyu Gao</p>",
+    "bottom": ""
+  },
+  "books": {
+    "top": "<h1>BOOKS</h1><p>this year's lineup:</p>",
+    "center": "<p>Babel, Severance, Stay True, On Earth We’re Briefly Gorgeous, The Dark Forest, Bliss Montage, Digital Minimalism, Tomorrow and Tomorrow and Tomorrow</p>",
+    "bottom": ""
+  },
+  "misc": {
+    "top": "<h1>MISC</h1><p>uncategorized</p>",
+    "center": "<ol><li>sally rooney debate essay</li><li>The Lost Soul</li><li>https://thenewinquiry.com/athletic-aesthetics/</li><li>cheetopuff tiger!</li></ol>",
+    "bottom": ""
+  }
+}

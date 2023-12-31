@@ -1,4 +1,248 @@
 body{
+  display: flex;
+  padding: 0;
+  margin:0;
+  gap: 10px;
+  align-items: flex-start;
+  flex-shrink: 0;
   font-family: "Arial Narrow", sans-serif;
   background-image: url("./image/aboutbg.png");
+  align-items: center;
+}
+#now span, #dyn span{
+  text-decoration: wavy underline 1px blue;
+}
+#now span:hover{
+  color: blue;
+}
+#influences img:hover{
+transform:scale(1.5);
+}
+h1, h2{
+  font-weight:400
+}
+.sideNav a{
+  display:block;
+}
+#scrollable{
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
+overflow-x: hidden;
+height: 99vh;
+padding-left: 80px;
+padding-right: 80px;
+}
+
+.row{
+  display:flex;
+  flex-direction: row;
+  display: inline-flex;
+gap: 100px;
+height:99vh;
+}
+#past .row{
+  height:100vh;
+}
+#scrollable .row{
+  margin-top:1rem;
+  margin-bottom:1rem;
+  height:95vh;
+  align-items:flex-end;
+}
+.row{
+  align-items:center;
+}
+.col{
+  width: 225px;
+  display:flex;
+  flex-direction:column;
+  align-self: stretch;
+}
+.col h1, p{
+  text-align: justify;
+  line-height: normal;
+}
+#scrollable .col{
+  height:95vh;
+}
+/* dyn */
+#tight{
+  gap:1rem;
+}
+#dyn{
+  display: flex;
+width: 311px;
+height: 90vh;
+padding: 16px;
+flex-direction: column;
+align-items: flex-start;
+justify-content: space-between;
+border:solid 1px black;
+}
+#center{
+  width: 100%;
+  height: 100vh; /* 100% of the viewport height */
+  background-size: cover; /* Cover the entire container with the background image */
+  background-position: center; /* Center the background image within the container */
+  position: relative;
+  display:flex;
+  align-items: center;
+}
+#center img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Ensure the image covers the entire space without stretching */
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+
+#influences img{
+width:150px;
+height:auto;
+}
+#influences .col{
+  gap: 4rem;
+  /* justify-content: center; */
+}
+#influences .row{
+  align-items: center;
+}
+#influences .sup {
+  gap:4px;
+}
+#end{
+  justify-content: flex-end;
+  align-items: flex-end;
+  gap: 8px;
+  flex: 1 0 0;
+  align-self: stretch;}
+
+  .colsmall{
+    width: 128px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    align-self: stretch;
+    
+    height:95vh;
+
+  }
+#values .image{
+  flex: 1 0 0;
+  align-self: stretch;
+  background-image:url('./image/about/values.png');
+}
+#line1{
+  display: flex;
+width: 109px;
+flex-direction: column;
+justify-content: center;
+flex: 1 0 0;
+border-left: 1px solid var(--dark, #000);
+}
+#past{
+  display: flex;
+width: 750px;
+height: 95vh;
+align-items: flex-end;
+gap: 16px;
+position: relative;
+
+}
+#line2{
+  display: flex;
+height: 20px;
+flex-direction: column;
+align-items: flex-start;
+gap: 10px;
+flex: 1 0 0;
+  border-top: 1px solid var(--dark, #000);
+}
+.line3{
+  position: absolute;
+  top: 45px;
+  left: 50px;
+}
+sup{
+  color: gray;
+  font-style:italic;
+}
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  color:blue;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  color: blue;
+  text-align: left;
+  border-radius: 5px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 10%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.tooltiptext p{
+  text-align: justify;
+
+}
+
+/* Show the tooltip when hovering over the tooltip container */
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+.tooltip:hover{
+  color:lightseagreen;
+}
+.imgcon {
+  position: relative;
+  display: inline-block;
+}
+
+/* Hidden image by default */
+.imgtip{
+  display: none;
+  position: absolute;
+  bottom: 100%; /* Position the image just below the text */
+  left: 0;
+  opacity:50%;
+}
+.imgtip2{
+  display: none;
+  position: absolute;
+  top: 100%; /* Position the image just below the text */
+  left: 0;
+  opacity:50%;
+}
+.imgcon:hover .imgtip {
+  display: block;
+}
+.imgcon:hover .imgtip2 {
+  display: block;
+}
+#addendum{
+  display:none;
+}
+@media only screen and (max-width: 40em) {
+  #addendum{
+    display:block;
+  }
+  #dyn{
+    display: none;
+  }
+  .row{
+    flex-direction: column;
+  }
 }

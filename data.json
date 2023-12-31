@@ -8,13 +8,14 @@
       "comic": "abstract my thoughts even further",
       "illos": "always searching for something",
       "♫": "you remember too much; but where can I put it down?",
-      "✉": "connect the dots"
+      "✉": "connect the dots",
+      "◩": "we at the intersection of human factors and technology (?)"
     }
   ],
   "objects": [
     {
       "year": "2023",
-      "desc": "graduated college, moved to nyc, took infinite video, started running 2 miles a week, had another reckoning with where I'm going",
+      "desc": "graduated college, moved to nyc, started running 2 miles a week, had another reckoning with where I'm going",
       "gallery": [
         {
           "type": "♫",
@@ -33,7 +34,7 @@
             "src": "./image/cover/comic1.jpeg",
             "alt": "comic"
           },
-          "featured": "highlights",
+          "featured": "no",
           "link": ""
         },
         {
@@ -53,7 +54,7 @@
             "src": "./image/cover/taper.png",
             "alt": "generative art"
           },
-          "featured": "highlights",
+          "featured": "no",
           "link": "https://taper.badquar.to/11/returning_thoughts.html"
         },
         {
@@ -103,8 +104,18 @@
             "src": "Maybe I like how illogical it is. How slow and messy and how the outcome really doesn’t feel worth it.",
             "alt": ""
           },
-          "featured": "highlights",
+          "featured": "no",
           "link": "https://corny.substack.com/p/on-slowness"
+        },
+        {
+          "type": "◩",
+          "title": "design work",
+          "cover": {
+            "src": "freelancing + atlassian (contact me for more details)",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": ""
         }
       ]
     },
@@ -113,14 +124,54 @@
       "desc": "had a reckoning about where I'm going",
       "gallery": [
         {
+          "type": "illos",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/dawn.jpg",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": ""
+        },
+        {
+          "type": "comic",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/comic3.png",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": ""
+        },
+        {
           "type": "✉",
-          "title": "on the web as a metphor",
+          "title": "on the web as a metaphor",
           "cover": {
             "src": "Maybe this is why I like portfolio websites so much.",
             "alt": ""
           },
-          "featured": "highlights",
+          "featured": "no",
           "link": "https://corny.substack.com/p/on-the-web-as-a-metaphor"
+        },
+        {
+          "type": "◩",
+          "title": "scale ai design internship",
+          "cover": {
+            "src": "password protected",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": "https://www.figma.com/proto/czej4B70ewj3tUa9nQxRun/Scale-Case?page-id=3%3A70&node-id=102%3A5784&viewport=588%2C89%2C0.07&scaling=min-zoom&starting-point-node-id=102%3A5784"
+        },
+        {
+          "type": "illos",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/burninghill.png",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": ""
         },
         {
           "type": "✉",
@@ -131,6 +182,68 @@
           },
           "featured": "highlights",
           "link": "https://corny.substack.com/p/on-collecting-and-saving-the-past"
+        },
+        {
+          "type": "◩",
+          "title": "summer design work",
+          "cover": {
+            "src": "kp fellows, nyt (contact me for more details)",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": ""
+        }
+      ]
+    },
+    {
+      "year": "2021",
+      "desc": "was doing things but not much I want to remember",
+      "gallery": [
+        {
+          "type": "✉",
+          "title": "on attention spans",
+          "cover": {
+            "src": "I can’t consume anything of any meaning, then what meaning is it of thing I write?",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://corny.substack.com/p/on-attention-spans"
+        },
+        {
+          "type": "◩",
+          "title": "buzzfeed design internship",
+          "cover": {
+            "src": "this was a good time",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": "https://www.connie-liu.me/buzzfeed"
+        }
+      ]
+    },
+    {
+      "year": "2020",
+      "desc": "the first time I learned what a json was + failed attempt at trying to get into the AI space (pre chatgpt days)",
+      "gallery": [
+        {
+          "type": "⚘",
+          "title": "p5.js showcase",
+          "cover": {
+            "src": "./image/cover/gsoc.png",
+            "alt": "computational art"
+          },
+          "featured": "highlights",
+          "link": "https://old.connie-liu.me/p5.js-showcase/#/"
+        },
+        {
+          "type": "✎",
+          "title": "Generative Text",
+          "cover": {
+            "src": "An attempt on this idea of image to poetry",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://connieliu.notion.site/Fall-2020-Research-Designing-AI-Lab-65443423237046b4ac311ecd19390154"
         }
       ]
     }

@@ -11,6 +11,7 @@
   align-self: stretch;
   padding:16px 24px 16px 16px;
 }
+
 @media only screen and (max-width: 40em) {
   .sideNav{
   max-width: 40em;
