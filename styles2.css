@@ -1,3 +1,6 @@
+.sideNav a{
+  padding-bottom: 8px;
+}
 body{
   display: flex;
   padding: 0;
@@ -10,7 +13,7 @@ body{
   align-items: center;
 }
 #now span, #dyn span{
-  text-decoration: wavy underline 1px blue;
+  text-decoration: wavy underline 1px rgb(57, 156, 255);
 }
 #now span:hover{
   color: blue;

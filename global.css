@@ -11,7 +11,18 @@
   align-self: stretch;
   padding:16px 24px 16px 16px;
 }
-
+a:hover, a:visited:hover{
+  color: blue;
+}
+a{
+  text-decoration-color: rgb(57, 156, 255);
+  text-decoration-style: wavy;
+}
+a:visited{
+  color: black;
+  text-decoration-color: rgb(57, 156, 255);
+  text-decoration-style: wavy;
+}
 @media only screen and (max-width: 40em) {
   .sideNav{
   max-width: 40em;

@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function () {
           bottom: "<p>believe it!</p>",
         },
         values: {
-          top: "<h1>VALUES</h1><p>This generally what I live by. </p>",
+          top: "<h1>VALUES</h1><p>This is generally what I live by. </p>",
           center: "",
           bottom: "<p>subject to change</p>",
         },
