@@ -10,36 +10,6 @@ document.addEventListener("DOMContentLoaded", function () {
   fetch("abdata.json")
     .then((response) => response.json())
     .then((nowmap) => {
-      const fixedContentMap = {
-        now: {
-          top: "<h1>NOW</h1><p>last updated december 23 2023 it’s 47 degrees and windy</p>",
-          center:
-            "<img src='./image/about/now.png' alt='a photo I took that I enjoy'/>",
-          bottom:
-            "<p>this is something I found lovely recently, it has nothing to do with the right, but if you hover on <span>text</span> it could be more relevant</p>",
-        },
-        influences: {
-          top: "<h1>INFLUENCES</h1><p>the lists that no one asked for</p>",
-          center:
-            "<p>sometimes I think we are made of what our interests are and they embed themselves into our lives</p>",
-          bottom: "<p>hover on images to learn more</p>",
-        },
-        dreams: {
-          top: "<h1>DREAMS</h1>",
-          center: "<p></p>",
-          bottom: "<p>believe it!</p>",
-        },
-        values: {
-          top: "<h1>VALUES</h1><p>This is generally what I live by. </p>",
-          center: "",
-          bottom: "<p>subject to change</p>",
-        },
-        past: {
-          top: "",
-          center: "<h1>PAST</h1>",
-          bottom: "",
-        },
-      };
       const spans = scrollDiv.querySelectorAll("span");
       spans.forEach((span) => {
         const spanId = span.id;
@@ -71,10 +41,10 @@ document.addEventListener("DOMContentLoaded", function () {
             scrollPosition >= offset - 12 &&
             scrollPosition < offset + height
           ) {
-            if (fixedContentMap[sectionId]) {
-              topsec.innerHTML = fixedContentMap[sectionId].top;
-              center.innerHTML = fixedContentMap[sectionId].center;
-              bottom.innerHTML = fixedContentMap[sectionId].bottom;
+            if (nowmap[sectionId]) {
+              topsec.innerHTML = nowmap[sectionId].top;
+              center.innerHTML = nowmap[sectionId].center;
+              bottom.innerHTML = nowmap[sectionId].bottom;
             }
           }
         });
