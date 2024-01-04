@@ -36,8 +36,8 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             anchorElement.innerHTML = `<div class="text"><p class="type">${card.type}</p><p class="title">${card.title}</p><p class="desc">${card.cover.src}</p></div>`;
           }
-          cat.innerHTML = "all";
-          desc.innerHTML = texts[0]["all"];
+          cat.innerHTML = "everything";
+          desc.innerHTML = texts[0]["everything"];
           // anchorElement.appendChild(galElement);
           gallery.appendChild(anchorElement);
         });
@@ -50,13 +50,13 @@ function filterGallery(category) {
   // var chosen = document.getElementById(category);
   // chosen.classList.add("active");
   // document.body.style.backgroundImage = 'url("./image/bg2.jpg")';
+  document.body.style.backgroundImage = 'url("./image/' + category + '.jpg")';
   items.forEach((item) => {
     cat.innerHTML = category;
     desc.innerHTML = texts[0][category];
     console.log(texts[category]);
-    if (category === "all" || item.classList.contains(category)) {
+    if (category === "everything" || item.classList.contains(category)) {
       item.style.display = "flex";
-      // bodyElement.style.backgroundImage = "none"; // Change background color
     } else {
       item.style.display = "none";
     }

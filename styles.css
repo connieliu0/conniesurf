@@ -14,7 +14,7 @@ body{
   align-items: flex-start;
   flex-shrink: 0;
   font-family: "Arial Narrow", sans-serif;
-  background-image: url("./image/background.png");
+  background-image: url("./image/everything.jpg");
 }
 .type, .title{
   color:#00F;
@@ -30,6 +30,7 @@ overflow-x: hidden;
 height: 99vh;
 padding-left: 80px;
 padding-right: 80px;
+min-width: 80vw;
 }
 #gallery {
   display: flex;

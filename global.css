@@ -15,6 +15,7 @@ a:hover, a:visited:hover{
   color: blue;
 }
 a{
+  color:black;
   text-decoration-color: rgb(57, 156, 255);
   text-decoration-style: wavy;
 }
