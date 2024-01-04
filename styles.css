@@ -55,18 +55,19 @@ flex-wrap: wrap;
 .sideNav .filter-buttons button{
   background-color: rgb(0,0,0,0); /* Green */
   border: rgb(0,0,0,0) 1px solid;
-  color: black;
-  padding: 2px 4px 2px 4px;
+  color: rgb(34, 125, 216);
+  font-weight:200;
+  padding: 4px 0px;
   text-align: center;
   text-decoration: none;
-  margin: 4px 2px;
+  margin: 4px 0px;
   cursor: pointer;
   display:block;
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-family: "Arial Narrow", sans-serif;
 }
 .sideNav .filter-buttons button:hover{
-  border: blue 1px solid;
+  border-bottom: blue 1px solid;
 }
 
 .⚘ p{

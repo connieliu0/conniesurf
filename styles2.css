@@ -39,7 +39,6 @@ padding-right: 80px;
 
 .row{
   display:flex;
-  flex-direction: row;
   display: inline-flex;
 gap: 100px;
 height:99vh;
@@ -239,13 +238,25 @@ sup{
   display:none;
 }
 @media only screen and (max-width: 40em) {
+  #scrollable .col{
+    height: auto;
+  }
+  #scrollable .row{
+    height: auto;
+  }
+  #scrollable{
+    overflow-x:auto;
+  }
   #addendum{
     display:block;
   }
   #dyn{
     display: none;
   }
-  .row{
-    flex-direction: column;
+  #jump{
+    display: none;
+  }
+ .row {
+    flex-direction:column;
   }
 }
