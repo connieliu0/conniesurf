@@ -237,7 +237,27 @@ sup{
 #addendum{
   display:none;
 }
+.responsive{
+  display:none;
+}
 @media only screen and (max-width: 40em) {
+  .responsive{
+    display:contents;
+  }
+  #scrollable .row{
+    margin-top:0rem;
+    margin-bottom:0rem;
+    align-items: flex-start;
+  }
+  #line1{
+    width:20px;
+  }
+  #past .colsmall{
+    height:20vh;
+  }
+  .line3{
+    display:none;
+  }
   #scrollable .col{
     height: auto;
   }
@@ -258,5 +278,9 @@ sup{
   }
  .row {
     flex-direction:column;
+    gap:10px;
+  }
+  .sup .row{
+    flex-direction:row;
   }
 }
