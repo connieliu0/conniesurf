@@ -25,7 +25,7 @@
             "alt": "homevideo"
           },
           "featured": "no",
-          "link": "https://drive.google.com/file/d/19k0Tzz-Jo-G3J-sXP_hSfQzSS_T6TRBM/view?usp=sharing"
+          "link": "https://youtu.be/MbHoos_mJrI"
         },
         {
           "type": "comic",
@@ -35,7 +35,7 @@
             "alt": "comic"
           },
           "featured": "no",
-          "link": ""
+          "link": "./image/cover/comic1.jpeg"
         },
         {
           "type": "comic",
@@ -45,7 +45,7 @@
             "alt": "comic"
           },
           "featured": "highlights",
-          "link": ""
+          "link": "./image/cover/comic2.jpeg"
         },
         {
           "type": "⚘",
@@ -65,7 +65,7 @@
             "alt": ""
           },
           "featured": "highlights",
-          "link": ""
+          "link": "./image/cover/worm.png"
         },
         {
           "type": "♫",
@@ -131,7 +131,7 @@
             "alt": ""
           },
           "featured": "highlights",
-          "link": ""
+          "link": "./image/cover/dawn.jpg"
         },
         {
           "type": "comic",
@@ -141,7 +141,7 @@
             "alt": ""
           },
           "featured": "highlights",
-          "link": ""
+          "link": "./image/cover/comic3.png"
         },
         {
           "type": "✉",
@@ -181,7 +181,7 @@
             "alt": ""
           },
           "featured": "highlights",
-          "link": ""
+          "link": "./image/cover/burninghill.png"
         },
         {
           "type": "✉",
@@ -254,6 +254,16 @@
           },
           "featured": "no",
           "link": "https://connieliu.notion.site/Fall-2020-Research-Designing-AI-Lab-65443423237046b4ac311ecd19390154"
+        },
+        {
+          "type": "comic",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/comic4.png",
+            "alt": "comic"
+          },
+          "featured": "no",
+          "link": "./image/cover/comic4.png"
         }
       ]
     }
