@@ -13,7 +13,6 @@ body{
   gap: 10px;
   align-items: flex-start;
   flex-shrink: 0;
-  font-family: "Arial Narrow", sans-serif;
   background-image: url("./image/everything.jpg");
 }
 .type, .title{
