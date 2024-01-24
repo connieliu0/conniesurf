@@ -1,4 +1,7 @@
-body, button{
+body{
+  font-family: "Arial Narrow", "AvenirNextCondensed-Regular", sans-serif;
+}
+button{
   font-family: "Arial Narrow", "AvenirNextCondensed-Regular", sans-serif;
 }
 .sideNav{
