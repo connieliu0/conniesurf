@@ -9,13 +9,13 @@
       "illos": "always searching for something",
       "♫": "you remember too much; but where can I put it down?",
       "✉": "connect the dots",
-      "◩": "we at the intersection of human factors and technology (?)"
+      "◩": "we at the intersection of human factors and technology (?) look at connie-liu.me for a more cohesive look at this. I want to do more projects for myself this year."
     }
   ],
   "objects": [
     {
       "year": "2023",
-      "desc": "graduated college, moved to nyc, started running 2 miles a week, had another reckoning with where I'm going",
+      "desc": "had another reckoning with where I'm going, improved my mile time and started reading again though!",
       "gallery": [
         {
           "type": "♫",
@@ -109,7 +109,7 @@
         },
         {
           "type": "◩",
-          "title": "design work",
+          "title": "current design work",
           "cover": {
             "src": "freelancing + atlassian (contact me for more details)",
             "alt": ""
@@ -155,7 +155,7 @@
         },
         {
           "type": "◩",
-          "title": "scale ai design internship",
+          "title": "scale design internship",
           "cover": {
             "src": "password protected",
             "alt": ""
@@ -195,7 +195,7 @@
         },
         {
           "type": "◩",
-          "title": "summer design work",
+          "title": "older design work",
           "cover": {
             "src": "kp fellows, nyt (contact me for more details)",
             "alt": ""
@@ -207,7 +207,7 @@
     },
     {
       "year": "2021",
-      "desc": "was doing things but not much I want to remember",
+      "desc": "was doing things but not much I can remember",
       "gallery": [
         {
           "type": "✉",

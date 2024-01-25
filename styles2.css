@@ -234,9 +234,7 @@ sup{
 .imgcon:hover .imgtip2 {
   display: block;
 }
-#addendum{
-  display:none;
-}
+
 .responsive{
   display:none;
 }
@@ -283,9 +281,7 @@ sup{
   #scrollable{
     overflow-x:auto;
   }
-  #addendum{
-    display:block;
-  }
+  
   #dyn{
     display: none;
   }

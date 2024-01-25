@@ -21,7 +21,7 @@ a:hover, a:visited:hover{
   color: blue;
 }
 a{
-  color:black;
+  
   text-decoration-color: rgb(57, 156, 255);
   text-decoration-style: wavy;
 }
@@ -30,7 +30,14 @@ a:visited{
   text-decoration-color: rgb(57, 156, 255);
   text-decoration-style: wavy;
 }
+#addendum{
+  font-weight:400;
+  display:none;
+}
 @media only screen and (max-width: 40em) {
+  #addendum{
+    display:block;
+  }
   .sideNav{
   max-width: 40em;
   position:static;
