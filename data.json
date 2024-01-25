@@ -154,16 +154,6 @@
           "link": "https://corny.substack.com/p/on-the-web-as-a-metaphor"
         },
         {
-          "type": "◩",
-          "title": "scale design internship",
-          "cover": {
-            "src": "password protected",
-            "alt": ""
-          },
-          "featured": "highlights",
-          "link": "https://www.figma.com/proto/czej4B70ewj3tUa9nQxRun/Scale-Case?page-id=3%3A70&node-id=102%3A5784&viewport=588%2C89%2C0.07&scaling=min-zoom&starting-point-node-id=102%3A5784"
-        },
-        {
           "type": "✎",
           "title": "Note: Examining the Gender Digital Divide in ICT: A Closer Look at Ghana, South Africa, and India",
           "cover": {
@@ -182,6 +172,16 @@
           },
           "featured": "highlights",
           "link": "./image/cover/burninghill.png"
+        },
+        {
+          "type": "◩",
+          "title": "scale design internship",
+          "cover": {
+            "src": "password protected",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": "https://www.figma.com/proto/czej4B70ewj3tUa9nQxRun/Scale-Case?page-id=3%3A70&node-id=102%3A5784&viewport=588%2C89%2C0.07&scaling=min-zoom&starting-point-node-id=102%3A5784"
         },
         {
           "type": "✉",
