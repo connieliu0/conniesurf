@@ -1,0 +1,13 @@
+body{
+  background-image: url("./image/whatisthis.jpg");
+}
+h2{
+  font-weight: 400;
+  mix-blend-mode: multiply;
+  color: darkblue;
+  opacity:70%;
+}
+.row{
+  flex-direction: row;
+  display: flex;
+}
