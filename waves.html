@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- 
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>waves</title>
+  </head>
+  <body>
+    <button onclick="startPlayback()">
+      Play with sound and let the presence of waves guide you!
+    </button>
+    <p style="position: absolute; top: 200px; left: 1000px">
+      I've been doing well
+    </p>
+    <p style="position: absolute; top: 600px; left: 1200px">
+      I've been making it to the train on time these days, usually only have to
+      wait a minute
+    </p>
+    <p style="position: absolute; top: 1200px; left: 1400px">
+      Yeah, it's been pretty busy these days
+    </p>
+    <p style="position: absolute; top: 2000px; left: 1450px">
+      But I've been trying to be consistent with my routine
+    </p>
+    <p style="position: absolute; top: 2800px; left: 1480px">
+      I'm starting a class next week! I'm pretty excited
+    </p>
+    <p style="position: absolute; top: 3800px; left: 1550px; color: white">
+      Yeah we should definitely call sometime! Are you free next week?
+    </p>
+    <p style="position: absolute; top: 4300px; left: 1600px; color: white">
+      Oh you're traveling, bummer, send me pictures!
+    </p>
+    <p style="position: absolute; top: 5000px; left: 1800px; color: white">
+      For sure, I'll catch you next time!
+    </p>
+    <div style="position: absolute; top: 5800px; left: 2000px">
+      <p style="color: white">to be honest, I miss you</p>
+      <audio id="myAudio" autoplay loop controls>
+        <source src="image/waves/waves.mp3"" type="audio/mp3" />
+      </audio>
+      <p style="color: white">my memories, smoothed out under the waves</p>
+    </div>
+  </body>
+</html>
+<script>
+  const audio = document.getElementById("myAudio");
+  let audioStarted = false;
+
+  function updateAudio() {
+    if (!audioStarted) {
+      audio.play();
+      audioStarted = true;
+    }
+
+    const audioPosition = audio.getBoundingClientRect();
+    const audioLeft = audioPosition.left;
+    const audioWidth = audioPosition.width;
+
+    const viewportWidth = window.innerWidth;
+
+    let volume = 1;
+    if (audioLeft < viewportWidth && audioLeft + audioWidth > 0) {
+      // Adjust volume based on the proximity of the audio element to the viewport
+      volume = 1 - Math.abs(audioLeft) / viewportWidth;
+    } else {
+      // Pause audio playback if the audio element is not visible
+      audio.pause();
+      audioStarted = false;
+    }
+
+    volume = Math.max(0, Math.min(1, volume));
+    audio.volume = volume;
+  }
+
+  function startPlayback() {
+    if (!audioStarted) {
+      updateAudio(); // Start adjusting volume based on the viewport location
+    }
+  }
+
+  window.addEventListener("scroll", updateAudio);
+  window.addEventListener("resize", updateAudio);
+</script>
+<style>
+  body {
+    background-image: url("image/waves/waves.jpg");
+    width: 4000px;
+    height: 6000px;
+  }
+</style>
