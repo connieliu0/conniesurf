@@ -3,9 +3,9 @@ body{
 }
 h2{
   font-weight: 400;
-  mix-blend-mode: multiply;
-  color: darkblue;
-  opacity:70%;
+  mix-blend-mode: hard-light;
+  color: rgb(73, 0, 93);
+  opacity:90%;
 }
 .row{
   flex-direction: row;
