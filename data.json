@@ -18,6 +18,16 @@
       "desc": "currently cooking...",
       "gallery": [
         {
+          "type": "✉",
+          "title": "on trying to be an artist",
+          "cover": {
+            "src": "I still make art for others, not to cater to people’s tastes but rather as a form of connection.",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://connie.surf/blog1.html"
+        },
+        {
           "type": "⚘",
           "title": "Waves",
           "cover": {
