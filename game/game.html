@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+    <style>
+      /* CSS styles if needed */
+      .hidden {
+        display: none;
+      }
+      .row{
+        display:flex;
+        flex-direction: row;
+      }
+      .col{
+        display:flex;
+        flex-direction: column;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="page1" class="page">
+      <h1>1: You're born, it's time to make friends!</h1>
+      <h3>*nstagram</h3>
+      <form id="igForm">
+        <label for="name_input">Your Name:</label>
+        <input type="text" id="name_input" name="name" ><br><br>
+        
+        <label for="tagline_input">Tagline:</label>
+        <input type="text" id="tagline_input" name="tagline" ><br><br>
+        <h2>Upload your first post</h2>
+        <div id="pics1"></div>
+        <input type="file" id="fileInput">
+        <label for="misc">Caption:</label>
+        <input type="text" id="misc" name="misc"><br><br>
+        <button type="submit">Save</button>
+      </form>
+</body>
+      <button id="nextButton1">Next</button>
+    </div>
+
+    <div id="page2" class="page hidden">
+      <h1>2: You're growing up - time to go to school!</h1>
+      <h3>B*zzfeed Quiztime</h3>
+      <h3>What fruit are you?</h3>
+      <form id="quizForm">
+        <label for="question1">Question 1: What's your favorite color?</label><br>
+        <input type="radio" id="q1Option1" name="question1" value="Red"> Red<br>
+        <input type="radio" id="q1Option2" name="question1" value="Blue"> Blue<br>
+        <input type="radio" id="q1Option3" name="question1" value="Green"> Green<br><br>
+        <label for="question2">Question 2: Are you a good person?</label><br>
+        <input type="radio" id="q2Option1" name="question2" value="Yes"> Yes<br>
+        <input type="radio" id="q2Option2" name="question2" value="No"> No<br>
+        <label for="growup_input">Question 3: What do you want to be when you grow up?</label>
+        <input type="text" id="growup_input" name="growup" ><br><br>
+        <button id="resultButton">Submit</button>
+        </form>
+        <div id="result" class="hidden">
+          <h2>Result</h2>
+          <p>Your result will show up here.</p>
+        </div>
+      <button id="nextButton2">Next</button>
+    </div>
+
+    <div id="page3" class="page hidden">
+      <h1>You're now in higher education, it's time to fall in love!</h1>
+      <form id="hingeForm">
+        <label for="want_input">What do you want?</label>
+        <input type="text" id="want_input" name="want" ><br><br>
+        
+        <label for="fear_input">What are you afraid of?</label>
+        <input type="text" id="fear_input" name="fear" ><br><br>
+        <h2>Upload your best photo</h2>
+        <div id="pics2"></div>
+        <input type="file" id="fileInput">
+        <button type="submit">Save</button>
+      </form>
+      <button id="nextButton3">Next</button>
+    </div>
+    <div id="page4" class="page hidden">
+      <h1>Part 4: You're graduating, it's time to get a job!</h1>
+      <form id="linkedForm">
+        <label for="name_input">Who are you?</label>
+        <input type="text" id="name_input" name="name" ><br><br>
+        
+        <label for="tagline_input">Jobs:</label>
+        <input type="text" id="tagline_input" name="tagline" ><br><br>
+        <input type="text" id="job_input" name="jobs" ><br><br>
+        <button type="submit">Save</button>
+      </form>
+      <button id="nextButton4">Next</button>
+    </div>
+    <div id="page5" class="page hidden">
+      <h1>It's time to meet your future self</h1>
+      <p>They invented time travel 2024 - congratulations! You can meet your future self. Don’t you want to meet them? You can see if you get that dog you wanted. You can see if you’ll get married. You can see if your dreams come true. Unfortunately, you’ll have to forget most of it when you come back, but still, cool right?
+      </p>
+      <p>To make the trip, we have to make sure we match you to the right version of you. Give me your identification. Is this right?
+      </p>
+      <!-- <h3>Select all the  photos that contain you in it</h3> -->
+      <!-- <p>Security question - what are you afraid of?</p> -->
+      <h2>Is all this information correct?</h2>
+      <p>Change it if you want! If it's not correct, we won't be able to complete the journey.</p>
+      <input type="text" id="namefinal" name="name">
+      <div class="row">
+      <div id="final"></div>
+      <div class="col">
+        <label for="name">Name:</label>
+          <label for="name">Is a good person:</label>
+          <input type="text" id="goodfinal" name="good"> 
+          <label for="name">Currently is:</label>
+          <input type="text" id="growupfinal" name="growup"> 
+          
+        </div>
+      </div>
+      <button id="nextButton5">Submit for Approval</button>
+    </div>
+    <div id="page6" class="page hidden">
+      <h1>Are you sure?</h1>
+      <button id="nextButton6">This is me</button>
+
+</div>
+    <div id="page7" class="page hidden">
+      <h1>CONGRATS you found yourself!</h1>
+
+    </div>
+
+    <!-- Other pages/components go here -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      // jQuery code
+      $(document).ready(function () {
+        // form data
+      $('#igForm').submit(function(event) {
+        event.preventDefault(); // Prevent the form from submitting normally
+            // Get form data
+            var igData = {
+                name: $('#name_input').val(),
+                email: $('#tagline_input').val(),
+                post: $('#fileInput')[0].files[0],
+            };
+            if (igData.post) {
+                var reader = new FileReader();
+                reader.onload = function(event) {
+                    var imageUrl = event.target.result;
+                    $('#pics1').html(`<img src="${imageUrl}" alt="Uploaded Image" width="200">`);
+                    $('#final').html(`<img src="${imageUrl}" alt="Uploaded Image" width="200">`);
+
+                  };
+                reader.readAsDataURL(igData.post);
+            } else {
+                $('#pics1').html('<p>No file selected.</p>');
+            }
+            $('#namefinal').val(igData.name)
+        });
+      $('#resultButton').click(function(event) {
+        event.preventDefault();
+
+         var q1 = $('input[name="question1"]:checked').val();
+          var q2 = $('input[name="question2"]:checked').val();
+          var gameData = {
+                goodPerson: q2,
+                growup: $('#growup_input').val(),
+            };
+          var result = calculateResult(q1, q2);
+          $('#goodfinal').val(gameData.goodPerson)
+          $('#growupfinal').val(gameData.growup)
+
+  // Show result on the page
+      $('#result').removeClass('hidden');
+            $('#result p').text('Your result is: ' + result);
+
+  });
+          // calculate result
+          function calculateResult(q1, q2) {
+    // Example calculation (you can customize this logic)
+    if (q1 === 'Red') {
+        return 'Strawberry';
+    } else if (q1 === 'Blue') {
+        return 'Blueberry';
+    } else if (q1 === 'Green') {
+        return 'Grape';
+    } else {
+        return 'Unknown';
+    }
+}
+
+        // going to the next page
+        var currentPage = 1;
+        var totalPages = $(".page").length;
+
+        function showPage(pageNumber) {
+          $(".page").addClass("hidden");
+          $(`#page${pageNumber}`).removeClass("hidden");
+          currentPage = pageNumber;
+        }
+
+        function nextPage() {
+          if (currentPage < totalPages) {
+            showPage(currentPage + 1);
+          }
+        }
+
+        $("#nextButton1").click(nextPage);
+        $("#nextButton2").click(nextPage);
+        $("#nextButton3").click(nextPage);
+        $("#nextButton4").click(nextPage);
+        $("#nextButton5").click(nextPage);
+        $("#nextButton6").click(nextPage);
+
+        // Add event listeners for other buttons or inputs as needed
+      });
+    </script>
+  </body>
+</html>
