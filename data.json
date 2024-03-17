@@ -18,6 +18,26 @@
       "desc": "currently cooking...",
       "gallery": [
         {
+          "type": "comic",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/zine1.png",
+            "alt": ""
+          },
+          "featured": "",
+          "link": "./image/cover/zine1.png"
+        },
+        {
+          "type": "illos",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/risos.png",
+            "alt": ""
+          },
+          "featured": "",
+          "link": "./image/cover/risos.png"
+        },
+        {
           "type": "✉",
           "title": "on trying to be an artist",
           "cover": {
