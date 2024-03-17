@@ -1,6 +1,6 @@
 {
   "now": {
-    "top": "<h1>NOW</h1><p>last updated jan 2024, it’s about to rain</p>",
+    "top": "<h1>NOW</h1><p>last updated mar 2024, it was 70 degrees two days ago...</p>",
     "center": "<img src='./image/about/now.png' alt='a photo I took that I enjoy'/>",
     "bottom": "<p>this is something I found lovely recently, it has nothing to do with the right, but if you hover on <span>text</span> it could be more relevant</p>"
   },
