@@ -21,11 +21,31 @@
           "type": "comic",
           "title": "",
           "cover": {
+            "src": "./image/cover/zine2.png",
+            "alt": ""
+          },
+          "featured": "",
+          "link": "https://posts.cv/connieliu/lTF9uJhqrMiouwQD8lFF"
+        },
+        {
+          "type": "comic",
+          "title": "",
+          "cover": {
             "src": "./image/cover/zine1.png",
             "alt": ""
           },
           "featured": "",
-          "link": "./image/cover/zine1.png"
+          "link": "https://www.figma.com/proto/0jnZmamDAZcG78zDLBkOdE/Zine-Maker-(Community)?page-id=32%3A341&type=design&node-id=32-342&viewport=388%2C121%2C0.54&t=wOltMaQ46Gjf5ISp-1&scaling=min-zoom&starting-point-node-id=32%3A342&mode=design"
+        },
+{
+          "type": "comic",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/10ways.png",
+            "alt": ""
+          },
+          "featured": "",
+          "link": "./image/cover/10ways.png"
         },
         {
           "type": "illos",
