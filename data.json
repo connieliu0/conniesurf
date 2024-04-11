@@ -20,11 +20,11 @@
         { "type": "illos",
           "title": "",
           "cover": {
-            "src": "./image/cover/hillriso.png",
+            "src": "./image/cover/hillriso.jpg",
             "alt": ""
           },
           "featured": "",
-          "link": "./image/cover/hillriso.png"
+          "link": "./image/cover/hillriso.jpg"
         },
         {
           "type": "comic",
