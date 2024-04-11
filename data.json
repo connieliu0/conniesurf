@@ -14,7 +14,12 @@
   ],
   "objects": [
     {
-          "type": "illos",
+         
+    {
+      "year": "2024",
+      "desc": "currently cooking...",
+      "gallery": [
+        { "type": "illos",
           "title": "",
           "cover": {
             "src": "./image/cover/hillriso.png",
@@ -23,10 +28,6 @@
           "featured": "",
           "link": "./image/cover/hillriso.png"
         },
-    {
-      "year": "2024",
-      "desc": "currently cooking...",
-      "gallery": [
         {
           "type": "comic",
           "title": "",
