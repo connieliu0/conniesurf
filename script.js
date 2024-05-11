@@ -45,6 +45,34 @@ document.addEventListener("DOMContentLoaded", function () {
     })
     .catch((error) => console.error("Error fetching data:", error));
 });
+
+//LAZY LOADING
+const images = document.querySelectorAll('img[data-src]');
+function lazyLoad() {
+    images.forEach(img => {
+        if (isInViewport(img)) {
+            img.src = img.getAttribute('data-src');
+            img.removeAttribute('data-src');
+        }
+    });
+}
+
+function isInViewport(element) {
+    const rect = element.getBoundingClientRect();
+    return (
+        rect.top >= 0 &&
+        rect.left >= 0 &&
+        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+    );
+}
+
+// Initial load
+lazyLoad();
+
+// Lazy load images on scroll
+window.addEventListener('scroll', lazyLoad);
+
 function filterGallery(category) {
   const items = document.querySelectorAll(".container");
   // var chosen = document.getElementById(category);

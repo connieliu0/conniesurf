@@ -67,8 +67,9 @@ flex-wrap: wrap;
 }
 .sideNav .filter-buttons button:hover{
   border-bottom: blue 1px solid;
+  cursor:  url("./image/cloud.png") 4 12,
+  auto;
 }
-
 .⚘ p{
   padding: 4px 8px;
   align-items: center;

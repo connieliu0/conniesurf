@@ -4,6 +4,10 @@ body{
 button{
   font-family: "Arial Narrow", "AvenirNextCondensed-Regular", sans-serif;
 }
+.question:hover{
+  cursor: help;
+}
+
 .sideNav{
   position: sticky;
   top: 0;
