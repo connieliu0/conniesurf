@@ -17,6 +17,15 @@
       "year": "2024",
       "desc": "currently cooking...",
       "gallery": [
+        { "type": "⚘",
+        "title": "",
+        "cover": {
+          "src": "./image/cover/url.png",
+          "alt": ""
+        },
+        "featured": "",
+        "link": "https://url.connie.surf/#i.am.thinking.about.it.tomorrow.with.traces_of.a_forever"
+      },
         { "type": "illos",
           "title": "",
           "cover": {
