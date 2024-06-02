@@ -17,8 +17,18 @@
       "year": "2024",
       "desc": "currently cooking...",
       "gallery": [
+        {
+          "type": "✉",
+          "title": "on scrolling",
+          "cover": {
+            "src": "Lately, I feel like I’m allergic to scrolling.",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://corny.substack.com/p/on-scrolling"
+        },
         { "type": "⚘",
-        "title": "",
+        "title": "url message",
         "cover": {
           "src": "./image/cover/url.png",
           "alt": ""
@@ -29,11 +39,11 @@
         { "type": "illos",
           "title": "",
           "cover": {
-            "src": "./image/cover/hillriso.jpg",
+            "src": "./image/cover/poster.png",
             "alt": ""
           },
           "featured": "",
-          "link": "./image/cover/hillriso.jpg"
+          "link": "./image/cover/poster.png"
         },
         {
           "type": "comic",
@@ -43,7 +53,7 @@
             "alt": ""
           },
           "featured": "",
-          "link": "https://posts.cv/connieliu/lTF9uJhqrMiouwQD8lFF"
+          "link": "https://store.connie.surf/products/tiny-revelations-zine"
         },
         {
           "type": "comic",
@@ -66,6 +76,16 @@
           "link": "./image/cover/10ways.png"
         },
         {
+          "type": "⚘",
+          "title": "Game (WIP)",
+          "cover": {
+            "src": "",
+            "alt": "no image bc wip"
+          },
+          "featured": "no",
+          "link": "https://connie.surf/game/game.html"
+        },
+        {
           "type": "illos",
           "title": "",
           "cover": {
@@ -85,6 +105,7 @@
           "featured": "no",
           "link": "https://connie.surf/blog1.html"
         },
+        
         {
           "type": "⚘",
           "title": "Waves",
@@ -111,6 +132,16 @@
       "year": "2023",
       "desc": "had another reckoning with where I'm going, improved my mile time and started reading again though!",
       "gallery": [
+        {
+          "type": "✉",
+          "title": "on identity",
+          "cover": {
+            "src": "However, it isn’t the output that is a form of becoming, rather the making of it in the first place.",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://corny.substack.com/p/on-identity"
+        },
         {
           "type": "♫",
           "title": "poem reading",
@@ -189,7 +220,7 @@
             "alt": "watercolor printer"
           },
           "featured": "highlights",
-          "link": "https://www.youtube.com/watch?v=z2-qOuOYdPk&t=42s&ab_channel=ConnieLiu"
+          "link": "https://x.com/conliuart/status/1675282990086205443"
         },
         {
           "type": "✉",
