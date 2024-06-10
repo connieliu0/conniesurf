@@ -75,9 +75,6 @@ window.addEventListener('scroll', lazyLoad);
 
 function filterGallery(category) {
   const items = document.querySelectorAll(".container");
-  // var chosen = document.getElementById(category);
-  // chosen.classList.add("active");
-  // document.body.style.backgroundImage = 'url("./image/bg2.jpg")';
   document.body.style.backgroundImage = 'url("./image/' + category + '.jpg")';
   items.forEach((item) => {
     cat.innerHTML = category;
