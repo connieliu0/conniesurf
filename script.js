@@ -11,11 +11,12 @@ document.addEventListener("DOMContentLoaded", function () {
       // Generate UI components
       texts = data.header;
       const gallery = document.getElementById("gallery");
+      const fragment = document.createDocumentFragment(); // Create a fragment
       data.objects.forEach((item) => {
         const itemElement = document.createElement("div");
-        itemElement.innerHTML = `<p>${item.year}</p><p>${item.desc}</p>`;
+        itemElement.textContent = `${item.year} ~ ${item.desc}`;
         itemElement.className = "container line highlights";
-        gallery.appendChild(itemElement);
+        fragment.appendChild(itemElement); // Append to fragment
         const galleries = item.gallery;
         galleries.forEach((card) => {
           if (card.link.length > 0) {
@@ -25,60 +26,52 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             anchorElement = document.createElement("div");
           }
-          // const galElement = document.createElement("div");
           anchorElement.className =
             "container card " + card.type + " " + card.featured;
           if (card.type == "♫" || card.type == "⚘") {
             anchorElement.style.backgroundImage = "url(" + card.cover.src + ")";
             anchorElement.innerHTML = `<p class="type">${card.type}</p><p class="title">${card.title}</p>`;
           } else if (card.type == "comic" || card.type == "illos") {
-            anchorElement.innerHTML = `<img src=${card.cover.src} class="zoomable"></img>`;
+            anchorElement.innerHTML = `<img src=${card.cover.src} class="zoomable" data-src="${card.cover.src}" alt="${card.title}"></img>`;
           } else {
             anchorElement.innerHTML = `<div class="text"><p class="type">${card.type}</p><p class="title">${card.title}</p><p class="desc">${card.cover.src}</p></div>`;
           }
-          cat.innerHTML = "everything";
-          desc.innerHTML = texts[0]["everything"];
-          // anchorElement.appendChild(galElement);
-          gallery.appendChild(anchorElement);
+          cat.textContent = "everything";
+          desc.textContent = texts[0]["everything"];
+          fragment.appendChild(anchorElement); // Append to fragment
         });
       });
+      gallery.appendChild(fragment); // Append fragment to the DOM once
     })
     .catch((error) => console.error("Error fetching data:", error));
 });
 
-//LAZY LOADING
-const images = document.querySelectorAll('img[data-src]');
-function lazyLoad() {
-    images.forEach(img => {
-        if (isInViewport(img)) {
-            img.src = img.getAttribute('data-src');
-            img.removeAttribute('data-src');
-        }
-    });
+// LAZY LOADING
+const lazyImages = document.querySelectorAll('img[data-src]');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting) {
+      lazyLoadImage(entry.target);
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 1.0 });
+
+lazyImages.forEach((img) => {
+  observer.observe(img);
+});
+
+function lazyLoadImage(img) {
+  img.src = img.getAttribute('data-src');
+  img.removeAttribute('data-src');
 }
-
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
-}
-
-// Initial load
-lazyLoad();
-
-// Lazy load images on scroll
-window.addEventListener('scroll', lazyLoad);
 
 function filterGallery(category) {
   const items = document.querySelectorAll(".container");
   document.body.style.backgroundImage = 'url("./image/' + category + '.jpg")';
   items.forEach((item) => {
-    cat.innerHTML = category;
-    desc.innerHTML = texts[0][category];
+    cat.textContent = category;
+    desc.textContent = texts[0][category];
     console.log(texts[category]);
     if (category === "everything" || item.classList.contains(category)) {
       item.style.display = "flex";
