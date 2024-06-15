@@ -13,7 +13,7 @@ body{
   gap: 10px;
   align-items: flex-start;
   flex-shrink: 0;
-  background-image: url("./image/everything.jpg");
+  background-image: url("./image/everything.webp");
 }
 .type, .title{
   color:#00F;

@@ -19,6 +19,16 @@
       "gallery": [
         {
           "type": "✉",
+          "title": "poetic comics 101 workshop",
+          "cover": {
+            "src": "Workshop I made for ITP 2024",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://www.figma.com/proto/w2HeMZTVw7IebkndLNL7P5/Comics?page-id=0%3A1&node-id=1-4&viewport=364%2C100%2C0.07&t=sDFbRvwuhVcrlMtC-1&scaling=contain&content-scaling=fixed&starting-point-node-id=1%3A4"
+        },
+        {
+          "type": "✉",
           "title": "on scrolling",
           "cover": {
             "src": "Lately, I feel like I’m allergic to scrolling.",
@@ -84,16 +94,6 @@
           },
           "featured": "no",
           "link": "https://connie.surf/game/game.html"
-        },
-        {
-          "type": "illos",
-          "title": "",
-          "cover": {
-            "src": "./image/cover/risos.png",
-            "alt": ""
-          },
-          "featured": "",
-          "link": "./image/cover/risos.png"
         },
         {
           "type": "✉",

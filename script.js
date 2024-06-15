@@ -68,7 +68,7 @@ function lazyLoadImage(img) {
 
 function filterGallery(category) {
   const items = document.querySelectorAll(".container");
-  document.body.style.backgroundImage = 'url("./image/' + category + '.jpg")';
+  document.body.style.backgroundImage = 'url("./image/' + category + '.webp")';
   items.forEach((item) => {
     cat.textContent = category;
     desc.textContent = texts[0][category];
