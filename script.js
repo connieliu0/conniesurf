@@ -55,7 +55,7 @@ const observer = new IntersectionObserver((entries) => {
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 1.0 });
+}, { threshold: 0.01 });
 
 lazyImages.forEach((img) => {
   observer.observe(img);
