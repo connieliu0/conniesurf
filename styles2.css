@@ -9,7 +9,7 @@ body{
   align-items: flex-start;
   flex-shrink: 0;
   font-family: "Arial Narrow", sans-serif;
-  background-image: url("./image/aboutbg.png");
+  background-image: url("./image/aboutbg.webp");
   align-items: center;
 }
 #now span, #dyn span{
