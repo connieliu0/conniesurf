@@ -18,6 +18,16 @@
       "desc": "currently cooking...",
       "gallery": [
         {
+          "type": "✉",
+          "title": "on generated images",
+          "cover": {
+            "src": "To make images, is to get better at seeing clearly.",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://connie.surf/generative.html"
+        },
+        {
           "type": "⚘",
           "title": "single value decomposition (WIP)",
           "cover": {
