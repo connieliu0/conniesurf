@@ -1,6 +1,6 @@
 {
   "now": {
-    "top": "<h1>NOW</h1><p>last updated mar 2024, it was 70 degrees two days ago...</p>",
+    "top": "<h1>NOW</h1><p>site last updated aug 2024, the air is crisp</p>",
     "center": "<img src='./image/about/now.png' alt='a photo I took that I enjoy'/>",
     "bottom": "<p>this is something I found lovely recently, it has nothing to do with the right, but if you hover on <span>text</span> it could be more relevant</p>"
   },
@@ -31,7 +31,7 @@
   },
   "where": {
     "top": "<h1>WHERE?</h1><p>here’s my full work cv for design</p>",
-    "center": "<p>currently designing for enterprise administrators at atlassian, previously designing for AI system documentation for reward reports for RL lab, CMS and program discovery at dreambound, design systems at mintlify, data quality at scale, live media cms at nytimes, rapid testing registration at simple healthkit, social media automation at buzzfeed, vegan review community at abillion, a computational art showcase for p5.js via google summer of code</p>",
+    "center": "<p>currently designing for atlassian analytics and enterprise administrators, previously designing for AI system documentation for reward reports for RL lab, CMS and program discovery at dreambound, design systems at mintlify, data quality at scale, live media cms at nytimes, rapid testing registration at simple healthkit, social media automation at buzzfeed, vegan review community at abillion, a computational art showcase for p5.js via google summer of code</p>",
     "bottom": "<p>I enjoy designing 0 to 1 products - if you're looking for my ux design specific site it's connie-liu.me</p>"
   },
   "when": {

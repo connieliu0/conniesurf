@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const fragment = document.createDocumentFragment(); // Create a fragment
       data.objects.forEach((item) => {
         const itemElement = document.createElement("div");
-        itemElement.textContent = `${item.year} ~ ${item.desc}`;
+        itemElement.innerHTML = `${item.year} ~ ${item.desc}`;
         itemElement.className = "container line highlights";
         fragment.appendChild(itemElement); // Append to fragment
         const galleries = item.gallery;

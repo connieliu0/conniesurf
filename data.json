@@ -15,7 +15,7 @@
   "objects": [
     {
       "year": "2024",
-      "desc": "currently cooking...",
+      "desc": "currently cooking ⟶ <a href='./current.html'>what's in the oven</a> ",
       "gallery": [
         {
           "type": "✉",
@@ -357,6 +357,26 @@
           },
           "featured": "no",
           "link": ""
+        },
+        {
+          "type": "◩",
+          "title": "hack4impact",
+          "cover": {
+            "src": "codirector/design team",
+            "alt": ""
+          },
+          "featured": "",
+          "link": "https://www.connie-liu.me/hack"
+        },
+        {
+          "type": "◩",
+          "title": "cornell uxd club",
+          "cover": {
+            "src": "ran book clubs during covid",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": "https://connieliu.notion.site/Cornell-UX-Design-Club-aaa303f6215a4dec993c5225e01fbb6e#6762e3012fff41e9bbe1a4df0e3deb39"
         }
       ]
     },

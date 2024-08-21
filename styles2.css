@@ -1,6 +1,4 @@
-.sideNav a{
-  padding-bottom: 8px;
-}
+
 body{
   display: flex;
   padding: 0;
@@ -26,7 +24,9 @@ h1, h2{
 }
 .sideNav a{
   display:block;
+  padding-bottom: 8px;
 }
+
 #scrollable{
   display: flex;
   flex-direction: column;
