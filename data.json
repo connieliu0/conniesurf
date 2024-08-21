@@ -271,6 +271,25 @@
           },
           "featured": "highlights",
           "link": ""
+        },{
+          "type": "✉",
+          "title": "on optionality",
+          "cover": {
+            "src": "I still love slow summers.",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://corny.substack.com/p/on-optionality"
+        },
+        {
+          "type": "✉",
+          "title": "on saving the earth",
+          "cover": {
+            "src": "If I was given the choice, even if I’m not really given the choice, I’ll take it and do my best.",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://substack.com/@corny/p-132216494"
         }
       ]
     },
