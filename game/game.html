@@ -4,74 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Game</title>
-    <style>
-      /* CSS styles if needed */
-      .hidden {
-        display: none;
-      }
-      .row{
-        display:flex;
-        flex-direction: row;
-        text-align: left;
-        padding: 20px;
-        border: black solid 2px;
-        border-radius: 20px;
-      }
-      .col{
-        display:flex;
-        flex-direction: column;
-      }
-      .phone{
-        width: 300px;
-        height: 500px;
-        margin: 0 auto;
-        border: black solid 2px;
-        border-radius: 20px;
-        padding: 24px;
-        text-align: left;
-        background-color:white;
-      }
-      body{
-        margin: 0 auto;
-        width: 800px;
-      }
-      button{
-        text-align:center;
-        margin-top: 20px;
-      }
-      .page{
-        text-align:center;
-      }
-    </style>
+    <link rel="stylesheet" href="./style.css" type="text/css" />
   </head>
   <body>
     <div id="page1" class="page">
       <h1>1: You're born, it's time to make friends!</h1>
       <div class="phone">
        <h3 style="color: coral;">Instagram.com</h3>
-      <form id="igForm">
-        <label for="name_input">Your Name:</label>
-        <input type="text" id="name_input" name="name" ><br><br>
-        
-        <label for="tagline_input">Tagline:</label>
-        <input type="text" id="tagline_input" name="tagline" ><br><br>
-        <h3>Upload your first post</h3>
-        <div id="pics1"></div>
-        <input type="file" id="fileInput">
-        <label for="misc">Caption:</label>
-        <input type="text" id="misc" name="misc"><br><br>
-        <button type="submit">Save</button>
-      </form>
-              </div>
-
-</body>
+        <form id="igForm">
+          <label for="name_input">Your Name</label>
+          <input type="text" id="name_input" name="name" ><br><br>
+          <label for="tagline_input">Bio</label>
+          <input type="text" id="tagline_input" name="tagline" ><br><br>
+          <h3>Upload your first post</h3>
+          <div id="pics1"></div>
+          <input type="file" id="fileInput">
+          <button type="submit">Save</button>
+        </form>
+        </div>
       <button id="nextButton1">Next</button>
     </div>
 
     <div id="page2" class="page hidden">
       <h1>2: You're growing up - time to go to school!</h1>
             <div class="phone">
-      <h3 style="color: red;">B*zzfeed.com</h3>
+      <h3 style="color: red;">Buzzfeed.com</h3>
       <h3>What fruit are you?</h3>
       <form id="quizForm">
         <label for="question1">Question 1: What's your favorite color?</label><br>
@@ -94,17 +51,21 @@
     </div>
 
     <div id="page3" class="page hidden">
-      <h1>You're now in higher education, it's time to fall in love!</h1>
+      <h1>3: You're now in higher education, it's time to fall in love!</h1>
       <div class="phone">
       <h3>Hinge.co</h3>
       <form id="hingeForm">
         <label for="want_input">What do you want?</label>
         <input type="text" id="want_input" name="want" ><br><br>
-        
+        <label for="want_input">What do you want to do with your life??</label>
+        <input type="text" id="wantjob_input" name="want" ><br><br>
         <label for="fear_input">What are you afraid of?</label>
         <input type="text" id="fear_input" name="fear" ><br><br>
-        <h2>Upload your best photo</h2>
+        <h2>Guess where I am right now</h2>
         <div id="pics2"></div>
+        <input type="file" id="fileInput">
+        <h2>Let's meet here at the intersection of my hopes and dreams</h2>
+        <div id="pics3"></div>
         <input type="file" id="fileInput">
         <button type="submit">Save</button>
       </form>
@@ -113,15 +74,17 @@
       <button id="nextButton3">Next</button>
     </div>
     <div id="page4" class="page hidden">
-      <h1>Part 4: You're graduating, it's time to get a job!</h1>
+      <h1>4: You're graduating, it's time to get a job!</h1>
       <div class="phone">  
       <h3 style="color: blue;">Linkedin.com</h3>
       <form id="linkedForm">
         <label for="name_input">Who are you?</label>
-        <textarea type="text" id="namefinal" name="name" rows="4" cols="30"></textarea><br><br>
-        <label for="tagline_input">Jobs:</label>
-        <input type="text" id="tagline_input" name="tagline" ><br><br>
-        <input type="text" id="job_input" name="jobs" ><br><br>
+        <textarea type="text" id="linkedintitle" name="name" rows="4" cols="30"></textarea><br><br>
+        <h4>Jobs:</h4>
+        <label for="title_input">Title</label>
+        <input type="text" id="title_input" name="jobs" ><br><br>
+        <label for="title_input">Description</label>
+        <input type="text" id="desc_input" name="jobs" ><br><br>
         <button type="submit">Save</button>
       </form>
       </div>
@@ -137,19 +100,40 @@
       <!-- <p>Security question - what are you afraid of?</p> -->
       <h2>Is all this information correct?</h2>
       <p>Change it if you want! If it's not correct, we won't be able to complete the journey.</p>
-]      <div class="row">
+     <div class="license row">
       <div id="final"></div>
       <div class="col">
-        <label for="name">Name:</label>      <input type="text" id="namefinal" name="name">
-          <label for="name">Is a good person:</label>
-          <input type="text" id="goodfinal" name="good"> 
-          <label for="name">Currently is:</label>
-          <input type="text" id="growupfinal" name="growup"> 
-          
+        <h2>Driver's License</h2>
+        <div class="row">
+          <label for="name">Name:</label>      
+          <input type="text" id="namefinal" name="name">
+        </div>
+        <div class="row">
+          <label for="name">Occupation:</label>      
+          <input type="text" id="jobfinal" name="name">
         </div>
       </div>
-      <button id="nextButton5">Submit for Approval</button>
+      <div class="col">
+        <div class="row">
+          <label for="name">Good person:</label>
+          <input type="text" id="goodfinal" name="good"> 
+        </div>
+        <div class="row">
+          <label for="name">Eyes:</label>
+          <input type="text" id="eyesfinal" name="eyes"> 
+        </div>
+        <div class="row">
+          <label for="name">Wishes:</label>
+          <input type="text" id="wishfinal" name="wishes"> 
+        </div>
+        <div class="row">
+          <label for="name">Fears:</label>
+          <input type="text" id="fearfinal" name="fears"> 
+        </div>
+      </div>
     </div>
+    <button id="nextButton5">Submit for Approval</button>
+
     <div id="page6" class="page hidden">
       <h1>Are you sure?</h1>
       <button id="nextButton6">This is me</button>
@@ -163,89 +147,6 @@
     <!-- Other pages/components go here -->
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script>
-      // jQuery code
-      $(document).ready(function () {
-        // form data
-      $('#igForm').submit(function(event) {
-        event.preventDefault(); // Prevent the form from submitting normally
-            // Get form data
-            var igData = {
-                name: $('#name_input').val(),
-                email: $('#tagline_input').val(),
-                post: $('#fileInput')[0].files[0],
-            };
-            if (igData.post) {
-                var reader = new FileReader();
-                reader.onload = function(event) {
-                    var imageUrl = event.target.result;
-                    $('#pics1').html(`<img src="${imageUrl}" alt="Uploaded Image" width="200">`);
-                    $('#final').html(`<img src="${imageUrl}" alt="Uploaded Image" width="200">`);
-
-                  };
-                reader.readAsDataURL(igData.post);
-            } else {
-                $('#pics1').html('<p>No file selected.</p>');
-            }
-            $('#namefinal').val(igData.name)
-        });
-      $('#resultButton').click(function(event) {
-        event.preventDefault();
-
-         var q1 = $('input[name="question1"]:checked').val();
-          var q2 = $('input[name="question2"]:checked').val();
-          var gameData = {
-                goodPerson: q2,
-                growup: $('#growup_input').val(),
-            };
-          var result = calculateResult(q1, q2);
-          $('#goodfinal').val(gameData.goodPerson)
-          $('#growupfinal').val(gameData.growup)
-
-  // Show result on the page
-      $('#result').removeClass('hidden');
-            $('#result p').text('Your result is: ' + result);
-
-  });
-          // calculate result
-          function calculateResult(q1, q2) {
-    // Example calculation (you can customize this logic)
-    if (q1 === 'Red') {
-        return 'Strawberry';
-    } else if (q1 === 'Blue') {
-        return 'Blueberry';
-    } else if (q1 === 'Green') {
-        return 'Grape';
-    } else {
-        return 'Unknown';
-    }
-}
-
-        // going to the next page
-        var currentPage = 1;
-        var totalPages = $(".page").length;
-
-        function showPage(pageNumber) {
-          $(".page").addClass("hidden");
-          $(`#page${pageNumber}`).removeClass("hidden");
-          currentPage = pageNumber;
-        }
-
-        function nextPage() {
-          if (currentPage < totalPages) {
-            showPage(currentPage + 1);
-          }
-        }
-
-        $("#nextButton1").click(nextPage);
-        $("#nextButton2").click(nextPage);
-        $("#nextButton3").click(nextPage);
-        $("#nextButton4").click(nextPage);
-        $("#nextButton5").click(nextPage);
-        $("#nextButton6").click(nextPage);
-
-        // Add event listeners for other buttons or inputs as needed
-      });
-    </script>
+    <script src="script.js"></script>
   </body>
 </html>

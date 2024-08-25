@@ -1,0 +1,47 @@
+.hidden {
+    display: none;
+  }
+  .license{
+    padding: 20px;
+    border: black solid 2px;
+    border-radius: 20px;
+  }
+  .row{
+    display:flex;
+    flex-direction: row;
+    text-align: left;
+  }
+  form#igForm label{
+    display:block;
+    font-family: sans-serif;
+    font-weight:600;
+    margin-bottom: 8px;
+  }
+  form#igForm input{
+    width:100%;
+  }
+  .col{
+    display:flex;
+    flex-direction: column;
+  }
+  .phone{
+    width: 300px;
+    height: 500px;
+    margin: 0 auto;
+    border: black solid 2px;
+    border-radius: 20px;
+    padding: 24px;
+    text-align: left;
+    background-color:white;
+  }
+  body{
+    margin: 0 auto;
+    width: 800px;
+  }
+  button{
+    text-align:center;
+    margin-top: 20px;
+  }
+  .page{
+    text-align:center;
+  }
