@@ -12,37 +12,66 @@
       .row{
         display:flex;
         flex-direction: row;
+        text-align: left;
+        padding: 20px;
+        border: black solid 2px;
+        border-radius: 20px;
       }
       .col{
         display:flex;
         flex-direction: column;
+      }
+      .phone{
+        width: 300px;
+        height: 500px;
+        margin: 0 auto;
+        border: black solid 2px;
+        border-radius: 20px;
+        padding: 24px;
+        text-align: left;
+        background-color:white;
+      }
+      body{
+        margin: 0 auto;
+        width: 800px;
+      }
+      button{
+        text-align:center;
+        margin-top: 20px;
+      }
+      .page{
+        text-align:center;
       }
     </style>
   </head>
   <body>
     <div id="page1" class="page">
       <h1>1: You're born, it's time to make friends!</h1>
-      <h3>*nstagram</h3>
+      <div class="phone">
+       <h3 style="color: coral;">Instagram.com</h3>
       <form id="igForm">
         <label for="name_input">Your Name:</label>
         <input type="text" id="name_input" name="name" ><br><br>
         
         <label for="tagline_input">Tagline:</label>
         <input type="text" id="tagline_input" name="tagline" ><br><br>
-        <h2>Upload your first post</h2>
+        <h3>Upload your first post</h3>
         <div id="pics1"></div>
         <input type="file" id="fileInput">
         <label for="misc">Caption:</label>
         <input type="text" id="misc" name="misc"><br><br>
         <button type="submit">Save</button>
       </form>
+              </div>
+
 </body>
       <button id="nextButton1">Next</button>
     </div>
 
     <div id="page2" class="page hidden">
       <h1>2: You're growing up - time to go to school!</h1>
-      <h3>B*zzfeed Quiztime</h3>
+            <div class="phone">
+      <h3 style="color: red;">B*zzfeed.com</h3>
       <h3>What fruit are you?</h3>
       <form id="quizForm">
         <label for="question1">Question 1: What's your favorite color?</label><br>
@@ -60,11 +89,14 @@
           <h2>Result</h2>
           <p>Your result will show up here.</p>
         </div>
+      </div>
       <button id="nextButton2">Next</button>
     </div>
 
     <div id="page3" class="page hidden">
       <h1>You're now in higher education, it's time to fall in love!</h1>
+      <div class="phone">
+      <h3>Hinge.co</h3>
       <form id="hingeForm">
         <label for="want_input">What do you want?</label>
         <input type="text" id="want_input" name="want" ><br><br>
@@ -76,19 +108,23 @@
         <input type="file" id="fileInput">
         <button type="submit">Save</button>
       </form>
+      </div>
+
       <button id="nextButton3">Next</button>
     </div>
     <div id="page4" class="page hidden">
       <h1>Part 4: You're graduating, it's time to get a job!</h1>
+      <div class="phone">  
+      <h3 style="color: blue;">Linkedin.com</h3>
       <form id="linkedForm">
         <label for="name_input">Who are you?</label>
-        <input type="text" id="namefinal" name="name" ><br><br>
-        
+        <textarea type="text" id="namefinal" name="name" rows="4" cols="30"></textarea><br><br>
         <label for="tagline_input">Jobs:</label>
         <input type="text" id="tagline_input" name="tagline" ><br><br>
         <input type="text" id="job_input" name="jobs" ><br><br>
         <button type="submit">Save</button>
       </form>
+      </div>
       <button id="nextButton4">Next</button>
     </div>
     <div id="page5" class="page hidden">
@@ -101,11 +137,10 @@
       <!-- <p>Security question - what are you afraid of?</p> -->
       <h2>Is all this information correct?</h2>
       <p>Change it if you want! If it's not correct, we won't be able to complete the journey.</p>
-      <input type="text" id="namefinal" name="name">
-      <div class="row">
+]      <div class="row">
       <div id="final"></div>
       <div class="col">
-        <label for="name">Name:</label>
+        <label for="name">Name:</label>      <input type="text" id="namefinal" name="name">
           <label for="name">Is a good person:</label>
           <input type="text" id="goodfinal" name="good"> 
           <label for="name">Currently is:</label>

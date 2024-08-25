@@ -123,7 +123,7 @@
             "alt": "no image bc wip"
           },
           "featured": "no",
-          "link": "https://connie.surf/game/game.html"
+          "link": "./game/game.html"
         },
         {
           "type": "✉",
