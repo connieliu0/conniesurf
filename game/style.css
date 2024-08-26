@@ -1,5 +1,21 @@
+body{
+    font-family: sans-serif;
+}
 .hidden {
     display: none;
+  }
+  #submit, #resultButton{
+    width: 100%;
+    padding: 10px;
+    font-weight:600;
+  }
+  .url{
+    width: 100%;
+    text-align: center;
+    background-color: rgb(231, 231, 231);
+    border-radius: 20px;
+    margin-bottom: 20px;
+    padding: 8px 0px;
   }
   .license{
     padding: 20px;
@@ -13,7 +29,6 @@
   }
   form#igForm label{
     display:block;
-    font-family: sans-serif;
     font-weight:600;
     margin-bottom: 8px;
   }
@@ -23,7 +38,16 @@
   .col{
     display:flex;
     flex-direction: column;
+    padding-left: 24px;
+    gap: 16px;
   }
+  #page7{
+    background-image: url(https://media.tenor.com/-P2bbtNdQCkAAAAe/evangelion-congratulations-evangelion.png);
+    height: 400px;
+    width: 600px;
+    padding: 20px;
+    color:white;
+}
   .phone{
     width: 300px;
     height: 500px;

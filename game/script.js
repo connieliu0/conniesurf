@@ -104,6 +104,8 @@ if (q1 === 'Red') {
     $("#nextButton4").click(nextPage);
     $("#nextButton5").click(nextPage);
     $("#nextButton6").click(nextPage);
+    $("#nextButton6").click(nextPage);
+
 
     // Add event listeners for other buttons or inputs as needed
   });

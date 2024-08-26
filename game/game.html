@@ -10,7 +10,7 @@
     <div id="page1" class="page">
       <h1>1: You're born, it's time to make friends!</h1>
       <div class="phone">
-       <h3 style="color: coral;">Instagram.com</h3>
+       <div class="url">Instagram.com</div>
         <form id="igForm">
           <label for="name_input">Your Name</label>
           <input type="text" id="name_input" name="name" ><br><br>
@@ -19,7 +19,7 @@
           <h3>Upload your first post</h3>
           <div id="pics1"></div>
           <input type="file" id="fileInput">
-          <button type="submit">Save</button>
+          <button type="submit" id ="submit">Save</button>
         </form>
         </div>
       <button id="nextButton1">Next</button>
@@ -28,7 +28,7 @@
     <div id="page2" class="page hidden">
       <h1>2: You're growing up - time to go to school!</h1>
             <div class="phone">
-      <h3 style="color: red;">Buzzfeed.com</h3>
+      <div class="url">buzzfeed.com</div>
       <h3>What fruit are you?</h3>
       <form id="quizForm">
         <label for="question1">Question 1: What's your favorite color?</label><br>
@@ -40,7 +40,7 @@
         <input type="radio" id="q2Option2" name="question2" value="No"> No<br>
         <label for="growup_input">Question 3: What do you want to be when you grow up?</label>
         <input type="text" id="growup_input" name="growup" ><br><br>
-        <button id="resultButton">Submit</button>
+        <button id="resultButton" >Submit</button>
         </form>
         <div id="result" class="hidden">
           <h2>Result</h2>
@@ -53,7 +53,7 @@
     <div id="page3" class="page hidden">
       <h1>3: You're now in higher education, it's time to fall in love!</h1>
       <div class="phone">
-      <h3>Hinge.co</h3>
+      <div class="url">Hinge.co</div>
       <form id="hingeForm">
         <label for="want_input">What do you want?</label>
         <input type="text" id="want_input" name="want" ><br><br>
@@ -61,13 +61,13 @@
         <input type="text" id="wantjob_input" name="want" ><br><br>
         <label for="fear_input">What are you afraid of?</label>
         <input type="text" id="fear_input" name="fear" ><br><br>
-        <h2>Guess where I am right now</h2>
+        <h4>Guess where I am right now</h4>
         <div id="pics2"></div>
         <input type="file" id="fileInput">
-        <h2>Let's meet here at the intersection of my hopes and dreams</h2>
+        <h4>Let's meet here at the intersection of my hopes and dreams</h4>
         <div id="pics3"></div>
         <input type="file" id="fileInput">
-        <button type="submit">Save</button>
+        <button type="submit" id = "submit">Save</button>
       </form>
       </div>
 
@@ -76,7 +76,7 @@
     <div id="page4" class="page hidden">
       <h1>4: You're graduating, it's time to get a job!</h1>
       <div class="phone">  
-      <h3 style="color: blue;">Linkedin.com</h3>
+      <div class="url">linkedin.com</div>
       <form id="linkedForm">
         <label for="name_input">Who are you?</label>
         <textarea type="text" id="linkedintitle" name="name" rows="4" cols="30"></textarea><br><br>
@@ -85,7 +85,7 @@
         <input type="text" id="title_input" name="jobs" ><br><br>
         <label for="title_input">Description</label>
         <input type="text" id="desc_input" name="jobs" ><br><br>
-        <button type="submit">Save</button>
+        <button type="submit" id = "submit">Save</button>
       </form>
       </div>
       <button id="nextButton4">Next</button>
@@ -133,14 +133,15 @@
       </div>
     </div>
     <button id="nextButton5">Submit for Approval</button>
+  </div>
 
     <div id="page6" class="page hidden">
       <h1>Are you sure?</h1>
       <button id="nextButton6">This is me</button>
 
-</div>
+    </div>
     <div id="page7" class="page hidden">
-      <h1>CONGRATS you found yourself!</h1>
+      <h1>Congrats! You found yourself!</h1>
 
     </div>
 

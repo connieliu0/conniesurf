@@ -126,6 +126,17 @@
           "link": "./game/game.html"
         },
         {
+          "type": "⚘",
+          "title": "Share from the heart (event)",
+          "cover": {
+            "src": "",
+            "alt": "no image bc wip"
+          },
+          "featured": "no",
+          "link": "https://www.sharefromthehe.art/"
+        }
+        ,
+        {
           "type": "✉",
           "title": "on trying to be an artist",
           "cover": {
