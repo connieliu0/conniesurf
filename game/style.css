@@ -18,21 +18,31 @@ body{
     padding: 8px 0px;
   }
   .license{
-    padding: 20px;
+    padding: 40px 20px;
     border: black solid 2px;
     border-radius: 20px;
+    height: 200px;
+  }
+  .license input{
+    width:100%;
+    gap: 20px;
+  }
+  #final img{
+    height: 200px;
+    width: auto;
+    padding-right:20px;
   }
   .row{
     display:flex;
     flex-direction: row;
     text-align: left;
   }
-  form#igForm label{
+#igForm label, #hingeForm label, #linkedForm label{
     display:block;
     font-weight:600;
     margin-bottom: 8px;
   }
-  form#igForm input{
+#igForm input, #hingeForm input, #linkedForm input{
     width:100%;
   }
   .col{
@@ -57,6 +67,8 @@ body{
     padding: 24px;
     text-align: left;
     background-color:white;
+        overflow: auto; /* Add a scrollbar if content overflows */
+
   }
   body{
     margin: 0 auto;

@@ -34,12 +34,23 @@ $('#hingeForm').submit(function(event) {
   var hingeData = {
     want: $('#want_input').val(),
     fear: $('#fear_input').val(),
-    jobdesc: $('#wantjob_input').val()
+    jobdesc: $('#wantjob_input').val(),
+    post: $('#hInput')[0].files[0]
   };
     $('#linkedintitle').val("Hi I'm "+igData.name + " - "+ igData.tagline+ "! I want " + hingeData.want);
     $('#desc_input').val(hingeData.jobdesc);
     $('#wishfinal').val(hingeData.want)
     $('#fearfinal').val(hingeData.fear)
+    if (hingeData.post) {
+      var reader = new FileReader();
+      reader.onload = function(event) {
+          var imageUrl = event.target.result;
+          $('#pics2').html(`<img src="${imageUrl}" alt="Uploaded Image" width="200">`);
+        };
+      reader.readAsDataURL(hingeData.post);
+  } else {
+      $('#pics2').html('<p>No file selected.</p>');
+  }
   });
 
   $('#linkedForm').click(function(event) {
@@ -47,6 +58,7 @@ $('#hingeForm').submit(function(event) {
     var linkedData = {
         jobdesc: $('#desc_input').val()
     };
+
     $('#jobfinal').val(linkedData.jobdesc)
   });
 
