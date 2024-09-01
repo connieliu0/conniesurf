@@ -12,13 +12,13 @@
       <div class="phone">
        <div class="url">Instagram.com</div>
         <form id="igForm">
+          <h4>Upload profile photo</h4>
+          <div id="pics1"></div>
+          <input type="file" id="fileInput"/>
           <label for="name_input">Your Name</label>
           <input type="text" id="name_input" name="name" ><br><br>
           <label for="tagline_input">Bio</label>
           <input type="text" id="tagline_input" name="tagline" ><br><br>
-          <h3>Upload profile photo</h3>
-          <div id="pics1"></div>
-          <input type="file" id="fileInput">
           <button type="submit" id ="submit">Save</button>
         </form>
         </div>
@@ -29,7 +29,8 @@
       <h1>2: You're growing up - time to go to school!</h1>
             <div class="phone">
       <div class="url">buzzfeed.com</div>
-      <h3>What fruit are you?</h3>
+      <h2>Answer these three easy questions and we can guess what kind of fruit you are!</h2>
+      <p>Mmm what is your fruit sign...</p>
       <form id="quizForm">
         <label for="question1">Question 1: What's your favorite color?</label><br>
         <input type="radio" id="q1Option1" name="question1" value="Red"> Red<br>
@@ -38,6 +39,7 @@
         <label for="question2">Question 2: Are you a good person?</label><br>
         <input type="radio" id="q2Option1" name="question2" value="Yes"> Yes<br>
         <input type="radio" id="q2Option2" name="question2" value="No"> No<br>
+        <br>
         <label for="growup_input">Question 3: What do you want to be when you grow up?</label>
         <input type="text" id="growup_input" name="growup" ><br><br>
         <button id="resultButton" >Submit</button>
@@ -53,7 +55,7 @@
     <div id="page3" class="page hidden">
       <h1>3: You're now in higher education, it's time to fall in love!</h1>
       <div class="phone">
-      <div class="url">Hinge.co</div>
+      <div class="url">hinge.co</div>
       <form id="hingeForm">
         <label for="want_input">What do you want?</label>
         <input type="text" id="want_input" name="want" ><br><br>
@@ -75,13 +77,19 @@
       <div class="phone">  
       <div class="url">linkedin.com</div>
       <form id="linkedForm">
-        <label for="name_input">Who are you?</label>
+        <h4>About:</h4>
+        <label for="name_input">You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences. But most importantly, who are you?</label>
         <textarea type="text" id="linkedintitle" name="name" rows="4" cols="30"></textarea><br><br>
         <h4>Jobs:</h4>
         <label for="title_input">Title</label>
-        <input type="text" id="title_input" name="jobs" ><br><br>
+        <input type="text" id="title_input" name="jobs" ><br>
         <label for="title_input">Description</label>
-        <input type="text" id="desc_input" name="jobs" ><br><br>
+        <input type="text" id="desc_input" name="jobs" ><br>
+        <br><br>
+        <label for="title_input">Title</label>
+        <input type="text" id="title_input2" name="jobs" ><br>
+        <label for="title_input">Description</label>
+        <input type="text" id="desc_input2" name="jobs" ><br>
         <button type="submit" id = "submit">Save</button>
       </form>
       </div>

@@ -1,6 +1,15 @@
 body{
     font-family: sans-serif;
 }
+#pics1 img{
+    width: 80px; /* Adjust the size as needed */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+#fileInput{
+    margin-bottom: 2em;
+}
 .hidden {
     display: none;
   }
@@ -37,12 +46,22 @@ body{
     flex-direction: row;
     text-align: left;
   }
+  h2{
+    font-weight: 400;
+  }
+  p{
+    color: gray;
+  }
 #igForm label, #hingeForm label, #linkedForm label{
     display:block;
-    font-weight:600;
-    margin-bottom: 8px;
+    font-weight:400;
+    font-size: 14px;
+    margin-bottom: 4px;
+    margin-top: 12px;
+    color: rgb(125, 125, 125);
   }
-#igForm input, #hingeForm input, #linkedForm input{
+#igForm input, #hingeForm input, #linkedForm input
+{
     width:100%;
   }
   .col{

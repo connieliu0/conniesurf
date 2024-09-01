@@ -77,18 +77,18 @@ $('#hingeForm').submit(function(event) {
     $('#growupfinal').val(gameData.growup)
 // Show result on the page
     $('#result').removeClass('hidden');
-    $('#result p').text('Your result is: ' + result);
+    $('#result p').text(result);
     $('#eyesfinal').val(gameData.eye)
 });
       // calculate result
       function calculateResult(q1, q2) {
 // Example calculation (you can customize this logic)
 if (q1 === 'Red') {
-    return "You're a Strawberry, that means youre really extroverted and love helping people get along";
+    return "You're a Strawberry 🍓, that means youre really extroverted and love helping people get along";
 } else if (q1 === 'Blue') {
-    return "You're a Blueberry, you must have a lot of different thoughts and are super creative.";
+    return "You're a Blueberry 🫐, you must have a lot of different thoughts and are super creative.";
 } else if (q1 === 'Green') {
-    return "You're a Grape, you're mysterious but super funny when people get to know you!";
+    return "You're a Grape 🍇, you're mysterious but super funny when people get to know you!";
 } else {
     return 'Unknown';
 }
