@@ -8,13 +8,15 @@
   </head>
   <body>
     <div id="page1" class="page">
-      <h1>1: You're born, it's time to make friends!</h1>
+      <div class ="text">
+      <h4>1: You're born, it's time to make friends!</h4>
+    </div>
       <div class="phone">
-       <div class="url">Instagram.com</div>
+       <div class="url">instagram.com</div>
         <form id="igForm">
           <h4>Upload profile photo</h4>
           <div id="pics1"></div>
-          <input type="file" id="fileInput"/>
+          <input type="file" id="fileInput" />
           <label for="name_input">Your Name</label>
           <input type="text" id="name_input" name="name" ><br><br>
           <label for="tagline_input">Bio</label>
@@ -22,11 +24,13 @@
           <button type="submit" id ="submit">Save</button>
         </form>
         </div>
-      <button id="nextButton1">Next</button>
+      <button class="next" id="nextButton1">Next</button>
     </div>
 
     <div id="page2" class="page hidden">
-      <h1>2: You're growing up - time to go to school!</h1>
+      <div class ="text">
+      <h4>2: You're growing up - time to go to school!</h4>
+      </div>
             <div class="phone">
       <div class="url">buzzfeed.com</div>
       <h2>Answer these three easy questions and we can guess what kind of fruit you are!</h2>
@@ -38,29 +42,30 @@
         <input type="radio" id="q1Option3" name="question1" value="Green"> Green<br><br>
         <label for="question2">Question 2: Are you a good person?</label><br>
         <input type="radio" id="q2Option1" name="question2" value="Yes"> Yes<br>
-        <input type="radio" id="q2Option2" name="question2" value="No"> No<br>
+        <input type="radio" id="q2Option2" name="question2" value="Maybe" checked> Maybe<br>
+        <input type="radio" id="q2Option3" name="question2" value="No"> No<br>
         <br>
         <label for="growup_input">Question 3: What do you want to be when you grow up?</label>
         <input type="text" id="growup_input" name="growup" ><br><br>
-        <button id="resultButton" >Submit</button>
-        </form>
+        <button type="submit" id ="submit">Submit</button>
+      </form>
         <div id="result" class="hidden">
           <h2>Result</h2>
           <p>Your result will show up here.</p>
         </div>
       </div>
-      <button id="nextButton2">Next</button>
+      <button class = "next" id="nextButton2">Next</button>
     </div>
 
     <div id="page3" class="page hidden">
-      <h1>3: You're now in higher education, it's time to fall in love!</h1>
+      <div class ="text">
+      <h4>3: You're now in higher education, it's time to fall in love!</h4>
+      </div>
       <div class="phone">
       <div class="url">hinge.co</div>
       <form id="hingeForm">
-        <label for="want_input">What do you want?</label>
+        <label for="want_input">What do you want most?</label>
         <input type="text" id="want_input" name="want" ><br><br>
-        <label for="want_input">What do you want to do with your life??</label>
-        <input type="text" id="wantjob_input" name="want" ><br><br>
         <label for="fear_input">What are you afraid of?</label>
         <input type="text" id="fear_input" name="fear" ><br><br>
         <h4>Let's meet here at the intersection of my hopes and dreams</h4>
@@ -70,41 +75,44 @@
       </form>
       </div>
 
-      <button id="nextButton3">Next</button>
+      <button class = "next" id="nextButton3">Next</button>
     </div>
     <div id="page4" class="page hidden">
-      <h1>4: You're graduating, it's time to get a job!</h1>
+      <div class ="text">
+      <h4>4: You're graduating, it's time to get a job!</h4>
+      </div>
       <div class="phone">  
       <div class="url">linkedin.com</div>
       <form id="linkedForm">
         <h4>About:</h4>
         <label for="name_input">You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences. But most importantly, who are you?</label>
-        <textarea type="text" id="linkedintitle" name="name" rows="4" cols="30"></textarea><br><br>
+        <textarea type="text" id="linkedintitle" name="name" rows="4" cols="35"></textarea>
         <h4>Jobs:</h4>
         <label for="title_input">Title</label>
         <input type="text" id="title_input" name="jobs" ><br>
         <label for="title_input">Description</label>
-        <input type="text" id="desc_input" name="jobs" ><br>
-        <br><br>
-        <label for="title_input">Title</label>
-        <input type="text" id="title_input2" name="jobs" ><br>
-        <label for="title_input">Description</label>
-        <input type="text" id="desc_input2" name="jobs" ><br>
+        <textarea type="text" id="desc_input" name="jobs" rows="4" cols="35"></textarea>
         <button type="submit" id = "submit">Save</button>
       </form>
       </div>
-      <button id="nextButton4">Next</button>
+      <button class="next" id="nextButton4">Next</button>
     </div>
     <div id="page5" class="page hidden">
-      <h1>It's time to meet your future self</h1>
-      <p>They invented time travel 2024 - congratulations! You can meet your future self. Don’t you want to meet them? You can see if you get that dog you wanted. You can see if you’ll get married. You can see if your dreams come true. Unfortunately, you’ll have to forget most of it when you come back, but still, cool right?
+      <div class ="text" id="intro">
+      <h4>It's time to meet your future self</h4>
+      <p>They invented time travel in 2024 - congratulations! You can meet your future self. Don’t you want to meet them? You can see if you get that dog you wanted. You can see if you’ll get married. You can see if your dreams come true.
       </p>
-      <p>To make the trip, we have to make sure we match you to the right version of you. Give me your identification. Is this right?
+      <p>To make the trip, we have to make sure we match you to the right version of your future self.
       </p>
+      </div>
+      <div class ="text" id="dialogue">
       <!-- <h3>Select all the  photos that contain you in it</h3> -->
       <!-- <p>Security question - what are you afraid of?</p> -->
+      <p>Give me your identification.
+      </p>
       <h2>Is all this information correct?</h2>
-      <p>Change it if you want! If it's not correct, we won't be able to complete the journey.</p>
+      <p>You still have time to change it. But, if it's not correct, we won't be able to complete the journey.</p>
+      </div>
      <div class="license row">
       <div id="final"></div>
       <div class="col">
@@ -137,21 +145,18 @@
         </div>
       </div>
     </div>
-    <button id="nextButton5">Submit for Approval</button>
+    <button class="button" id="nextButton5">Submit for Approval</button>
   </div>
-
-    <div id="page6" class="page hidden">
-      <h1>Are you sure?</h1>
-      <button id="nextButton6">This is me</button>
-
-    </div>
+  <dialog id="page6">
+    <h1>Are you sure?</h1>
+      <button class="button" id = "nextButton6" type="submit">This is me</button>
+  </dialog>
     <div id="page7" class="page hidden">
+      <div class="text">
       <h1>Congrats! You found yourself!</h1>
-
+      <p>Only you can define who you are.</p>
     </div>
-
-    <!-- Other pages/components go here -->
-
+    </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
   </body>

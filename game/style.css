@@ -1,5 +1,63 @@
 body{
-    font-family: sans-serif;
+    font-family: monospace;
+}
+
+.text{
+    border: 3px blue solid;
+    padding: 0px 15px;
+    margin: 0px auto;
+    width: 600px;
+    background: rgba(255,255,255,0.8);
+}
+#page1{
+    background-image: url("bg1.png");
+}
+#page2{
+    background-image: url("bg2.png");
+}
+#page3{
+    background-image: url("bg3.png");
+}
+#page4{
+    background-image: url("bg4.png");
+}
+#page5{
+    background-image: url("bg5.png");
+}
+#page7{
+  background-image: url("bg6.png");
+  height: 100vh;
+}
+.page{
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    padding: 80px;
+}
+body{
+    margin: 0px;
+}
+#intro{
+    visibility:visible;
+}
+.next{
+    width: 350px;
+    background-color: white;
+    color: blue;
+    font-family: monospace;
+    visibility: hidden;
+}
+::backdrop {
+  background-color:blue;
+  opacity: 0.75;
+}
+
+#submit, #resultButton, #nextButton5, #nextButton6{
+    color: white;
+    background-color: blue;
+    font-family: monospace;
 }
 #pics1 img{
     width: 80px; /* Adjust the size as needed */
@@ -13,10 +71,13 @@ body{
 .hidden {
     display: none;
   }
-  #submit, #resultButton{
+button{
     width: 100%;
     padding: 10px;
     font-weight:600;
+    border: 3px blue solid;
+    max-width: 350px;
+
   }
   .url{
     width: 100%;
@@ -28,9 +89,13 @@ body{
   }
   .license{
     padding: 40px 20px;
-    border: black solid 2px;
+    border: blue solid 3px;
     border-radius: 20px;
     height: 200px;
+    width: 550px;
+    background-color: white; 
+    margin: 12px auto;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(255,255,255,1);
   }
   .license input{
     width:100%;
@@ -48,10 +113,16 @@ body{
   }
   h2{
     font-weight: 400;
+    font-size: 18px;
   }
   p{
     color: gray;
   }
+  dialog{
+    padding: 56px;
+    border: 3px blue solid;
+  }
+  
 #igForm label, #hingeForm label, #linkedForm label{
     display:block;
     font-weight:400;
@@ -70,28 +141,18 @@ body{
     padding-left: 24px;
     gap: 16px;
   }
-  #page7{
-    background-image: url(https://media.tenor.com/-P2bbtNdQCkAAAAe/evangelion-congratulations-evangelion.png);
-    height: 400px;
-    width: 600px;
-    padding: 20px;
-    color:white;
-}
   .phone{
     width: 300px;
     height: 500px;
-    margin: 0 auto;
-    border: black solid 2px;
+    margin: 24px auto;
+    border: blue solid 2px;
     border-radius: 20px;
-    padding: 24px;
+    padding: 18px;
     text-align: left;
     background-color:white;
-        overflow: auto; /* Add a scrollbar if content overflows */
+    overflow: auto; /* Add a scrollbar if content overflows */
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(255,255,255,1);
 
-  }
-  body{
-    margin: 0 auto;
-    width: 800px;
   }
   button{
     text-align:center;
