@@ -21,7 +21,6 @@
                 var imageUrl = event.target.result;
                 $('#pics1').html(`<img src="${imageUrl}" alt="Uploaded Image" width="200">`);
                 $('#final').html(`<img src="${imageUrl}" alt="Uploaded Image" width="200">`);
-
               };
             reader.readAsDataURL(igData.post);
         } else {
@@ -66,7 +65,8 @@ $('#hingeForm').submit(function(event) {
       reader.onload = function(event) {
           var imageUrl = event.target.result;
           $('#pics2').html(`<img src="${imageUrl}" alt="Uploaded Image" width="200">`);
-        };
+          $('#page7').css('background-image', `url(${imageUrl})`);
+        }
       reader.readAsDataURL(hingeData.post);
   } else {
       $('#pics2').html('<p>No file selected.</p>');
@@ -76,10 +76,10 @@ $('#hingeForm').submit(function(event) {
   $('#linkedForm').submit(function(event) {
     event.preventDefault(); 
     var linkedData = {
-        jobdesc: $('#desc_input').val()
+        jobtitle: $('#title_input').val()
     };
 
-    $('#jobfinal').val(linkedData.jobdesc)
+    $('#jobfinal').val(linkedData.jobtitle)
   });
 
 
@@ -131,9 +131,9 @@ if (q1 === 'Red') {
                     $('#dialogue').html('<h2>Are you sure? Is this the right eye color?</h2>');
                     $('#intro').css("visibility","hidden");
                 } else if (interlude == 2) {
-                    $('#dialogue').html('<h2>Is this really you? Remember, it has to be correct.</h2>');
+                    $('#dialogue').html('<h2>Is this really you? Remember, it has to be correct or else you won`t reach your destination.</h2>');
                 } else if (interlude == 3) {
-                    $('#dialogue').html('<h2>I`ll give you some more to really think this over, is this you?</h2>');
+                    $('#dialogue').html('<h2>I`ll give you some more time to really think this over, is this you?</h2>');
                 } else if (interlude == 4) {
                     showPage(currentPage + 1);
                 }
