@@ -9,18 +9,18 @@
   <body>
     <div id="page1" class="page">
       <div class ="text">
-      <h4>1: You're born, it's time to make friends!</h4>
+      <h3>You're born, it's time to make friends!</h3>
     </div>
       <div class="phone">
-       <div class="url">instagram.com</div>
+       <div class="url" style="color:magenta">instagram.com</div>
         <form id="igForm">
           <h4>Upload profile photo</h4>
           <div id="pics1"></div>
-          <input type="file" id="fileInput" />
+          <input type="file" id="fileInput" required/>
           <label for="name_input">Your Name</label>
-          <input type="text" id="name_input" name="name" ><br><br>
-          <label for="tagline_input">Bio</label>
-          <input type="text" id="tagline_input" name="tagline" ><br><br>
+          <input type="text" id="name_input" name="name" required><br><br>
+          <label for="tagline_input">Tagline</label>
+          <input type="text" id="tagline_input" name="tagline" required><br><br>
           <button type="submit" id ="submit">Save</button>
         </form>
         </div>
@@ -29,10 +29,10 @@
 
     <div id="page2" class="page hidden">
       <div class ="text">
-      <h4>2: You're growing up - time to go to school!</h4>
+      <h3>You're growing up - time to go to school!</h3>
       </div>
             <div class="phone">
-      <div class="url">buzzfeed.com</div>
+      <div class="url" style="color:red">buzzfeed.com</div>
       <h2>Answer these three easy questions and we can guess what kind of fruit you are!</h2>
       <p>Mmm what is your fruit sign...</p>
       <form id="quizForm">
@@ -46,7 +46,7 @@
         <input type="radio" id="q2Option3" name="question2" value="No"> No<br>
         <br>
         <label for="growup_input">Question 3: What do you want to be when you grow up?</label>
-        <input type="text" id="growup_input" name="growup" ><br><br>
+        <input type="text" id="growup_input" name="growup" required><br><br>
         <button type="submit" id ="submit">Submit</button>
       </form>
         <div id="result" class="hidden">
@@ -59,18 +59,19 @@
 
     <div id="page3" class="page hidden">
       <div class ="text">
-      <h4>3: You're now in higher education, it's time to fall in love!</h4>
+      <h3>You're now in higher education, it's time to fall in love!</h3>
       </div>
       <div class="phone">
-      <div class="url">hinge.co</div>
+      <div class="url" style="color:black">hinge.co</div>
       <form id="hingeForm">
-        <label for="want_input">What do you want most?</label>
+        <label for="want_input" >What do you want most?</label>
         <input type="text" id="want_input" name="want" ><br><br>
         <label for="fear_input">What are you afraid of?</label>
         <input type="text" id="fear_input" name="fear" ><br><br>
         <h4>Let's meet here at the intersection of my hopes and dreams</h4>
+        <h5 style="margin: 4px 0px">Upload a picture!</h5>
         <div id="pics2"></div>
-        <input type="file" id="hInput">
+        <input type="file" id="hInput" required>
         <button type="submit" id = "submit">Save</button>
       </form>
       </div>
@@ -79,10 +80,10 @@
     </div>
     <div id="page4" class="page hidden">
       <div class ="text">
-      <h4>4: You're graduating, it's time to get a job!</h4>
+      <h3>You're graduating, it's time to get a job!</h3>
       </div>
       <div class="phone">  
-      <div class="url">linkedin.com</div>
+      <div class="url" style="color:rgb(0, 0, 255)">linkedin.com</div>
       <form id="linkedForm">
         <h4>About:</h4>
         <label for="name_input">You can write about your years of experience, industry, or skills. People also talk about their achievements or previous job experiences. But most importantly, who are you?</label>
@@ -99,8 +100,8 @@
     </div>
     <div id="page5" class="page hidden">
       <div class ="text" id="intro">
-      <h4>It's time to meet your future self</h4>
-      <p>They invented time travel in 2024 - congratulations! You can meet your future self. Don’t you want to meet them? You can see if you get that dog you wanted. You can see if you’ll get married. You can see if your dreams come true.
+      <h3>It's time to meet your future self!</h3>
+      <p>Turns out they invented time travel in 2024. Don’t you want to meet your future self?  You can see if you get that dog you wanted. You can see if you’ll get married. You can see if your dreams come true.
       </p>
       <p>To make the trip, we have to make sure we match you to the right version of your future self.
       </p>
@@ -156,8 +157,9 @@
       <div class="text" id="ending">
         <img src="avatar.png" alt="avatar" width="40">
       <h1>Congratulations!</h1>
-      <h2>You found yourself!</h2>
-      <h3>I think you knew the answer this whole time. Only you can define who you are.</h3>
+      <h2>You made it! You found yourself!</h2>
+      <h2>I think you knew the answer this whole time...</h2> 
+      <h2 style = "color:blue"><em>only you can define who you are</em></h2>
     </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>

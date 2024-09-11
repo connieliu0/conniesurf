@@ -133,7 +133,7 @@ if (q1 === 'Red') {
                 } else if (interlude == 2) {
                     $('#dialogue').html('<h2>Is this really you? Remember, it has to be correct or else you won`t reach your destination.</h2>');
                 } else if (interlude == 3) {
-                    $('#dialogue').html('<h2>I`ll give you some more time to really think this over, is this you?</h2>');
+                    $('#dialogue').html('<h2>I`ll give you some more time, is this you?</h2>');
                 } else if (interlude == 4) {
                     showPage(currentPage + 1);
                 }
