@@ -117,9 +117,9 @@
         },
         {
           "type": "⚘",
-          "title": "Game (WIP)",
+          "title": "Find Your Self",
           "cover": {
-            "src": "",
+            "src": "./image/cover/game.png",
             "alt": "no image bc wip"
           },
           "featured": "no",
