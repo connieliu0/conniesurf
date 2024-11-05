@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .stories-container {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      background: #000;
+      position: relative;
+      height: 600px;
+      overflow: hidden;
+      perspective: 1000px;
+    }
+
+    .stories-content-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+    }
+
+    .stories-view {
+      height: 100%;
+      position: relative;
+      background: #000;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+
+    .stories-view.spinning {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .stories-view.next-face {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotateY(90deg) translateZ(50%);
+    }
+
+    .stories-view.prev-face {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: rotateY(-90deg) translateZ(50%);
+    }
+
+    .progress-container {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      right: 0;
+      display: flex;
+      gap: 5px;
+      padding: 0 10px;
+      z-index: 2;
+    }
+
+    .progress-bar {
+      flex: 1;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0;
+      background: #fff;
+      transition: width 0.3s linear;
+    }
+
+    .story {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transform: translateX(100%);
+      transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    }
+
+    .story.active {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .story.previous {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+
+    .story img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .story .text-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      text-align: center;
+      width: 80%;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.7);
+      border-radius: 10px;
+    }
+
+    .story .link {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fff;
+      color: #000;
+      padding: 8px 20px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 14px;
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    .story .link-wrapper {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      height: 60px;
+      z-index: 2;
+      pointer-events: auto;
+    }
+
+    .nav-button {
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 50%;
+      z-index: 1;
+      cursor: pointer;
+      pointer-events: none;
+    }
+
+    .nav-area {
+      position: absolute;
+      top: 0;
+      height: calc(100% - 80px);
+      width: 50%;
+      pointer-events: auto;
+    }
+
+    .nav-area.prev {
+      left: 0;
+    }
+
+    .nav-area.next {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="stories-container" id="storiesContainer">
+    <div class="stories-content-wrapper" id="storiesWrapper">
+      <div class="stories-view">
+        <div class="progress-container" id="progressContainer"></div>
+        <div class="stories-content" id="storiesContent"></div>
+        <div class="nav-area prev" id="prevBtn"></div>
+        <div class="nav-area next" id="nextBtn"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Sample data structure
+    const storiesData = [
+      {
+        id: 1,
+        stories: [
+        {
+            type: "mixed",
+            content: {
+              imageUrl: "https://d2w9rnfcy7mm78.cloudfront.net/28606208/original_72f950b60b091862b0e4fc9a29d3e0c2.png?1717697226?bc=0",
+              text: "I recently noticed a form of graphics that propagates on my Tiktok or Twitter feed, where a somewhat deep saying will be written across an image in sans serif font. There is some likelihood these images were made with some simple image editor, maybe in the creator tool of the social media platform itself.",
+              link: ""
+            }
+          },
+          {
+            type: "text",
+            content: {
+              text: "To that end, there is an emotional weight behind subverting the tools given to us for “self-expression” (surface-level, possibly shallow, image-sharing) to sharing more grandiose platitudes. There’s a subtext of earnestness, of someone self-aware enough in the numbing trance of a scroll to make a proclamation situated in the act itself. Similar to how using Microsoft paint to create a complex work of art breaks the internet, using social media tools to make a deeper point delivers a similar level of poignancy. The subtext of a tool that seems to have a default mode of simplicity to deliver complexity seems more outside the realm of reality than in actuality. Who knew breaking the fourth wall was this easy?",
+              backgroundColor: "#FF5733",
+              link: ""
+            }
+          },
+          {
+            type: "image",
+            content: {
+              imageUrl: "https://d2w9rnfcy7mm78.cloudfront.net/31986118/original_4f1dc1f4aaab2246fedb6ec751465a71.png?1730830529?bc=0",
+              link: "https://example.com/1"
+            }
+          },
+          {
+            type: "text",
+            content: {
+              text: "Social media graphics are interesting because they beget a kind of uniformity not just as a byproduct of the tool but the environment they’re in. Back when I was trying to be a tiktok influencer, my friend told me I’d have to be prepared to create the same content again and again to make it easier for the recommendation algorithm. In that sense, hopecore images mimetic of other hopecore images and platitudes have become a common thread of media consumption. We have the mysteriously perhaps ironic afffirmations Instagram account started during covid, Maya Man’s likely ironic yet earnest generative art project (https://fakeittillyoumakeit.lol/), and another new age Instagram account like affirmations except definitely earnest and in video form. Sometimes it feels like an algorithm creating for an algorithm and we are all just observers in this alternate reality. Who is really speaking here?",
+              backgroundColor: "#FF5733",
+              link: ""
+            }
+          },
+          {
+            type: "image",
+            content: {
+              imageUrl: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F1ff744c4-cf51-4d8b-af49-9f7f6c7bb9a8_2874x1050.png",
+              link: "https://fakeittillyoumakeit.lol/"
+            }
+          }, 
+          {
+            type: "image",
+            content: {
+              imageUrl: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fe1dd220b-1318-4b2b-aad2-28736e61a8b3_885x499.png",
+            }
+          },
+          {
+            type: "mixed",
+            content: {
+              imageUrl: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa918fb8e-f220-41e5-ab46-b515f5509cf8_2418x1434.png",
+              text: "In that way, my life on the web has become cyclical. The urge to create an ironic quotes account with Snapchat’s creator tools when I was 13 has resurfaced as a desire to create unironic works of meaning based on the metaphor of UIs.",
+              link: ""
+          }},
+            {
+            type: "text",
+            content: {
+              text: "Although cyclical in form, I would say there is a difference in motivation, my creation within existing UI landscapes is born now more from a desire to reclaim reality. The uniformity of content from these tools is situated in the infrastructure of its function and in the algorithmic neighborhood of its output. Out of it is born a “flattening of culture”, a phenomenon remarked by the Office of Applied Strategy’s HYPER-OPTIMIZATION dossier.",
+              backgroundColor: "#FF5733",
+              link: ""
+            }
+          }, 
+          {
+            type: "image",
+            content: {
+              imageUrl: "https://d2w9rnfcy7mm78.cloudfront.net/31986297/original_229e554749cb6a5fb40fb6920ff64df7.png?1730831135?bc=0",
+              link:"https://drive.google.com/file/d/1C46bmtrAuv6iLmFb63cPrPBvDyjAyguy/view"
+            }
+          },
+          {
+            type: "text",
+            content: {
+              text: "One of the ways I see this flattening manifest in the world is through this Tiktok meme where people make fun of people’s Hinge profiles and how people often say the same things and post similar pictures. Hinge itself is an interesting ecosystem because unlike other social media apps you’re asked to create a self-portrait that is a snapshot in time, without the record of posts from your past selves. Users are tasked to show who they truly are with the reward being love.",
+              backgroundColor: "#FF5733",
+              link: ""
+            }
+          }, 
+          {
+            type: "text",
+            content: {
+              text:"Then why does the earnestness disappear? Are we all truly the same or does the fault lie in the tools itself to create a profile? The limited prompts that beget people to say the same things? Or perhaps the wider ecosystem of media content we participate in that results in this “sameness” that leads to a false reduction of the multitudes people possess. Over the summer, I went to an event where “What is your oldest photo on Instagram” became a spotlight for sincerity. The early internet, before network effects, before the algorithm, before influencer culture, was perhaps the easiest way to anthropologize someone’s most earnest self.",
+              backgroundColor: "#FF5733",
+              link: ""
+            }
+          }, 
+          {
+            type: "mixed",
+            content: {
+              imageUrl: "https://substackcdn.com/image/fetch/w_1456,c_limit,f_webp,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F30357d21-66a7-4cc0-bb33-4fabd0f03b52_2048x1042.png",
+              text: "I recently made a game in an effort to reclaim the way I want to use software platforms. In an effort to be scalable and adaptable, social software platforms lead to a compartmentalization of self and limit in self-expression. Scalability reduce legibility and I just want to be understood.",
+              link: "https://connie.surf/game/game.html"
+          }}
+        ]
+      },
+      {
+        id: 2,
+        stories: [
+          {
+            type: "mixed",
+            content: {
+              imageUrl: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F946a18c6-f3b6-44c2-bc1c-dcfadc29f01c_2124x1126.png",
+              text: "So how do you express your individuality in full sincerity? In the early web, people used Photoshop to construct interfaces, resulting in a freeform experimentation of interaction design paradigms. Similarly, my friend noted in a podcast interview that perhaps we need to build to raise the ceiling even if it means raising the floor of complexity. Within the problem lies the answer - if we cannot find space to express our complexities fully in the tools given to us by corporations we will have to make them ourselves.",
+              link: "https://podcasts.apple.com/us/podcast/the-orthogonal-bet-from-online-communities-to-in/id1615629580?i=1000670683552"
+            }
+          },
+          {
+            type: "text",
+            content: {
+              text:"Personal computing projects has been a recent interest in mine as a reconciliation of my values with participation in technology. To create software for only an intimate audience, to create it ultimately for myself. I imagine a new future where people make hyperlocal software as values-based infrastructure.",
+              backgroundColor: "#FF5733",
+              link: "https://maggieappleton.com/home-cooked-software"
+            }
+          }, 
+          {
+            type: "text",
+            content: {
+              text:"I see values-based software today in apps for saving and categorizing inspiration. There are so many that surround this singular purpose, but each one is slightly different because it reflects how the software creators themselves think about saving. It’s even more wonderful when you realize they’re often created by one to a few people. In that sense, the communities that form around these softwares truly reflect the specific and lived values held by the person who made it in the first place. We are all individuals who gravitate towards connection in different ways and the proliferation of software will only bring us closer together.",
+              backgroundColor: "#FF5733",
+              link: "https://logicmag.io/supa-dupa-skies/cooking-up-code/"
+            }
+          }, 
+          {
+            type: "image",
+            content: {
+              imageUrl: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F2f874d33-2ade-4151-ade4-3bdd43da0d39_5772x880.png",
+              link:"https://pketh.org/organic-software"
+            }
+          },
+          {
+            type: "text",
+            content: {
+              text:"The time has never been more ripe for change. Lately I’ve been seeing Twitter deteriorate because of Musk’s campaign to bring rampant conservative agenda to the platform. The platform’s network effects makes it hard to leave, but it’s disappointing to see it devolve in such a way. Could we make alternate social networks for ourselves and the people we love? Even if it’s laborious and takes a long time, could there be other avenues to find each other?",
+              backgroundColor: "#FF5733",
+              link: "https://logicmag.io/supa-dupa-skies/cooking-up-code/"
+            }
+          },
+        ]
+      },
+      {
+        id: 4,
+        stories: [
+          {
+            type: "image",
+            content: {
+              imageUrl: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2Fa71dd1f8-c48f-46e9-8cca-177c9d7b3aa9_2210x1192.png",
+              link:"",
+            }
+          },
+          {
+            type: "mixed",
+            content: {
+              imageUrl: "https://substackcdn.com/image/fetch/f_auto,q_auto:good,fl_progressive:steep/https%3A%2F%2Fsubstack-post-media.s3.amazonaws.com%2Fpublic%2Fimages%2F7dff82a8-1a40-4c81-824f-e2a9b6a54383_2048x2732.png",
+              text: "All of which is to say this is a declaration of my personal practice this year to live in that future and try to make software that reflects my ideals and values. Instead of UI as a metaphor, what would happen if UI existed as a reality? ☆ﾟ. * ･ ｡ﾟ,",
+              link: ""
+            }
+          },
+        ]}
+    ];
+
+    class StoriesViewer {
+      constructor(container, data) {
+        this.container = container;
+        this.wrapper = container.querySelector('.stories-content-wrapper');
+        this.data = data;
+        this.currentUserIndex = 0;
+        this.currentStoryIndex = 0;
+        this.isFlipping = false;
+        this.touchStartX = 0;
+        this.touchEndX = 0;
+
+        this.init();
+      }
+
+      init() {
+        this.renderStories();
+        this.setupEventListeners();
+        this.updateProgressBars();
+      }
+
+      renderStories() {
+        const storiesContent = document.getElementById('storiesContent');
+        const progressContainer = document.getElementById('progressContainer');
+        
+        storiesContent.innerHTML = '';
+        progressContainer.innerHTML = '';
+
+        const currentUserStories = this.data[this.currentUserIndex].stories;
+        
+        currentUserStories.forEach((story, index) => {
+          // Create progress bar
+          const progressBar = document.createElement('div');
+          progressBar.className = 'progress-bar';
+          progressBar.innerHTML = '<div class="progress-fill"></div>';
+          progressContainer.appendChild(progressBar);
+
+          // Create story element
+          const storyElement = document.createElement('div');
+          storyElement.className = `story ${index === this.currentStoryIndex ? 'active' : ''}`;
+          
+          if (story.content.link) {
+              storyElement.innerHTML = `
+                  <img src="${story.content.imageUrl}" alt="Story">
+                  <div class="text-content">${story.content.text || ''}</div>
+                  <div class="link-wrapper">
+                      <a href="${story.content.link}" class="link" target="_blank">Learn More</a>
+                  </div>
+              `;
+          } else {
+              storyElement.innerHTML = `
+                  <img src="${story.content.imageUrl}" alt="Story">
+                  <div class="text-content">${story.content.text || ''}</div>
+              `;
+          }
+          
+          storiesContent.appendChild(storyElement);
+        });
+      }
+
+      setupEventListeners() {
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        
+        // Make nav buttons ignore clicks on links
+        prevBtn.addEventListener('click', (e) => {
+            if (!e.target.closest('.link-wrapper')) {
+                this.navigate('prev');
+            }
+        });
+        
+        nextBtn.addEventListener('click', (e) => {
+            if (!e.target.closest('.link-wrapper')) {
+                this.navigate('next');
+            }
+        });
+        
+        // Handle link clicks
+        this.wrapper.addEventListener('click', (e) => {
+            const link = e.target.closest('.link');
+            if (link) {
+                e.stopPropagation();
+                // Optional: handle link click here if needed
+            }
+        });
+        
+        // Touch events for swipe
+        this.container.addEventListener('touchstart', (e) => {
+            if (!e.target.closest('.link-wrapper')) {
+                this.touchStartX = e.touches[0].clientX;
+            }
+        });
+
+        this.container.addEventListener('touchend', (e) => {
+            if (!e.target.closest('.link-wrapper')) {
+                this.touchEndX = e.changedTouches[0].clientX;
+                this.handleSwipe();
+            }
+        });
+      }
+
+      handleSwipe() {
+        const swipeThreshold = 50;
+        const diff = this.touchEndX - this.touchStartX;
+
+        if (Math.abs(diff) > swipeThreshold) {
+          if (diff > 0) {
+            this.navigate('prev');
+          } else {
+            this.navigate('next');
+          }
+        }
+      }
+
+      async flip3D(direction) {
+        if (this.isFlipping) return;
+        this.isFlipping = true;
+
+        // Create a clone for the next face
+        const currentView = this.wrapper.querySelector('.stories-view');
+        const newView = currentView.cloneNode(true);
+        
+        if (direction === 'next') {
+          newView.classList.add('next-face');
+        } else {
+          newView.classList.add('prev-face');
+        }
+        
+        this.wrapper.appendChild(newView);
+
+        // Wait for animation to complete
+        await new Promise(resolve => setTimeout(resolve, 600));
+
+        // Clean up and reset
+        this.wrapper.innerHTML = '';
+        this.wrapper.style.transform = '';
+        const freshView = currentView.cloneNode(true);
+        freshView.classList.remove('spinning');
+        this.wrapper.appendChild(freshView);
+
+        // Setup new event listeners
+        this.setupEventListeners();
+        this.isFlipping = false;
+      }
+
+      async navigate(direction) {
+        // Check if we're at the very beginning
+        if (direction === 'prev' && this.currentUserIndex === 0 && this.currentStoryIndex === 0) {
+            return; // Don't allow going back
+        }
+
+        // Check if we're at the very end
+        if (direction === 'next' && 
+            this.currentUserIndex === this.data.length - 1 && 
+            this.currentStoryIndex === this.data[this.currentUserIndex].stories.length - 1) {
+            return; // Don't allow going forward
+        }
+
+        const currentUserStories = this.data[this.currentUserIndex].stories;
+        
+        if (direction === 'next') {
+          if (this.currentStoryIndex < currentUserStories.length - 1) {
+            this.currentStoryIndex++;
+          } else if (this.currentUserIndex < this.data.length - 1) {
+            await this.flip3D('next');
+            this.currentUserIndex++;
+            this.currentStoryIndex = 0;
+            this.renderStories();
+          }
+        } else {
+          if (this.currentStoryIndex > 0) {
+            this.currentStoryIndex--;
+          } else if (this.currentUserIndex > 0) {
+            await this.flip3D('prev');
+            this.currentUserIndex--;
+            this.currentStoryIndex = this.data[this.currentUserIndex].stories.length - 1;
+            this.renderStories();
+          }
+        }
+
+        this.updateStories();
+        this.updateProgressBars();
+        this.updateNavigationButtons();
+      }
+
+      updateStories() {
+        const storiesContent = document.querySelector('.stories-content');
+        const currentUserStories = this.data[this.currentUserIndex].stories;
+        
+        // Create new story element
+        const story = currentUserStories[this.currentStoryIndex];
+        const storyElement = document.createElement('div');
+        storyElement.className = 'story'; // Start without active class
+        
+        // Set up the content
+        switch(story.type) {
+            case 'image':
+                storyElement.innerHTML = `
+                    <img src="${story.content.imageUrl}" alt="Story">
+                    ${story.content.link ? `<a href="${story.content.link}" class="link">Learn More</a>` : ''}
+                `;
+                break;
+            case 'text':
+                storyElement.style.backgroundColor = story.content.backgroundColor;
+                storyElement.innerHTML = `
+                    <div class="text-content">${story.content.text}</div>
+                    ${story.content.link ? `<a href="${story.content.link}" class="link">Learn More</a>` : ''}
+                `;
+                break;
+            case 'mixed':
+                storyElement.innerHTML = `
+                    <img src="${story.content.imageUrl}" alt="Story">
+                    <div class="text-content">${story.content.text}</div>
+                    ${story.content.link ? `<a href="${story.content.link}" class="link">Learn More</a>` : ''}
+                `;
+                break;
+        }
+        
+        // Add the new story element
+        const currentStory = storiesContent.querySelector('.story.active');
+        if (currentStory) {
+            currentStory.classList.add('previous');
+            currentStory.classList.remove('active');
+        }
+        
+        storiesContent.appendChild(storyElement);
+        
+        // Trigger reflow to ensure transition happens
+        storyElement.offsetHeight;
+        
+        // Activate the new story (this will trigger the slide transition)
+        requestAnimationFrame(() => {
+            storyElement.classList.add('active');
+        });
+        
+        // Clean up old stories after transition
+        setTimeout(() => {
+            const oldStories = storiesContent.querySelectorAll('.story:not(.active)');
+            oldStories.forEach(oldStory => oldStory.remove());
+        }, 300); // Match the transition duration
+      }
+
+      updateProgressBars() {
+        const progressBars = document.querySelectorAll('.progress-fill');
+        progressBars.forEach((bar, index) => {
+          if (index < this.currentStoryIndex) {
+            bar.style.width = '100%';
+          } else if (index === this.currentStoryIndex) {
+            bar.style.width = '100%';
+          } else {
+            bar.style.width = '0';
+          }
+        });
+      }
+
+      // Add this new function to update button states
+      updateNavigationButtons() {
+          const prevButton = document.querySelector('.nav-button.prev');
+          const nextButton = document.querySelector('.nav-button.next');
+
+          // Disable/enable previous button
+          if (this.currentUserIndex === 0 && this.currentStoryIndex === 0) {
+              prevButton.style.pointerEvents = 'none';
+              prevButton.style.opacity = '0.5';
+          } else {
+              prevButton.style.pointerEvents = 'auto';
+              prevButton.style.opacity = '1';
+          }
+
+          // Disable/enable next button
+          if (this.currentUserIndex === this.data.length - 1 && 
+              this.currentStoryIndex === this.data[this.currentUserIndex].stories.length - 1) {
+              nextButton.style.pointerEvents = 'none';
+              nextButton.style.opacity = '0.5';
+          } else {
+              nextButton.style.pointerEvents = 'auto';
+              nextButton.style.opacity = '1';
+          }
+      }
+    }
+
+    // Initialize the stories viewer
+    const storiesContainer = document.querySelector('.stories-container');
+    const viewer = new StoriesViewer(storiesContainer, storiesData);
+  </script>
+</body>
+</html>
