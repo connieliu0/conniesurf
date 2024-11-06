@@ -19,6 +19,16 @@
       "gallery": [
         {
           "type": "✉",
+          "title": "on ui as a metaphor",
+          "cover": {
+            "src": "A personal declaration of practice.",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://connie.surf/declaration.html"
+        },
+        {
+          "type": "✉",
           "title": "on generated images",
           "cover": {
             "src": "To make images, is to get better at seeing clearly.",
@@ -106,17 +116,6 @@
           "link": "./game/game.html"
         },
         {
-          "type": "⚘",
-          "title": "Share from the heart (event)",
-          "cover": {
-            "src": "",
-            "alt": "no image bc wip"
-          },
-          "featured": "no",
-          "link": "https://www.sharefromthehe.art/"
-        }
-        ,
-        {
           "type": "✉",
           "title": "on trying to be an artist",
           "cover": {
@@ -141,11 +140,11 @@
           "type": "illos",
           "title": "",
           "cover": {
-            "src": "./image/cover/poster.jpeg",
+            "src": "./image/cover/searching.png",
             "alt": ""
           },
           "featured": "",
-          "link": "./image/cover/poster.jpeg"
+          "link": "./image/cover/searching.png"
         }
       ]
     },

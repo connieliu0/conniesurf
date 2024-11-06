@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+  <title>on ui as a metaphor</title>
 <head>
   <style>
     * {
@@ -8,15 +9,39 @@
       box-sizing: border-box;
     }
 
+    /* Center the stories container vertically on the page */
+    body {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        background: #f0f0f0; /* Optional: adds contrast to see the container better */
+    }
+
     .stories-container {
-      width: 100%;
-      max-width: 400px;
+      width: 400px;
+      height: 650px;
       margin: 0 auto;
       background: #000;
       position: relative;
-      height: 600px;
       overflow: hidden;
       perspective: 1000px;
+    }
+
+    /* Add media query for mobile devices */
+    @media screen and (max-width: 400px) {
+      body {
+        display: block;
+        background: #000;
+    }
+    
+    .stories-container {
+        width: 100%;
+        height: 100vh; /* Full viewport height */
+        margin: 0;
+    }
     }
 
     .stories-content-wrapper {
@@ -129,7 +154,7 @@
 
     .story .link {
       position: absolute;
-      bottom: 20px;
+      bottom: 100px;
       left: 50%;
       transform: translateX(-50%);
       background: #fff;
