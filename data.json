@@ -28,6 +28,16 @@
           "link": "https://connie.surf/declaration.html"
         },
         {
+          "type": "⚘",
+          "title": "Find Your Self",
+          "cover": {
+            "src": "./image/cover/game.png",
+            "alt": "no image bc wip"
+          },
+          "featured": "no",
+          "link": "./game/game.html"
+        },
+        {
           "type": "✉",
           "title": "on generated images",
           "cover": {
@@ -79,7 +89,7 @@
           "type": "comic",
           "title": "",
           "cover": {
-            "src": "./image/cover/zine2.png",
+            "src": "./image/cover/zine2.jpeg",
             "alt": ""
           },
           "featured": "",
@@ -104,16 +114,6 @@
           },
           "featured": "",
           "link": "./image/cover/10ways.png"
-        },
-        {
-          "type": "⚘",
-          "title": "Find Your Self",
-          "cover": {
-            "src": "./image/cover/game.png",
-            "alt": "no image bc wip"
-          },
-          "featured": "no",
-          "link": "./game/game.html"
         },
         {
           "type": "✉",
