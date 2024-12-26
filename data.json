@@ -18,6 +18,16 @@
       "desc": "currently cooking ⟶ <a href='./current.html'>what's in the oven</a> ",
       "gallery": [
         {
+          "type": "⚘",
+          "title": "RLG (Random Luck Generator)",
+          "cover": {
+            "src": "./image/cover/taper2.png",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://taper.badquar.to/13/random_luck_generator.html"
+        },
+        {
           "type": "✉",
           "title": "on ui as a metaphor",
           "cover": {
