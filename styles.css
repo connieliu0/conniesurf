@@ -14,6 +14,12 @@ body{
   align-items: flex-start;
   flex-shrink: 0;
   background-image: url("./image/everything.webp");
+  background-repeat: no-repeat;
+  background-position: 50% 70%;
+  background-size: cover;
+  background-blend-mode: overlay; 
+  background-color: rgba(255, 255, 255, 0.503); 
+  cursor:none;
 }
 #top p{
   line-height: 1.25;
@@ -92,8 +98,8 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 flex-shrink: 0;
-opacity:0.65;
-border: 1px dashed blue;
+opacity:0.75;
+border: 1px blue;
 }
 a.card{
   text-decoration: none;
@@ -101,9 +107,20 @@ a.card{
 
 .desc {
   color:gray;
+  font-size: 0.9rem;
 }
-.♫, .⚘, .✎, .✉, .◩{
+.♫, .⚘, .◩{
   border: 1px solid blue;
+}
+.illos {
+  border-style: dashed;
+}
+.comic {
+  border-style: dotted;
+}
+.✎, .✉{
+  border: blue;
+  border-style: double;
   font-size: 0.9rem;
 }
 .zoomable {
@@ -141,7 +158,7 @@ flex-shrink: 0;
 
 .card:hover{
   opacity:1;
-
+  cursor:crosshair;
 }
 .line{
   width: -webkit-fill-available;

@@ -1,11 +1,27 @@
 body{
   font-family: "Arial Narrow", "AvenirNextCondensed-Regular", sans-serif;
+  cursor:none;
 }
 button{
   font-family: "Arial Narrow", "AvenirNextCondensed-Regular", sans-serif;
 }
 .question:hover{
   cursor: help;
+}
+.blob {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  border-radius: 50%;
+  filter:blur(2px);
+  box-shadow: 0 0 10px 5px rgba(255, 221, 109, 0.5),
+              0 0 20px 10px rgba(255, 221, 109, 0.3),
+              0 0 30px 15px rgba(255, 233, 159, 0.1);
+  position: fixed; 
+  pointer-events: none; 
+  transform: translate(-50%, -50%); 
+  transition: all 0.1s cubic-bezier(0.23, 1, 0.32, 1);
+
 }
 
 .sideNav{

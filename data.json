@@ -1,21 +1,21 @@
 {
   "header": [
     {
-      "everything": "that I ever made yet clearly not all of it! * Category filters on the left",
+      "everything": "that I ever made (almost)! * filters on the left if you wish",
       "⚘": "we at the intersection of art and technology (?)",
       "highlights": "top 5 items of the year",
-      "✎": "research I did under Professor Aditya Vashishtha / attempted on my own",
+      "✎": "research recently done on the margins of the hour casually, and previously in college under Professor Aditya Vashishtha",
       "comic": "abstract my thoughts even further",
       "illos": "always searching for something",
       "♫": "you remember too much; but where can I put it down?",
-      "✉": "connect the dots",
+      "✉": "connect the dots, occasional navalgazing",
       "◩": "we at the intersection of human factors and technology (?) look at connie-liu.me for a more cohesive look at this. I want to do more projects for myself this year."
     }
   ],
   "objects": [
     {
       "year": "2024",
-      "desc": "currently cooking ⟶ <a href='./current.html'>what's in the oven</a> ",
+      "desc": "I walked forward in earnest! The sun shone brightly through my hands!",
       "gallery": [
         {
           "type": "⚘",
@@ -28,7 +28,17 @@
           "link": "https://taper.badquar.to/13/random_luck_generator.html"
         },
         {
-          "type": "✉",
+          "type": "illos",
+          "title": "",
+          "cover": {
+            "src": "./image/dataset.png",
+            "alt": ""
+          },
+          "featured": "",
+          "link": ""
+        },
+        {
+          "type": "✎",
           "title": "on ui as a metaphor",
           "cover": {
             "src": "A personal declaration of practice.",
@@ -48,7 +58,7 @@
           "link": "./game/game.html"
         },
         {
-          "type": "✉",
+          "type": "✎",
           "title": "on generated images",
           "cover": {
             "src": "To make images, is to get better at seeing clearly.",
@@ -68,7 +78,7 @@
           "link": "https://www.figma.com/proto/w2HeMZTVw7IebkndLNL7P5/Comics?page-id=0%3A1&node-id=1-4&viewport=364%2C100%2C0.07&t=sDFbRvwuhVcrlMtC-1&scaling=contain&content-scaling=fixed&starting-point-node-id=1%3A4"
         },
         {
-          "type": "✉",
+          "type": "✎",
           "title": "on scrolling",
           "cover": {
             "src": "Lately, I feel like I’m allergic to scrolling.",
@@ -417,7 +427,7 @@
           "type": "◩",
           "title": "buzzfeed design internship",
           "cover": {
-            "src": "this was a good time",
+            "src": "behind the curtain in the media world",
             "alt": ""
           },
           "featured": "highlights",
