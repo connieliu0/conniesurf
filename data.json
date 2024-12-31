@@ -18,13 +18,23 @@
       "desc": "I walked forward in earnest! The sun shone brightly through my hands!",
       "gallery": [
         {
+          "type": "✉",
+          "title": "on change, on practice",
+          "cover": {
+            "src": "An intersection of time - do you think you can be in two places at once?",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://substack.com/home/post/p-153819990"
+        },
+        {
           "type": "⚘",
           "title": "RLG (Random Luck Generator)",
           "cover": {
             "src": "./image/cover/taper2.png",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://taper.badquar.to/13/random_luck_generator.html"
         },
         {
@@ -34,7 +44,7 @@
             "src": "./image/dataset.png",
             "alt": ""
           },
-          "featured": "",
+          "featured": "yes",
           "link": ""
         },
         {
@@ -44,7 +54,7 @@
             "src": "A personal declaration of practice.",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://connie.surf/declaration.html"
         },
         {
@@ -64,7 +74,7 @@
             "src": "To make images, is to get better at seeing clearly.",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://connie.surf/generator.html"
         },
         {
@@ -84,7 +94,7 @@
             "src": "Lately, I feel like I’m allergic to scrolling.",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://connie.surf/infinite.html"
         },
         { "type": "⚘",
@@ -112,7 +122,7 @@
             "src": "./image/cover/zine2.jpeg",
             "alt": ""
           },
-          "featured": "",
+          "featured": "highlights",
           "link": "https://drive.google.com/file/d/1rcIP4H8upRLpvR8EsW0RTqnRWIEf3T5e/view?usp=sharing"
         },
         {
@@ -404,7 +414,7 @@
             "src": "ran book clubs during covid",
             "alt": ""
           },
-          "featured": "highlights",
+          "featured": "",
           "link": "https://connieliu.notion.site/Cornell-UX-Design-Club-aaa303f6215a4dec993c5225e01fbb6e#6762e3012fff41e9bbe1a4df0e3deb39"
         }
       ]
