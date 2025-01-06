@@ -2,6 +2,7 @@
   $(document).ready(function () {
     // form data
   //first form
+  showPage(0);
   var igData = {};
   var hingeData = {};
   var linkedData = {};
@@ -104,18 +105,28 @@ if (q1 === 'Red') {
 }
 
     // going to the next page
-    var currentPage = 1;
+    var currentPage = 0;
     var totalPages = $(".page").length;
     var interlude=1;
 
     function showPage(pageNumber) {
-      if (pageNumber != 6) {
+      if (pageNumber == 0) {
+        const dialog0 = document.querySelector("#page0");
+        dialog0.showModal(); // Show dialog for page 0
+        currentPage = pageNumber;
+        
+        // Automatically close after 3 seconds and proceed to page 1
+        setTimeout(() => {
+            dialog0.close("submit");
+            showPage(1);
+        }, 3000); // 3000 milliseconds = 3 seconds
+    } else if (pageNumber != 6) {
         $(".page").addClass("hidden");
         $(`#page${pageNumber}`).removeClass("hidden");
         currentPage = pageNumber;
         console.log(currentPage);
       } else if (pageNumber == 6) {
-        const dialog = document.querySelector("dialog");
+        const dialog = document.querySelector("#page6");
         dialog.showModal(); // Use the native JavaScript showModal method
         currentPage = pageNumber;
         console.log(currentPage);
