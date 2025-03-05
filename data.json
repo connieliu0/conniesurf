@@ -18,13 +18,23 @@
       "desc": "going beyond sketching, investing time",
       "gallery": [
         {
+          "type": "✎",
+          "title": "social media theory of everything",
+          "cover": {
+            "src": "an essay and generator",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "social.connie.surf"
+        },
+        {
           "type": "⚘",
           "title": "link rot - a low fidelity archival tool",
           "cover": {
             "src": "",
             "alt": ""
           },
-          "featured": "no",
+          "featured": "yes",
           "link": "https://linkdump-iota.vercel.app/"
         }
       ]
