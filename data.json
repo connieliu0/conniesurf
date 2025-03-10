@@ -46,7 +46,28 @@
           },
           "featured": "yes",
           "link": "https://linkdump.connie.surf"
+        },
+        {
+          "type": "illos",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/tryagain.jpg",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": ""
+        },
+        {
+          "type": "illos",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/daily.png",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": ""
         }
+
       ]
      },
     {
