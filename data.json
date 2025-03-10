@@ -19,6 +19,16 @@
       "gallery": [
         {
           "type": "✎",
+          "title": "the organic web",
+          "cover": {
+            "src": "thesis on ecology on the web",
+            "alt": ""
+          },
+          "featured": "yes",
+          "link": "https://decay.connie.surf"
+        },
+        {
+          "type": "✎",
           "title": "social media theory of everything",
           "cover": {
             "src": "an essay and generator",
