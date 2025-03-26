@@ -19,6 +19,16 @@
       "gallery": [
         {
           "type": "✎",
+          "title": "Reboot IG Graphics",
+          "cover": {
+            "src": "design system for graphics",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://www.instagram.com/reboot_hq/"
+        },
+        {
+          "type": "✎",
           "title": "the organic web",
           "cover": {
             "src": "thesis on ecology on the web",
