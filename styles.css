@@ -84,7 +84,7 @@ body{
   align-items: center;
   background: #FFF;
 }
-.♫ p{
+.✧ p, .❥ p{
   padding: 4px 8px;
   align-items: center;
   background: #FFF;
@@ -109,7 +109,7 @@ a.card{
   color:gray;
   font-size: 0.9rem;
 }
-.♫, .⚘, .◩{
+.✧, .⚘, .◩, .❥{
   border: 1px solid blue;
 }
 .illos {
@@ -149,7 +149,7 @@ align-self: stretch;
   margin:0px;
   
 }
-.⚘, .♫{
+.⚘, .✧, .❥{
   flex-direction: column;
 justify-content: space-between;
 align-items: flex-start;

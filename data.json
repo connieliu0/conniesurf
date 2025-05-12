@@ -3,11 +3,12 @@
     {
       "everything": "that I ever made (almost)! * filters on the left if you wish",
       "⚘": "we at the intersection of art and technology (?)",
+      "✧": "I'm very interested and passionate about the future of creative tools! Researching and building prototypes",
       "highlights": "top 5 items of the year",
       "✎": "research recently done on the margins of the hour casually, and previously in college under Professor Aditya Vashishtha",
       "comic": "abstract my thoughts even further",
       "illos": "always searching for something",
-      "♫": "you remember too much; but where can I put it down?",
+      "❥": "these didn't fit into a specific category, but still are meaningful to me",
       "✉": "connect the dots, occasional navalgazing",
       "◩": "we at the intersection of human factors and technology (?) look at connie-liu.me for a more cohesive look at this. I want to do more projects for myself this year."
     }
@@ -18,14 +19,34 @@
       "desc": "going beyond sketching, investing time",
       "gallery": [
         {
-          "type": "✎",
-          "title": "Reboot IG Graphics",
+          "type": "✧",
+          "title": "link rot - a low fidelity archival tool",
           "cover": {
-            "src": "design system for Reboot newsletter graphics",
+            "src": "./image/cover/linkdump.png",
             "alt": ""
           },
+          "featured": "highlights",
+          "link": "https://linkdump.connie.surf"
+        },
+        {
+          "type": "✧",
+          "title": "new interfaces for 'vibe coding'",
+          "cover": {
+            "src": "./image/cover/code.png",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": "https://www.connieliu.work/vibe-coding"
+        },
+        {
+          "type": "❥",
+          "title": "art direction for Kernel Issue 5: RULES",
+          "cover": {
+            "src": "./image/cover/artdirect.png",
+            "alt": "art direction"
+          },
           "featured": "no",
-          "link": "https://www.instagram.com/reboot_hq/"
+          "link": "https://drive.google.com/drive/folders/1S0s5UAxkzN_JUnQpOqltMFZ6TYQqpvLP?usp=sharing"
         },
         {
           "type": "✎",
@@ -34,7 +55,7 @@
             "src": "thesis on ecology on the web",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://decay.connie.surf"
         },
         {
@@ -42,20 +63,20 @@
           "title": "social media theory of everything",
           "cover": {
             "src": "an essay and generator",
-            "alt": ""
+            "alt": "highlights"
           },
-          "featured": "yes",
+          "featured": "highlights",
           "link": "https://social.connie.surf"
         },
         {
-          "type": "⚘",
-          "title": "link rot - a low fidelity archival tool",
+          "type": "illos",
+          "title": "Reboot IG Graphics",
           "cover": {
-            "src": "",
+            "src": "./image/cover/reboot.png",
             "alt": ""
           },
-          "featured": "yes",
-          "link": "https://linkdump.connie.surf"
+          "featured": "",
+          "link": ""
         },
         {
           "type": "illos",
@@ -64,7 +85,7 @@
             "src": "./image/cover/tryagain.jpg",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "",
           "link": ""
         },
         {
@@ -74,7 +95,7 @@
             "src": "./image/cover/daily.png",
             "alt": ""
           },
-          "featured": "yes",
+          "featured": "",
           "link": ""
         }
 
@@ -202,16 +223,6 @@
           "featured": "",
           "link": "https://www.figma.com/proto/0jnZmamDAZcG78zDLBkOdE/Zine-Maker-(Community)?page-id=32%3A341&type=design&node-id=32-342&viewport=388%2C121%2C0.54&t=wOltMaQ46Gjf5ISp-1&scaling=min-zoom&starting-point-node-id=32%3A342&mode=design"
         },
-{
-          "type": "comic",
-          "title": "",
-          "cover": {
-            "src": "./image/cover/10ways.png",
-            "alt": ""
-          },
-          "featured": "",
-          "link": "./image/cover/10ways.png"
-        },
         {
           "type": "✉",
           "title": "on trying to be an artist",
@@ -260,16 +271,6 @@
           "link": "https://corny.substack.com/p/on-identity"
         },
         {
-          "type": "♫",
-          "title": "poem reading",
-          "cover": {
-            "src": "./image/cover/reading.png",
-            "alt": "homevideo"
-          },
-          "featured": "no",
-          "link": "https://youtu.be/MbHoos_mJrI"
-        },
-        {
           "type": "comic",
           "title": "",
           "cover": {
@@ -310,7 +311,7 @@
           "link": "./image/cover/worm.png"
         },
         {
-          "type": "♫",
+          "type": "❥",
           "title": "vlog #1460",
           "cover": {
             "src": "./image/cover/vlog.png",
@@ -330,7 +331,7 @@
           "link": "https://drive.google.com/file/d/1-M5135iIvryrAhIIVdbmFt6He5aLGpRe/view?usp=sharing"
         },
         {
-          "type": "⚘",
+          "type": "✧",
           "title": "Watercolor Printer",
           "cover": {
             "src": "./image/cover/printer.png",
@@ -357,7 +358,7 @@
             "alt": ""
           },
           "featured": "highlights",
-          "link": ""
+          "link": "https://connieliu.work"
         },{
           "type": "✉",
           "title": "on optionality",

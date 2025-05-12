@@ -22,13 +22,16 @@ document.addEventListener("DOMContentLoaded", function () {
           if (card.link.length > 0) {
             anchorElement = document.createElement("a");
             anchorElement.href = card.link;
-            anchorElement.target = "_blank";
+            anchorElement.onclick = (e) => {
+              e.preventDefault();
+              window.open(card.link, '_blank', 'width=950,height=700,left=200,top=200,noopener,noreferrer');
+            };
           } else {
             anchorElement = document.createElement("div");
           }
           anchorElement.className =
             "container card " + card.type + " " + card.featured;
-          if (card.type == "♫" || card.type == "⚘") {
+          if (card.type == "✧" || card.type == "⚘" || card.type == "❥") {
             anchorElement.style.backgroundImage = "url(" + card.cover.src + ")";
             anchorElement.innerHTML = `<p class="type">${card.type}</p><p class="title">${card.title}</p>`;
           } else if (card.type == "comic" || card.type == "illos") {
