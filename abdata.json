@@ -36,7 +36,7 @@
   },
   "when": {
     "top": "<h1>WHEN?</h1>",
-    "center": "<img src='./image/about/train.png'alt='on the train'/>",
+    "center": "<img src='./image/about/beach.jpg'alt='on the beach'/>",
     "bottom": ""
   },
   "why": {
