@@ -116,6 +116,16 @@
           "link": "https://2024.connie.surf/"
         },
         {
+          "type": "comic",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/daylight.png",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://drive.google.com/file/d/11eQwkLxRT9ICNnx6lpGYmVfLCYyoq4TV/view?usp=sharing"
+        },
+        {
           "type": "⚘",
           "title": "RLG (Random Luck Generator)",
           "cover": {
