@@ -82,6 +82,16 @@
           "type": "illos",
           "title": "",
           "cover": {
+            "src": "./image/cover/kernel.png",
+            "alt": ""
+          },
+          "featured": "",
+          "link": ""
+        },
+        {
+          "type": "illos",
+          "title": "",
+          "cover": {
             "src": "./image/cover/tryagain.jpg",
             "alt": ""
           },
@@ -194,6 +204,16 @@
           },
           "featured": "highlights",
           "link": "https://connie.surf/infinite.html"
+        },
+        {
+          "type": "illos",
+          "title": "",
+          "cover": {
+            "src": "./image/cover/stumbleupon.png",
+            "alt": ""
+          },
+          "featured": "",
+          "link": ""
         },
         { "type": "⚘",
         "title": "url message",
