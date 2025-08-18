@@ -26,13 +26,13 @@
   },
   "what": {
     "top": "<h1>WHAT?</h1><p>I find a lot of joy in learning new things and attempting to do them, even if I tumble and fail in the process (and takes way too long).</p>",
-    "center": "<img src='./image/home.gif'/><ol><li>interface design</li><li>illustration (hopefully riso)</li><li>graphic design</li><li>simple websites</li><li>photos that are ugly and only make sense to me</li><li>vague and cryptic writing</li><li>routines</li></ol>",
+    "center": "<img src='./image/home.gif' style='opacity: 0.5'/><ol><li>software for degrowth and connection</li><li>teaching/workshops to help other create meaning</li><li>cratfting speculative future through writing software criticism</li><li>graphic design anthropology</li><li>designing for intentional organizations that want to make the world better</li><li>comics and nonlinear narratives</li><li>routines</li></ol>",
     "bottom": "<p>I’m almost 50, and here is the best thing I have learned so far: every strange thing you’ve ever been into, every failed hobby or forgotten instrument, everything you have ever learned will come back to you, will serve you when you need it. No love, however brief, is wasted.<a href='https://twitter.com/louisethebaker/status/1379961867922239497?lang=en' target='_blank'>- Louise Miller</a></p>"
   },
   "where": {
     "top": "<h1>WHERE?</h1><p>here’s my full work cv for design</p>",
     "center": "<p>currently designing for atlassian goals app, previously on analytics and enterprise administrators, before that designing for AI system documentation for reward reports for RL lab, CMS and program discovery at dreambound, design systems at mintlify, data quality at scale, live media cms at nytimes, rapid testing registration at simple healthkit, social media automation at buzzfeed, vegan review community at abillion, a computational art showcase for p5.js via google summer of code</p>",
-    "bottom": "<p>I enjoy designing 0 to 1 products - if you're looking for my ux design specific site it's connieliu.work</p>"
+    "bottom": "<p>I see interface design as one of the ways I engage with the world - if you're looking for more images of this work check out connieliu.work</p>"
   },
   "when": {
     "top": "<h1>WHEN?</h1>",
