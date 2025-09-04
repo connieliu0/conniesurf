@@ -1,7 +1,7 @@
 {
   "header": [
     {
-      "everything": "that I ever made (almost)! * I consider my craft, work, and art intertwined * filters on the left if you wish",
+      "everything": "that I ever made (almost)! * my craft, work, and art are intertwined * filters on the left",
       "⚘": "UI as a metaphor, situating meaning in interfaces",
       "✧": "I'm very interested and passionate about the future of creative tools! Researching and building prototypes, interrogating software as a values set",
       "highlights": "top 5 items of the year, we are at the intersection of art and technology perhaps!",
@@ -22,7 +22,7 @@
           "type": "✧",
           "title": "software with a point of view - Chinatown.js talk",
           "cover": {
-            "src": "./image/cover/talk.JPG",
+            "src": "./image/cover/talk.png",
             "alt": ""
           },
           "featured": "highlights",
