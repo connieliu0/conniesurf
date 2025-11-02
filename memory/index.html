@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+            background: #000;
+            cursor: zoom-in;
+        }
+
+        .tooltip {
+            position: absolute;
+            pointer-events: none;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            padding: 8px 12px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 4px;
+            z-index: 1000;
+            white-space: nowrap;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip.visible {
+            opacity: 1;
+        }
+
+        .text-below {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #ffeb3b;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            text-align: center;
+            z-index: 100;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .text-below.visible {
+            opacity: 1;
+        }
+
+        /* Scene 1: Initial state */
+        body.scene-1 {
+            cursor: zoom-in;
+        }
+
+        /* Scene 2: Gray div area in bottom right */
+        .image-trigger {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 200px;
+            height: 200px;
+            background: #555;
+            border-radius: 8px;
+            opacity: 0;
+            transition: opacity 0.5s;
+            cursor: help;
+            z-index: 50;
+        }
+
+        .image-trigger.visible {
+            opacity: 1;
+        }
+
+        /* Scene 3-9: Image container */
+        .image-container {
+            position: absolute;
+            width: 0;
+            height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: all 1s ease-in-out;
+            z-index: 10;
+        }
+
+        .image-container.centered,
+        .image-container.zoomed {
+            overflow: hidden;
+        }
+
+        .image-container.revealed {
+            width: 400px;
+            height: 400px;
+            opacity: 1;
+            bottom: 50px;
+            right: 50px;
+        }
+
+        .image-container.centered {
+            width: 400px;
+            height: 400px;
+            opacity: 1;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            bottom: auto;
+            right: auto;
+        }
+
+        /* When both classes are present, centered takes precedence */
+        .image-container.revealed.centered {
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%);
+            bottom: auto;
+            right: auto;
+        }
+
+        .image-container.blurred {
+            filter: blur(10px);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 1s ease-in-out;
+        }
+
+        .image-container.zoomed img {
+            transform: scale(1.5);
+        }
+
+        .image-container.zoom-top-left {
+            cursor: zoom-in;
+            pointer-events: auto;
+        }
+
+        .image-container.zoom-top-left img {
+            transform: scale(2.5);
+            transform-origin: top left;
+        }
+
+        .image-container.zoom-center-more img {
+            transform: scale(3);
+            transform-origin: center bottom;
+        }
+
+        .image-container.revealed {
+            cursor: default;
+        }
+
+        .image-container.centered {
+            cursor: zoom-in;
+            pointer-events: auto;
+        }
+
+        .image-container.centered:hover {
+            cursor: zoom-in;
+        }
+
+        .image-container.zoomed {
+            cursor: wait;
+            pointer-events: none;
+        }
+
+        .image-container.blurred {
+            pointer-events: none;
+        }
+
+        .image-container.ready-for-zoom {
+            cursor: zoom-in;
+            pointer-events: auto;
+        }
+
+        .image-container.ready-for-zoom:hover {
+            cursor: zoom-in;
+        }
+
+        body.wait-cursor {
+            cursor: wait;
+        }
+
+        body.help-cursor {
+            cursor: help;
+        }
+
+        .gray-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #555;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            font-size: 18px;
+            z-index: 20;
+            opacity: 0;
+            transition: opacity 0.5s;
+            pointer-events: none;
+        }
+
+        .gray-overlay.visible {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="scene-1">
+    <div class="tooltip" id="tooltip"></div>
+    <div class="image-trigger" id="imageTrigger"></div>
+    <div class="image-container" id="imageContainer">
+        <img id="mainImage" src="" alt="Memory">
+        <div class="gray-overlay" id="grayOverlay"></div>
+    </div>
+    <div class="text-below" id="textBelow"></div>
+
+    <script>
+        // State management - use data attribute for absolute state tracking
+        const STATE = {
+            SCENE_1: 'scene1',
+            SCENE_2: 'scene2',
+            SCENE_3: 'scene3',
+            SCENE_4: 'scene4',
+            SCENE_5: 'scene5',
+            SCENE_6: 'scene6',
+            SCENE_7: 'scene7',
+            SCENE_8: 'scene8',
+            SCENE_9: 'scene9',
+            SCENE_10: 'scene10',
+            SCENE_11: 'scene11',
+            SCENE_12: 'scene12',
+            SCENE_13: 'scene13',
+            SCENE_14: 'scene14',
+            SCENE_15: 'scene15'
+        };
+
+        let currentState = STATE.SCENE_1;
+        let imageCycleIndex = 0;
+        const imageCycleInterval = 1000; // 1 second per image
+        let cycleTimer = null;
+        let activeTimers = []; // Track all active timers
+        
+        // Sample images - you can replace these with actual image URLs
+        const images = [
+            'img1.jpeg',
+            'img2.jpeg',
+            'img3.jpeg',
+            'img4.JPG',
+            'img5.jpeg',
+            'img6.JPG',
+        ];
+
+        const tooltip = document.getElementById('tooltip');
+        const imageTrigger = document.getElementById('imageTrigger');
+        const imageContainer = document.getElementById('imageContainer');
+        const mainImage = document.getElementById('mainImage');
+        const textBelow = document.getElementById('textBelow');
+        const grayOverlay = document.getElementById('grayOverlay');
+        const body = document.body;
+
+        // Clear all timers
+        function clearAllTimers() {
+            if (cycleTimer) {
+                clearInterval(cycleTimer);
+                cycleTimer = null;
+            }
+            activeTimers.forEach(timer => clearTimeout(timer));
+            activeTimers = [];
+        }
+
+        // Safe setTimeout that tracks timers
+        function safeSetTimeout(callback, delay) {
+            const timer = setTimeout(() => {
+                activeTimers = activeTimers.filter(t => t !== timer);
+                callback();
+            }, delay);
+            activeTimers.push(timer);
+            return timer;
+        }
+
+        // Helper function to set text explicitly
+        function setText(text) {
+            textBelow.textContent = text;
+            textBelow.classList.add('visible');
+        }
+
+        // Single delegated click handler for all scenes
+        function handleImageClick(e) {
+            if (currentState === STATE.SCENE_4) {
+                goToScene5();
+            } else if (currentState === STATE.SCENE_10) {
+                goToScene11();
+            } else if (currentState === STATE.SCENE_11) {
+                goToScene12();
+            }
+        }
+
+        // Set up single click handler once
+        imageContainer.addEventListener('click', handleImageClick);
+
+        // Scene 1: Initial state
+        function initScene1() {
+            currentState = STATE.SCENE_1;
+            clearAllTimers();
+            imageContainer.setAttribute('data-scene', STATE.SCENE_1);
+            
+            updateTooltip("In the recesses of my memory I relive certain scenes");
+            
+            // Check if mouse is in bottom right corner
+            document.addEventListener('mousemove', checkBottomRightCorner);
+        }
+
+        function checkBottomRightCorner(e) {
+            if (currentState !== STATE.SCENE_1) return;
+            
+            const bottomRightArea = {
+                x: window.innerWidth - 300,
+                y: window.innerHeight - 300,
+                width: 300,
+                height: 300
+            };
+
+            if (e.clientX >= bottomRightArea.x && e.clientY >= bottomRightArea.y) {
+                document.removeEventListener('mousemove', checkBottomRightCorner);
+                goToScene2();
+            }
+        }
+
+        // Scene 2: Gray div appears in bottom right
+        function goToScene2() {
+            if (currentState !== STATE.SCENE_1) return;
+            currentState = STATE.SCENE_2;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_2);
+            clearAllTimers();
+            
+            body.classList.remove('scene-1');
+            body.classList.add('help-cursor');
+            
+            imageTrigger.classList.add('visible');
+            updateTooltip("An image appears in my mind");
+            
+            imageTrigger.addEventListener('click', goToScene3, { once: true });
+        }
+
+        // Scene 3: Image is revealed
+        function goToScene3() {
+            if (currentState !== STATE.SCENE_2) return;
+            currentState = STATE.SCENE_3;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_3);
+            clearAllTimers();
+            
+            imageTrigger.classList.remove('visible');
+            body.classList.remove('help-cursor');
+            
+            // Set image source and wait for it to load
+            mainImage.onload = function() {
+                if (currentState !== STATE.SCENE_3) return;
+                imageContainer.classList.add('revealed');
+                safeSetTimeout(() => goToScene4(), 1000);
+            };
+            
+            mainImage.onerror = function() {
+                if (currentState !== STATE.SCENE_3) return;
+                console.warn('Image failed to load:', images[0]);
+                imageContainer.classList.add('revealed');
+                safeSetTimeout(() => goToScene4(), 1000);
+            };
+            
+            mainImage.src = images[0];
+        }
+
+        // Scene 4: Image moves to center, text appears
+        function goToScene4() {
+            if (currentState !== STATE.SCENE_3) return;
+            currentState = STATE.SCENE_4;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_4);
+            clearAllTimers();
+            
+            body.classList.add('scene-1');
+            body.classList.remove('help-cursor');
+            
+            imageContainer.classList.add('centered');
+            safeSetTimeout(() => {
+                imageContainer.classList.remove('revealed');
+            }, 50);
+            
+            setText("Do you remember what laid behind that window?");
+            updateTooltip("");
+        }
+
+        // Scene 5: Image zooms in
+        function goToScene5() {
+            if (currentState !== STATE.SCENE_4) return;
+            currentState = STATE.SCENE_5;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_5);
+            clearAllTimers();
+            
+            imageContainer.classList.add('zoomed');
+            
+            safeSetTimeout(() => goToScene6(), 1000);
+        }
+
+        // Scene 6: Text changes
+        function goToScene6() {
+            if (currentState !== STATE.SCENE_5) return;
+            currentState = STATE.SCENE_6;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_6);
+            clearAllTimers();
+            
+            setText("What do you remember from that moment?");
+            
+            safeSetTimeout(() => goToScene7(), 2000);
+        }
+
+        // Scene 7: Cursor wait, image blurs
+        function goToScene7() {
+            if (currentState !== STATE.SCENE_6) return;
+            currentState = STATE.SCENE_7;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_7);
+            clearAllTimers();
+            
+            body.classList.remove('scene-1');
+            body.classList.add('wait-cursor');
+            imageContainer.classList.add('blurred');
+            
+            safeSetTimeout(() => goToScene8(), 3000);
+        }
+
+        // Scene 8: Text changes after 3 seconds
+        function goToScene8() {
+            if (currentState !== STATE.SCENE_7) return;
+            currentState = STATE.SCENE_8;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_8);
+            clearAllTimers();
+            
+            setText("I relive as if I can go back in time and change the outcome");
+            
+            safeSetTimeout(() => goToScene9(), 1000);
+        }
+
+        // Scene 9: Image cycles through all pictures, stops at last one
+        function goToScene9() {
+            if (currentState !== STATE.SCENE_8) return;
+            currentState = STATE.SCENE_9;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_9);
+            clearAllTimers();
+            
+            imageContainer.classList.remove('blurred');
+            // Ensure image stays centered during cycling
+            if (!imageContainer.classList.contains('centered')) {
+                imageContainer.classList.add('centered');
+            }
+            
+            imageCycleIndex = 0;
+            
+            cycleTimer = setInterval(() => {
+                if (currentState !== STATE.SCENE_9) {
+                    clearInterval(cycleTimer);
+                    cycleTimer = null;
+                    return;
+                }
+                
+                imageCycleIndex++;
+                
+                if (imageCycleIndex < images.length) {
+                    mainImage.src = images[imageCycleIndex];
+                } else {
+                    clearInterval(cycleTimer);
+                    cycleTimer = null;
+                    // Set to last image (img6.jpg)
+                    mainImage.src = images[images.length - 1];
+                    // Wait for image to load before going to scene 10
+                    mainImage.onload = function() {
+                        if (currentState === STATE.SCENE_9) {
+                            goToScene10();
+                        }
+                    };
+                    mainImage.onerror = function() {
+                        if (currentState === STATE.SCENE_9) {
+                            goToScene10();
+                        }
+                    };
+                }
+            }, imageCycleInterval);
+        }
+
+        // Scene 10: Cycling complete, cursor changes to zoom-in, ready for click
+        function goToScene10() {
+            if (currentState !== STATE.SCENE_9) return;
+            currentState = STATE.SCENE_10;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_10);
+            clearAllTimers();
+            
+            // Ensure image is set to last image
+            mainImage.src = images[images.length - 1];
+            
+            body.classList.remove('wait-cursor');
+            body.classList.add('scene-1');
+            
+            // Keep centered class so image stays in center
+            imageContainer.classList.add('centered');
+            imageContainer.classList.add('ready-for-zoom');
+            // Remove only zoom-related classes, keep centered
+            imageContainer.classList.remove('zoomed', 'zoom-top-left', 'zoom-center-more', 'blurred');
+            
+            // Reset image transform styles but keep centered positioning
+            mainImage.style.transform = '';
+            mainImage.style.transformOrigin = 'center';
+            imageContainer.style.pointerEvents = '';
+            
+            updateTooltip("");
+        }
+
+        // Scene 11: First click - zoom to top left
+        function goToScene11() {
+            if (currentState !== STATE.SCENE_10) return;
+            currentState = STATE.SCENE_11;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_11);
+            clearAllTimers();
+            
+            // Keep centered class so container stays in position
+            imageContainer.classList.remove('ready-for-zoom', 'zoomed');
+            // Keep centered class - don't remove it
+            if (!imageContainer.classList.contains('centered')) {
+                imageContainer.classList.add('centered');
+            }
+            imageContainer.classList.add('zoom-top-left');
+            updateTooltip("Do you remember the time of day it was?");
+        }
+
+        // Scene 12: Second click - zoom to center more
+        function goToScene12() {
+            if (currentState !== STATE.SCENE_11) return;
+            currentState = STATE.SCENE_12;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_12);
+            clearAllTimers();
+            
+            // Reset transform to zoom from original image
+            imageContainer.classList.remove('zoom-top-left');
+            // Keep centered class - don't remove it
+            if (!imageContainer.classList.contains('centered')) {
+                imageContainer.classList.add('centered');
+            }
+            
+            // Reset transform first, then apply new zoom
+            mainImage.style.transform = '';
+            mainImage.style.transformOrigin = 'center bottom';
+            
+            // Use requestAnimationFrame to ensure reset happens before new transform
+            requestAnimationFrame(() => {
+                if (currentState === STATE.SCENE_12) {
+                    imageContainer.classList.add('zoom-center-more');
+                }
+            });
+            
+            updateTooltip("What did you say exactly?");
+            imageContainer.style.pointerEvents = 'none';
+            
+            safeSetTimeout(() => {
+                if (currentState === STATE.SCENE_12) {
+                    setText("What did I say?");
+                    // After text appears, wait a moment then transition to scene 13
+                    safeSetTimeout(() => {
+                        if (currentState === STATE.SCENE_12) {
+                            goToScene13();
+                        }
+                    }, 500);
+                }
+            }, 3000);
+        }
+
+        // Scene 13: Image blurs, text changes
+        function goToScene13() {
+            if (currentState !== STATE.SCENE_12) return;
+            currentState = STATE.SCENE_13;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_13);
+            clearAllTimers();
+            
+            imageContainer.classList.add('blurred');
+            setText("In my mind an image appears…");
+            updateTooltip("What did it look like?");
+            
+            safeSetTimeout(() => {
+                if (currentState === STATE.SCENE_13) {
+                    goToScene14();
+                }
+            }, 3000);
+        }
+
+        // Scene 14: Image turns into gray div
+        function goToScene14() {
+            if (currentState !== STATE.SCENE_13) return;
+            currentState = STATE.SCENE_14;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_14);
+            clearAllTimers();
+            
+            // Clear gray overlay text (just show gray div)
+            grayOverlay.textContent = "";
+            
+            // Hide the image and show gray overlay
+            mainImage.style.transition = 'opacity 0.5s';
+            mainImage.style.opacity = '0';
+            grayOverlay.classList.add('visible');
+            
+            // Set yellow text below the gray div
+            setText("In my memory I live");
+            updateTooltip("What did I feel?");
+            
+            safeSetTimeout(() => {
+                if (currentState === STATE.SCENE_14) {
+                    goToScene15();
+                }
+            }, 3000);
+        }
+
+        // Scene 15: Image disappears, text changes
+        function goToScene15() {
+            if (currentState !== STATE.SCENE_14) return;
+            currentState = STATE.SCENE_15;
+            imageContainer.setAttribute('data-scene', STATE.SCENE_15);
+            clearAllTimers();
+            
+            // Hide image container completely
+            imageContainer.style.opacity = '0';
+            imageContainer.style.pointerEvents = 'none';
+            grayOverlay.classList.remove('visible');
+            
+            setText("only in the recesses");
+            updateTooltip(""); // No tooltip
+        }
+
+        // Update tooltip
+        function updateTooltip(text) {
+            tooltip.textContent = text;
+            if (text) {
+                tooltip.classList.add('visible');
+            } else {
+                tooltip.classList.remove('visible');
+            }
+        }
+
+        // Tooltip follows mouse
+        document.addEventListener('mousemove', (e) => {
+            if (tooltip.classList.contains('visible')) {
+                tooltip.style.left = (e.clientX + 15) + 'px';
+                tooltip.style.top = (e.clientY + 15) + 'px';
+            }
+        });
+
+        // Update text position relative to image
+        function updateTextPosition() {
+            if (imageContainer.classList.contains('centered') || 
+                imageContainer.classList.contains('zoomed') ||
+                imageContainer.classList.contains('zoom-top-left') ||
+                imageContainer.classList.contains('zoom-center-more') ||
+                imageContainer.classList.contains('ready-for-zoom')) {
+                const rect = imageContainer.getBoundingClientRect();
+                textBelow.style.top = (rect.bottom + 20) + 'px';
+            } else if (imageContainer.classList.contains('revealed')) {
+                const rect = imageContainer.getBoundingClientRect();
+                textBelow.style.top = (rect.bottom + 20) + 'px';
+            } else {
+                textBelow.style.top = '80%';
+            }
+        }
+
+        // Initialize
+        initScene1();
+        
+        // Update text position periodically
+        setInterval(updateTextPosition, 100);
+        
+        // Initial text position update
+        setTimeout(updateTextPosition, 500);
+    </script>
+</body>
+</html>
