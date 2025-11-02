@@ -1,7 +1,7 @@
 {
   "header": [
     {
-      "everything": "that I ever made (almost)! * I consider my craft, work, and art intertwined * filters on the left if you wish",
+      "everything": "that I ever made (almost)! * my craft, work, and art are intertwined * filters on the left",
       "⚘": "UI as a metaphor, situating meaning in interfaces",
       "✧": "I'm very interested and passionate about the future of creative tools! Researching and building prototypes, interrogating software as a values set",
       "highlights": "top 5 items of the year, we are at the intersection of art and technology perhaps!",
@@ -18,6 +18,16 @@
       "year": "2025",
       "desc": "going beyond sketching, investing time with larger and harder projects to define meaning",
       "gallery": [
+        {
+          "type": "✧",
+          "title": "software with a point of view - Chinatown.js talk",
+          "cover": {
+            "src": "./image/cover/talk.png",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": "https://www.figma.com/proto/IkBSDHIleM3dVeXPGx2OPt/Presentation-for-Chinatown.js?page-id=0%3A1&node-id=1-3&p=f&viewport=169%2C11%2C0.05&t=Qc2nEjv18NA0SmlQ-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A3"
+        },
         {
           "type": "✧",
           "title": "link dump - a low fidelity archival tool",
