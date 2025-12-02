@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memory Journey</title>
+    <title>Memory</title>
     <style>
         * {
             margin: 0;
@@ -568,18 +568,16 @@
                 }
             });
             
-            updateTooltip("What did you say exactly?");
+            updateTooltip("What did you say exactly as the tooltip");
             imageContainer.style.pointerEvents = 'none';
             
+            // Immediately change text to "What did I say?"
+            setText("What did I say?");
+            
+            // After 3 seconds, transition to scene 13
             safeSetTimeout(() => {
                 if (currentState === STATE.SCENE_12) {
-                    setText("What did I say?");
-                    // After text appears, wait a moment then transition to scene 13
-                    safeSetTimeout(() => {
-                        if (currentState === STATE.SCENE_12) {
-                            goToScene13();
-                        }
-                    }, 500);
+                    goToScene13();
                 }
             }, 3000);
         }

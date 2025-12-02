@@ -1,67 +1,40 @@
-<!-- index.html -->
- 
 <!DOCTYPE html>
 <html lang="en">
-  <link rel="stylesheet" href="./styles.css" type="text/css" />
   <link rel="stylesheet" href="./global.css" type="text/css" />
+  <link rel="stylesheet" href="./styles.css" type="text/css" />
   <script src="./cursor.js" defer></script>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>connie surf index</title>
+    <title>thesis - connie surf</title>
   </head>
   <body>
     <div class="blob"></div>
-    <div class="sideNav">
-      <div id="top">
-        <h2>⛱</h2>
-        <p>
-          connie is an internet surfer!<br />
-          <a href="./about.html" class="question">who am I?</a> and <br /><a
-            href="./whatisthis.html" class="question"
-            >what is this?</a
-          >
-          and <br /><a
-            href="https://www.yourworldoftext.com/~conie/"
-            target="_blank"
-            >leave a note!</a
-          > 
-        </p>
-      </div>
-      <div class="filter-buttons">
-        <button onclick="filterGallery('highlights')" id="highlights">
-          Highlights
-        </button>
-        <button onclick="filterGallery('everything')" id="everything">
-          Everything
-        </button>
-        <button onclick="filterGallery('✧')" id="✧">Software Tools</button>
-        <button onclick="filterGallery('✎')" id="✎">Research</button>
-        <button onclick="filterGallery('⚘')" id="⚘">Net Art</button>
-        <button onclick="filterGallery('illos')" id="illos">Illos, Graphics</button>
-        <button onclick="filterGallery('comic')" id="comic">Comic</button>
-        <button onclick="filterGallery('✉')" id="✉">Notes</button>
-        <button onclick="filterGallery('◩')" id="✉">UX Design</button>
-        <button onclick="filterGallery('❥')" id="❥">Miscellenous</button>
-      </div>
-      <div id="aside">
-        my uxdesign site is
-        <a href="https://www.connie-liu.me" target="_blank"> here</a> (come back
-        soon)!
-      </div>
-    </div>
+    <div id="nav-container"></div>
     <div class="col">
       <h2 id="addendum">
         This website is meant for desktop so it'll probably look slightly off on
         mobile!
       </h2>
       <div class="line">
-        <p id="cat"></p>
-        <em><p id="desc"></p></em>
+        <p id="cat">Thesis</p>
+        <em><p id="desc">a collection of themes I'm focused on</p></em>
       </div>
-      <div id="gallery"></div>
-    </div>
-    <script src="script.js"></script>
+      <div class="line">
+        <div class="col thesis-section" data-section="VALUES BASED SOFTWARE">
+          <div class="line"><sup>1</sup><p id="cat">VALUES BASED SOFTWARE</p></div>
+          <p>I still think software can make the world a better place. What if we didn't design software to maximize margins or revenue, but instead reflect our values and who we want to be? </p>
+          <!-- Cards will be added here automatically -->
+        </div>
+        <div class="col thesis-section" data-section="THE WORLD CAN BECOME A BETTER PLACE IF EVERYONE WAS AN ARTIST">
+          <div class="line"><sup>2</sup><p id="cat">THE WORLD CAN BECOME A BETTER PLACE IF EVERYONE WAS AN ARTIST</p></div>
+        </div>
+        <div class="col thesis-section" data-section="UI AS STORY">
+          <div class="line"><sup>3</sup><p id="cat">UI AS STORY</p></div>
+        </div>
+      </div>
+    <script src="./nav-loader.js"></script>
+    <script src="./card-utils.js"></script>
+    <script src="./thesis-script.js"></script>
   </body>
 </html>
-

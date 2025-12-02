@@ -36,8 +36,8 @@ body{
   overflow-y: auto; 
   overflow-x: hidden;
   height: 99vh;
-  padding-left: 80px;
-  padding-right: 80px;
+  padding-left: 0px;
+  /* padding-right: 80px; */
   min-width: 80vw;
 }
 #gallery {
@@ -60,25 +60,7 @@ body{
 } */
 
 
-.sideNav .filter-buttons button{
-  background-color: rgb(0,0,0,0); /* Green */
-  border: rgb(0,0,0,0) 1px solid;
-  color: rgb(34, 125, 216);
-  font-weight:200;
-  padding: 4px 0px;
-  text-align: center;
-  text-decoration: none;
-  margin: 4px 0px;
-  cursor: pointer;
-  display:block;
-  font-size: 1.3rem;
-  font-family: "Arial Narrow", sans-serif;
-}
-.sideNav .filter-buttons button:hover{
-  border-bottom: blue 1px solid;
-  cursor:  url("./image/cloud.png") 4 12,
-  auto;
-}
+
 .⚘ p{
   padding: 4px 8px;
   align-items: center;
@@ -164,8 +146,24 @@ flex-shrink: 0;
   width: -webkit-fill-available;
   display:flex;
   gap: 10px;
-  align-items: center;
+  align-items: flex-start;
   margin-top: 16px;
+}
+/* Center align cat and desc when they're in a line together */
+.line:has(#cat):has(#desc) {
+  align-items: center;
+}
+/* When .line contains .col children, make them equal width */
+.line > .col {
+  flex: 1;
+  min-width: 0;
+  height: auto;
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
+}
+/* Allow cards to wrap in thesis sections */
+.thesis-cards {
+  flex-wrap: wrap;
 }
 .slide {
   display: none;
