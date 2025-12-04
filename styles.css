@@ -146,8 +146,10 @@ flex-shrink: 0;
   width: -webkit-fill-available;
   display:flex;
   gap: 10px;
-  align-items: flex-start;
-  margin-top: 16px;
+  /* align-items: flex-start; */
+}
+.thesis-section{
+  padding-right: 100px;
 }
 /* Center align cat and desc when they're in a line together */
 .line:has(#cat):has(#desc) {
@@ -161,6 +163,7 @@ flex-shrink: 0;
   max-height: calc(100vh - 20px);
   overflow-y: auto;
 }
+
 /* Allow cards to wrap in thesis sections */
 .thesis-cards {
   flex-wrap: wrap;

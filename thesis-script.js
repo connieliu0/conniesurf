@@ -6,12 +6,18 @@ const thesisSections = {
   "VALUES BASED SOFTWARE": [
     "software with a point of view - Chinatown.js talk",
     "link dump - a low fidelity archival tool",
+    "the organic web",
+    "on collecting and saving the past",
+    "on ui as a metaphor",
+    "social media theory of everything",
     "new interfaces for 'vibe coding'",
-    "the organic web"
+    "on scrolling"
   ],
   "THE WORLD CAN BECOME A BETTER PLACE IF EVERYONE WAS AN ARTIST": [
     "on trying to be an artist",
+    "on generated images",
     "on change, on practice",
+    "on identity",
     "poetic comics 101 workshop"
   ],
   "UI AS STORY": [
