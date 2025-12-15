@@ -13,13 +13,29 @@ body{
   gap: 10px;
   align-items: flex-start;
   flex-shrink: 0;
-  background-image: url("./image/everything.webp");
-  background-repeat: no-repeat;
-  background-position: 50% 70%;
-  background-size: cover;
-  background-blend-mode: overlay; 
   background-color: rgba(255, 255, 255, 0.503); 
   cursor:none;
+  position: relative;
+}
+
+.background-layer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: blur(25px);
+  transition: background-image 0.8s ease-in-out, background-color 0.8s ease-in-out;
+  transform: scale(1.1);
+}
+
+.background-layer.color-mode {
+  filter: none;
+  background-image: none;
 }
 #top p{
   line-height: 1.25;
@@ -179,6 +195,118 @@ flex-shrink: 0;
   object-fit: contain;
 }
 
+/* Slide-based layout for valuesbasedsoftware.html */
+.slide-container {
+  display: flex;
+  gap: 40px;
+  width: 100%;
+  align-items: flex-start;
+  flex: 1;
+}
+
+.slide-content {
+  flex: 1;
+  padding-right: 90px;
+  padding-left: 90px;
+  min-width: 0;
+  max-width: 600px;
+  position: relative;
+}
+
+.back-link {
+  position: absolute;
+  top: 0;
+  left: 90px;
+  z-index: 10;
+}
+
+.slide-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0px;
+  font-family: "AUTHENTIC Sans";
+  font-stretch: condensed;
+}
+@font-face {
+  font-family: "AUTHENTIC Sans";
+  src:
+    url("/slides/authentic-sans-condensed-60.woff") format("woff"); /* fallback if variable not supported */
+  font-style: condensed;
+  font-display: swap; /* improves perceived performance, avoids FOIT */
+}
+.slide-section .section-image {
+  display: none;
+  width: 100%;
+  max-width: 100%;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  object-fit: contain;
+}
+
+.slide-section p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.slide-section h4 {
+  font-size: 1.8rem;
+  margin-bottom: 24px;
+  margin-top: 0;
+  font-weight: 400;
+}
+
+.slide-section h3 {
+  font-size: 2rem;
+  margin-bottom: 0px;
+  font-weight: 400;
+}
+
+.slide-image-container {
+  position: sticky;
+  top: 20px;
+  width: 500px;
+  height: calc(100vh - 40px);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-right: 16px;
+}
+
+.slide-image-container img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.slide-image-container img.fade-out {
+  opacity: 0;
+}
+
+.embeds-section {
+  width: 100%;
+  padding: 60px 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  align-items: flex-start;
+  margin-top: 40px;
+}
+
+.embeds-section p {
+  font-size: 1.2rem;
+  margin-bottom: 16px;
+}
+
+.embeds-section iframe {
+  margin-bottom: 16px;
+}
+
 
 @media only screen and (max-width: 40em) {
   .sideNav{
@@ -209,5 +337,64 @@ flex-shrink: 0;
   }
   #aside{
     display:none;
+  }
+  
+  /* Mobile styles for slide layout */
+  .slide-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .slide-content {
+    padding-right: 16px;
+    padding-left: 16px;
+    max-width: 100%;
+  }
+  
+  .back-link {
+    left: 16px;
+  }
+  
+  .slide-image-container {
+    display: none;
+  }
+  
+  .background-layer {
+    display: none;
+  }
+  
+  .slide-section {
+    min-height: auto;
+    padding: 24px 0;
+  }
+  
+  .slide-section .section-image {
+    display: block !important;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    object-fit: contain;
+  }
+  
+  .slide-section p {
+    font-size: 1.1rem;
+  }
+  
+  .slide-section h3 {
+    font-size: 1.5rem;
+  }
+  
+  .slide-section h4 {
+    font-size: 1.3rem;
+  }
+  
+  .embeds-section {
+    padding: 40px 16px;
+  }
+  
+  .embeds-section iframe {
+    width: 100%;
+    max-width: 100%;
   }
 }
