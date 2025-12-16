@@ -41,11 +41,16 @@ body{
   background-repeat: no-repeat;
   filter: blur(18px);
   opacity: 0.8;
-  transition: background-image 0.8s ease-in-out, background-color 0.8s ease-in-out;
+  transition: opacity 0.8s ease-in-out, background-color 0.8s ease-in-out;
   transform: scale(1.1);
   /* Set initial background to prevent flash on load */
   background-color: rgb(240, 240, 240);
   background-image: none;
+}
+
+.background-layer.layer-2 {
+  z-index: -2;
+  opacity: 0;
 }
 
 .background-layer.color-mode {
@@ -374,7 +379,8 @@ flex-shrink: 0;
     display: none;
   }
   
-  .background-layer {
+  .background-layer,
+  .background-layer.layer-2 {
     display: none;
   }
   

@@ -26,6 +26,7 @@
     </style>
   </head>
   <body>
+    <div class="background-layer layer-2" id="background-layer-2"></div>
     <div class="background-layer" id="background-layer"></div>
     <div class="blob"></div>
     <div class="col">
@@ -188,6 +189,12 @@
         const slideImage = document.getElementById('slide-image');
         const scrollContainer = document.querySelector('.col');
         const backgroundLayer = document.getElementById('background-layer');
+        
+        // Get the second background layer (already exists in HTML)
+        const backgroundLayer2 = document.getElementById('background-layer-2');
+        
+        // Track which layer is currently visible
+        let currentLayer = 1; // 1 or 2
         
         // Ensure scroll position is at top on initial load (multiple attempts to override browser behavior)
         if (scrollContainer) {
@@ -374,24 +381,57 @@
           return `rgb(${newR}, ${newG}, ${newB})`;
         }
         
-        // Update background based on image or custom colors
+        // Preload an image and return a promise
+        function preloadImage(url) {
+          return new Promise((resolve, reject) => {
+            if (!url) {
+              resolve();
+              return;
+            }
+            const img = new Image();
+            img.onload = () => resolve();
+            img.onerror = () => reject(new Error('Failed to load image'));
+            img.src = url;
+          });
+        }
+        
+        // Update background based on image or custom colors using crossfade
         function updateBackground(imageUrl, section) {
-          if (!backgroundLayer) return;
+          if (!backgroundLayer || !backgroundLayer2) return;
+          
+          // Determine which layers are front and back
+          const frontLayer = currentLayer === 1 ? backgroundLayer : backgroundLayer2;
+          const backLayer = currentLayer === 1 ? backgroundLayer2 : backgroundLayer;
           
           // Check if section has a specific background image for blur effect
           const bgImage = section?.getAttribute('data-bg-image');
           if (bgImage) {
-            // Use the specified background image with blur
-            backgroundLayer.style.backgroundImage = `url(${bgImage})`;
-            backgroundLayer.style.backgroundColor = 'transparent';
-            backgroundLayer.classList.remove('color-mode');
+            // Preload the new image first
+            preloadImage(bgImage).then(() => {
+              // Set the new image on the back layer
+              backLayer.style.backgroundImage = `url(${bgImage})`;
+              backLayer.style.backgroundColor = 'transparent';
+              backLayer.classList.remove('color-mode');
+              backLayer.style.opacity = '0';
+              
+              // Crossfade: fade out front, fade in back
+              frontLayer.style.opacity = '0';
+              backLayer.style.opacity = '0.8';
+              
+              // Swap layers
+              currentLayer = currentLayer === 1 ? 2 : 1;
+            }).catch(() => {
+              // If preload fails, just update directly
+              frontLayer.style.backgroundImage = `url(${bgImage})`;
+              frontLayer.style.backgroundColor = 'transparent';
+              frontLayer.classList.remove('color-mode');
+            });
             
             // Reset text color (but preserve elements with data-preserve-color)
             if (section) {
               section.style.color = '';
               const childElements = section.querySelectorAll('p, h3, h4, a, em');
               childElements.forEach(el => {
-                // Only reset if element doesn't have data-preserve-color attribute
                 if (!el.hasAttribute('data-preserve-color')) {
                   el.style.color = '';
                 }
@@ -406,14 +446,20 @@
           
           // If no image but custom colors are specified
           if (!imageUrl && bgColor) {
-            backgroundLayer.style.backgroundColor = bgColor;
-            backgroundLayer.style.backgroundImage = 'none';
-            backgroundLayer.classList.add('color-mode');
+            // For color changes, we can crossfade smoothly
+            backLayer.style.backgroundColor = bgColor;
+            backLayer.style.backgroundImage = 'none';
+            backLayer.classList.add('color-mode');
+            backLayer.style.opacity = '0';
+            
+            frontLayer.style.opacity = '0';
+            backLayer.style.opacity = '0.8';
+            
+            currentLayer = currentLayer === 1 ? 2 : 1;
             
             // Apply text color to the section if specified
             if (textColor && section) {
               section.style.color = textColor;
-              // Also apply to all child elements (but preserve elements with data-preserve-color)
               const childElements = section.querySelectorAll('p, h3, h4, a, em');
               childElements.forEach(el => {
                 if (!el.hasAttribute('data-preserve-color')) {
@@ -426,9 +472,15 @@
           
           // If no image and no custom colors, use default
           if (!imageUrl) {
-            backgroundLayer.style.backgroundColor = 'rgb(240, 240, 240)';
-            backgroundLayer.style.backgroundImage = 'none';
-            backgroundLayer.classList.add('color-mode');
+            backLayer.style.backgroundColor = 'rgb(240, 240, 240)';
+            backLayer.style.backgroundImage = 'none';
+            backLayer.classList.add('color-mode');
+            backLayer.style.opacity = '0';
+            
+            frontLayer.style.opacity = '0';
+            backLayer.style.opacity = '0.8';
+            
+            currentLayer = currentLayer === 1 ? 2 : 1;
             return;
           }
           
@@ -437,7 +489,6 @@
             section.style.color = '';
             const childElements = section.querySelectorAll('p, h3, h4, a, em');
             childElements.forEach(el => {
-              // Only reset if element doesn't have data-preserve-color attribute
               if (!el.hasAttribute('data-preserve-color')) {
                 el.style.color = '';
               }
@@ -448,27 +499,48 @@
             // For GIFs, extract color and use as background
             extractDominantColor(imageUrl)
               .then(color => {
-                const bgColor = lightenAndDesaturate(color.r, color.g, color.b);
-                backgroundLayer.style.backgroundColor = bgColor;
-                backgroundLayer.style.backgroundImage = 'none';
-                backgroundLayer.classList.add('color-mode');
+                const bgColorValue = lightenAndDesaturate(color.r, color.g, color.b);
+                backLayer.style.backgroundColor = bgColorValue;
+                backLayer.style.backgroundImage = 'none';
+                backLayer.classList.add('color-mode');
+                backLayer.style.opacity = '0';
+                
+                frontLayer.style.opacity = '0';
+                backLayer.style.opacity = '0.8';
+                
+                currentLayer = currentLayer === 1 ? 2 : 1;
               })
               .catch(error => {
                 console.warn('Failed to extract color from GIF:', error);
-                // Check for custom fallback colors
-                if (bgColor) {
-                  backgroundLayer.style.backgroundColor = bgColor;
-                } else {
-                  backgroundLayer.style.backgroundColor = 'rgb(240, 240, 240)';
-                }
-                backgroundLayer.style.backgroundImage = 'none';
-                backgroundLayer.classList.add('color-mode');
+                const fallbackColor = bgColor || 'rgb(240, 240, 240)';
+                backLayer.style.backgroundColor = fallbackColor;
+                backLayer.style.backgroundImage = 'none';
+                backLayer.classList.add('color-mode');
+                backLayer.style.opacity = '0';
+                
+                frontLayer.style.opacity = '0';
+                backLayer.style.opacity = '0.8';
+                
+                currentLayer = currentLayer === 1 ? 2 : 1;
               });
           } else {
-            // For regular images, use blurred version
-            backgroundLayer.style.backgroundImage = `url(${imageUrl})`;
-            backgroundLayer.style.backgroundColor = 'transparent';
-            backgroundLayer.classList.remove('color-mode');
+            // For regular images, use blurred version with crossfade
+            preloadImage(imageUrl).then(() => {
+              backLayer.style.backgroundImage = `url(${imageUrl})`;
+              backLayer.style.backgroundColor = 'transparent';
+              backLayer.classList.remove('color-mode');
+              backLayer.style.opacity = '0';
+              
+              frontLayer.style.opacity = '0';
+              backLayer.style.opacity = '0.8';
+              
+              currentLayer = currentLayer === 1 ? 2 : 1;
+            }).catch(() => {
+              // If preload fails, update directly without crossfade
+              frontLayer.style.backgroundImage = `url(${imageUrl})`;
+              frontLayer.style.backgroundColor = 'transparent';
+              frontLayer.classList.remove('color-mode');
+            });
           }
         }
         
@@ -528,35 +600,46 @@
         const firstImage = firstSection.getAttribute('data-image');
         const firstBgImage = firstSection.getAttribute('data-bg-image');
         
-        // Set initial background immediately to prevent flash
-        if (firstBgImage) {
-          backgroundLayer.style.backgroundImage = `url(${firstBgImage})`;
-          backgroundLayer.style.backgroundColor = 'transparent';
-          backgroundLayer.classList.remove('color-mode');
-        } else if (firstImage && firstImage.trim()) {
-          // For GIFs, we'll need to extract color, but set a temporary background first
-          if (isGif(firstImage)) {
-            backgroundLayer.style.backgroundColor = 'rgb(240, 240, 240)';
-            backgroundLayer.style.backgroundImage = 'none';
-            backgroundLayer.classList.add('color-mode');
+        // Initialize both layers with the same initial background
+        const initializeLayer = (layer, bgImage, image, section) => {
+          if (bgImage) {
+            layer.style.backgroundImage = `url(${bgImage})`;
+            layer.style.backgroundColor = 'transparent';
+            layer.classList.remove('color-mode');
+            layer.style.opacity = '0.8';
+          } else if (image && image.trim()) {
+            if (isGif(image)) {
+              layer.style.backgroundColor = 'rgb(240, 240, 240)';
+              layer.style.backgroundImage = 'none';
+              layer.classList.add('color-mode');
+              layer.style.opacity = '0.8';
+            } else {
+              layer.style.backgroundImage = `url(${image})`;
+              layer.style.backgroundColor = 'transparent';
+              layer.classList.remove('color-mode');
+              layer.style.opacity = '0.8';
+            }
           } else {
-            backgroundLayer.style.backgroundImage = `url(${firstImage})`;
-            backgroundLayer.style.backgroundColor = 'transparent';
-            backgroundLayer.classList.remove('color-mode');
+            const bgColor = section?.getAttribute('data-bg-color');
+            if (bgColor) {
+              layer.style.backgroundColor = bgColor;
+              layer.style.backgroundImage = 'none';
+              layer.classList.add('color-mode');
+            } else {
+              layer.style.backgroundColor = 'rgb(240, 240, 240)';
+              layer.style.backgroundImage = 'none';
+              layer.classList.add('color-mode');
+            }
+            layer.style.opacity = '0.8';
           }
-        } else {
-          // Check for custom colors
-          const bgColor = firstSection.getAttribute('data-bg-color');
-          if (bgColor) {
-            backgroundLayer.style.backgroundColor = bgColor;
-            backgroundLayer.style.backgroundImage = 'none';
-            backgroundLayer.classList.add('color-mode');
-          } else {
-            backgroundLayer.style.backgroundColor = 'rgb(240, 240, 240)';
-            backgroundLayer.style.backgroundImage = 'none';
-            backgroundLayer.classList.add('color-mode');
-          }
-        }
+        };
+        
+        // Initialize both layers
+        initializeLayer(backgroundLayer, firstBgImage, firstImage, firstSection);
+        initializeLayer(backgroundLayer2, firstBgImage, firstImage, firstSection);
+        
+        // Make sure layer 2 is hidden initially
+        backgroundLayer2.style.opacity = '0';
         
         // Then update image and background properly
         if (firstImage && firstImage.trim()) {
@@ -567,12 +650,18 @@
           updateBackground(null, firstSection);
         }
         
-        // Preload all images
+        // Preload all images (both data-image and data-bg-image) for smoother transitions
         const imageUrls = Array.from(slideSections).map(section => 
           section.getAttribute('data-image')
         ).filter(Boolean);
         
-        imageUrls.forEach(url => {
+        const bgImageUrls = Array.from(slideSections).map(section => 
+          section.getAttribute('data-bg-image')
+        ).filter(Boolean);
+        
+        // Preload all slide images and background images
+        const allImageUrls = [...new Set([...imageUrls, ...bgImageUrls])]; // Remove duplicates
+        allImageUrls.forEach(url => {
           const img = new Image();
           img.src = url;
         });
