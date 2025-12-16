@@ -6,6 +6,12 @@
 #top h2{
   margin:0px;
 }
+html {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
 body{
   display: flex;
   padding: 0;
@@ -16,6 +22,11 @@ body{
   background-color: rgba(255, 255, 255, 0.503); 
   cursor:none;
   position: relative;
+  background-image: url("./image/everything.webp");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
 }
 
 .background-layer {
@@ -28,7 +39,8 @@ body{
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: blur(25px);
+  filter: blur(18px);
+  opacity: 0.8;
   transition: background-image 0.8s ease-in-out, background-color 0.8s ease-in-out;
   transform: scale(1.1);
   /* Set initial background to prevent flash on load */
@@ -56,8 +68,10 @@ body{
   overflow-x: hidden;
   height: 99vh;
   padding-left: 0px;
-  /* padding-right: 80px; */
-  min-width: 80vw;
+  padding-right: 0px;
+  margin-right: 0px;
+  flex: 1;
+  min-width: 0;
 }
 #gallery {
   display: flex;
@@ -388,6 +402,10 @@ flex-shrink: 0;
   
   .slide-section h4 {
     font-size: 1.3rem;
+  }
+  
+  .desktop-only-text {
+    display: none;
   }
   
   .embeds-section {

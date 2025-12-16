@@ -8,7 +8,7 @@ function createCardElement(card) {
     anchorElement.href = card.link;
     anchorElement.onclick = (e) => {
       e.preventDefault();
-      window.open(card.link, '_blank', 'width=950,height=700,left=200,top=200,noopener,noreferrer');
+      window.open(card.link, '_blank', 'width=1200,height=700,left=200,top=200,noopener,noreferrer');
     };
   } else {
     anchorElement = document.createElement("div");

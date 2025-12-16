@@ -15,6 +15,13 @@
       }
       body {
         overflow-x: hidden;
+        gap: 0 !important;
+      }
+      /* Remove body background on desktop for valuesbasedsoftware.html */
+      @media only screen and (min-width: 40.01em) {
+        body {
+          background-image: none;
+        }
       }
     </style>
   </head>
@@ -61,7 +68,7 @@
                 </br>
                 <p>At the same time I had read the <em>The Creative Act</em>, where Rick Rubin quotes creativity as a universal force where if you don't act upon it, it would eventually disappear.</p>
             </div>
-            <div class="slide-section" data-image="./image/slides/idle.gif">
+            <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/idle.gif">
               <p>In essence, that sparked the first iteration of Link Dump. You could paste or import links as cards on the canvas and set a time limit for when you wanted to finish your project. The cards would age with time and when the time limit passed the canvas would erase itself. The passage of time also manifested as a screensaver that would appear if you left your tab idle for too long.</p>
             </div>
               <div class="slide-section" data-image="./image/slides/cloud.webp">
@@ -80,10 +87,10 @@
             </div>
 
             <div class="slide-section" data-image="./image/slides/tumblr.webp">
-              <p style="color: rgb(206, 171, 98)" data-preserve-color="true">But beyond the technicalities of it all, as a whole my motivations can be summarized from this one picture I saw on tumblr when I was 16.</p>
+              <p class="desktop-only-text" style="color: rgb(206, 171, 98)" data-preserve-color="true">But beyond the technicalities of it all, as a whole my motivations can be summarized from this one picture I saw on tumblr when I was 16.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/putitdown.webp">
+            <div class="slide-section" data-image="./image/slides/putitdown.webp" data-bg-image="./image/slides/arenabg2.webp">
               <p>We hold on and notice and collect, but we never really put it down. Putting it down is how you process and create and engage with the world around you. It's how you ultimately remember.</p>
             </div>
 
@@ -96,8 +103,8 @@
               <p>As I've mentioned before the typical design process success would be I'd explore a prototype and test on Figma and build in increments. But what I actually did was a linear process where I built out what I thought was the MVP and then kept on redoing it. The first version was just a draggable card canvas with a timer.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/demo.webp">
-              <p style="color:white">After that I wanted to demo it at an art event and have a participatory aspect where people contribute their links onto a group collaborative board. I then introduced a board that anyone could access via a link and had cross-device syncing and collaboration. People could upload an image from their phone and it would show up in the browser window.</p>
+            <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/demo.webp">
+              <p>After that I wanted to demo it at an art event and have a participatory aspect where people contribute their links onto a group collaborative board. I then introduced a board that anyone could access via a link and had cross-device syncing and collaboration. People could upload an image from their phone and it would show up in the browser window.</p>
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/modal.gif">
@@ -112,18 +119,18 @@
               <p>After showing it to some people, I decided it was time to use it myself to write an essay. I had been writing an essay about the underpinnings of this project, which I called the "Organic web". After importing and organizing the links from my <a href="https://www.are.na/connie-liu-kg4ypfp7ry0/organic-web" target="_blank">are.na board</a> I realized that I had put the links into groups. Unfortunately the CSV export did not remember these groups I had created and I couldn't label them. At this point I thought if I could just build out grouping, then I could finally be done with this project.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/road.webp">
+            <div class="slide-section" data-bg-image="./image/slides/dark.webp">
               <p>It was also around this point I did not understand some parts of my code base anymore. Because I was using AI to assist some of the more fullstack programming, I started to break my code a lot with the further changes I made. At this point I started to feel really frustrated, I had spent hundreds of hours creating slightly buggy software and I couldn't figure out how to add the final feature to allow myself to actually use it.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/road.webp">
+            <div class="slide-section" data-bg-image="./image/slides/dark.webp">
               <p>So what was the reason to keep doing this?</p>
               </br>
               <p> I'm a product designer and after a certain point you start to realize that essentially you will always be designing for a business, and a business it has to make money. A lot of things you design end up as monetization levers. When it occurs to an extreme, it's called enshittification.</p>
             </br> <p> Enshittification describes how companies first offer high quality services but then because they are backed by venture capital, they have to implement some decisions at cost for the user to maximize profits and exhibit growth.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/road.webp">
+            <div class="slide-section" data-bg-image="./image/slides/dark.webp">
               <p>I started to wonder, is there even a way to make software that is "good"? What is good anyways? If you go to the silicon valley startup scene, "good" would be "what is a niche saas market where I can follow basic design principles to make it easy do the main task and also use AI".</p>
             </div>
 
@@ -133,7 +140,7 @@
               </p></br> <p> That leads me to my answer which is values based software.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/software.webp">
+            <div class="slide-section" data-bg-image="./image/slides/arenabg2.webp" data-image="./image/slides/software.webp">
               <p>PART 3: VALUES BASED SOFTWARE</p>
             </br>
               <p>I'll explain this concept through an anecdote. There are so many websites where you save and categorize. There is Pinterest, and Cosmos, and Silk and River and if you're listening to this talk you are probably well aware of Are.na. So many people create the same app, but each is slightly different.</p>
@@ -143,7 +150,7 @@
               <p>I want to highlight Are.na in particular because it was made 14 years ago, around the same time Instagram was made. What really set it apart was its revenue model, in which it doesn't have ads or collect user data as a way of monetization or any sort of algorithm. It makes money through subscriptions that people who use the app pay. People often say Are.na is "hipster pinterest" but more accurately it is a platform in which you can participate in to resist the enshittification of technology.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/cover/talk.webp">
+            <div class="slide-section" data-bg-image="./image/slides/light.webp">
               <p>I believe that technology becomes a choice because we all these different options to choose from and we can choose the one that stands with our values and how we view the world. </p></br>
                 <p>I think technological disruption is more about seeing what you want to see in the world. One of the positive sides to vibe coding or AI assisted coding tools is a new sense of accessibility. People who were previously scared or didn't think they were smart enough to make software can now make it themselves and put into the world what they want to see.</p>
             </div>
@@ -153,7 +160,7 @@
             </div>
           </div>
           
-          <div class="slide-image-container">
+          <div class="slide-image-container" data-bg-image="./image/slides/light.webp">
             <img id="slide-image" src="./image/cover/linkdump.webp" alt="" />
           </div>
         </div>
@@ -526,7 +533,7 @@
           backgroundLayer.style.backgroundImage = `url(${firstBgImage})`;
           backgroundLayer.style.backgroundColor = 'transparent';
           backgroundLayer.classList.remove('color-mode');
-        } else if (firstImage) {
+        } else if (firstImage && firstImage.trim()) {
           // For GIFs, we'll need to extract color, but set a temporary background first
           if (isGif(firstImage)) {
             backgroundLayer.style.backgroundColor = 'rgb(240, 240, 240)';
@@ -552,11 +559,11 @@
         }
         
         // Then update image and background properly
-        if (firstImage) {
+        if (firstImage && firstImage.trim()) {
           slideImage.src = firstImage;
           updateBackground(firstImage, firstSection);
         } else {
-          // No image, check for custom colors
+          // No image, check for custom colors or data-bg-image
           updateBackground(null, firstSection);
         }
         
@@ -587,7 +594,8 @@
           return a.href;
         }
         
-        let currentImageUrl = normalizeUrl(firstImage);
+        // Treat empty string as empty for comparison
+        let currentImageUrl = firstImage && firstImage.trim() ? normalizeUrl(firstImage) : '';
         
         // Track if initial load is complete
         let initialLoadComplete = false;
@@ -624,15 +632,18 @@
           
           if (activeSection) {
             const imageUrl = activeSection.getAttribute('data-image');
-            const normalizedUrl = normalizeUrl(imageUrl);
+            // Treat empty string as null
+            const normalizedImageUrl = imageUrl && imageUrl.trim() ? normalizeUrl(imageUrl) : '';
+            const normalizedUrl = normalizedImageUrl || '';
             
             if (currentImageUrl !== normalizedUrl) {
               currentImageUrl = normalizedUrl;
               
               // Update background (pass section for custom colors)
-              updateBackground(imageUrl, activeSection);
+              // Pass null if imageUrl is empty, otherwise pass the imageUrl
+              updateBackground(imageUrl && imageUrl.trim() ? imageUrl : null, activeSection);
               
-              if (imageUrl) {
+              if (imageUrl && imageUrl.trim()) {
                 // Fade out
                 slideImage.style.display = 'block';
                 slideImage.classList.add('fade-out');
