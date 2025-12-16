@@ -6,7 +6,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Software with a Point of View - Chinatown.js talk August 14 2025" />
     <title>Software with a Point of View - Chinatown.js talk August 14 2025</title>
+    <style>
+      /* Prevent scroll restoration and ensure page starts at top */
+      html {
+        scroll-behavior: auto;
+      }
+      body {
+        overflow-x: hidden;
+      }
+    </style>
   </head>
   <body>
     <div class="background-layer" id="background-layer"></div>
@@ -24,13 +34,13 @@
               data-text-color="rgb(50, 50, 50)" (or any CSS color value)
               
               To use a blurred image in the background (separate from the slide image), add:
-              data-bg-image="./path/to/image.png"
+              data-bg-image="./path/to/image.webp"
               
               Examples:
               <div class="slide-section" data-bg-color="#ff6b6b" data-text-color="#ffffff">
-              <div class="slide-section" data-image="./slide.png" data-bg-image="./blurred-bg.png">
+              <div class="slide-section" data-image="./slide.webp" data-bg-image="./blurred-bg.webp">
             -->
-            <div class="slide-section" data-image="./image/slides/panning.gif" data-bg-image="./image/slides/newonboarding.png">
+            <div class="slide-section" data-image="./image/slides/panning.gif" data-bg-image="./image/slides/newonboarding.webp">
               <h3>Software with a Point of View</h3>
               <p style="color: rgb(132, 137, 141);"><em>Chinatown.js talk, August 14 2025</em></p>
             </br>
@@ -40,13 +50,13 @@
               <p>The beginning of this talk is about <a href="https://linkdump.connie.surf" target="_blank">Link Dump</a>, which is an ephemeral link canvas I made where the links are designed to eventually disappear and remain only as an exportable csv.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/slide2.png" data-bg-image="./image/slides/newonboarding.png">
+            <div class="slide-section" data-image="./image/slides/slide2.webp" data-bg-image="./image/slides/newonboarding.webp">
               <p>While I was creating this project I went against the normal design process that I follow during my day job as a product designer. I ended up ultimately designing for myself. More specifically, I designed for the values I believe in. </p>
               </br>
               <p>The first being the urgency to finish creative work and the second as a manifestation of feelings I had about data on the internet.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/slide3.png">
+            <div class="slide-section" data-image="./image/slides/slide3.webp">
               <p>The urgency was because I would take notoriously long to finish creative projects. As a serial digital hoarder writer, I used to save so much. I would save screenshots, notes, photos and links with the intent of synthesizing and creating... but in the end it would remain an ever running to-do list. </p>
                 </br>
                 <p>At the same time I had read the <em>The Creative Act</em>, where Rick Rubin quotes creativity as a universal force where if you don't act upon it, it would eventually disappear.</p>
@@ -54,51 +64,51 @@
             <div class="slide-section" data-image="./image/slides/idle.gif">
               <p>In essence, that sparked the first iteration of Link Dump. You could paste or import links as cards on the canvas and set a time limit for when you wanted to finish your project. The cards would age with time and when the time limit passed the canvas would erase itself. The passage of time also manifested as a screensaver that would appear if you left your tab idle for too long.</p>
             </div>
-              <div class="slide-section" data-image="./image/slides/cloud.png">
+              <div class="slide-section" data-image="./image/slides/cloud.webp">
               <p>The second part was I wanted to create lighter software. The temporal aspect was important because I had a personal belief that the internet remembered too much.</p>
                 </br>
                 <p>When we think of cloud storage we think it as a weightless entity. However, the internet has an immense physicality to it from data centers in the midwest to huge cables under the ocean. As the internet becomes more integral to our lives, our physical presence only grows.</p>
                 </br>
                 <p>Furthermore, data is actually a huge monetization lever, and companies don't have an incentive to make it easy to mass delete items. The easier solution is just to subscribe and upgrade to unlimited cloud storage and continue to accumulate.</p>
               </div>
-              <div class="slide-section" data-image="./image/slides/save.png">
+              <div class="slide-section" data-image="./image/slides/save.webp">
                 <p>In my first iteration of this, you can do everything locally. Data would be locally stored in the browser and you could eventually export it to your own hard drive when the time was up.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/tiktok.png">
+            <div class="slide-section" data-image="./image/slides/tiktok.webp">
               <p>Allowing the user to own their data was important to me because we don't realize that our data is owned by large corporations that can disappear at any second. Earlier in 2025, Tiktok was banned and they let you export your data as a huge CSV, but you couldn't actually save your Tiktoks because the CSV linked out to the Tiktok site as well.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/tumblr.png">
+            <div class="slide-section" data-image="./image/slides/tumblr.webp">
               <p style="color: rgb(206, 171, 98)" data-preserve-color="true">But beyond the technicalities of it all, as a whole my motivations can be summarized from this one picture I saw on tumblr when I was 16.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/putitdown.png">
+            <div class="slide-section" data-image="./image/slides/putitdown.webp">
               <p>We hold on and notice and collect, but we never really put it down. Putting it down is how you process and create and engage with the world around you. It's how you ultimately remember.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/process.png" data-bg-image="./image/slides/process.png">
+            <div class="slide-section" data-image="./image/slides/process.webp" data-bg-image="./image/slides/process.webp">
               <p>PART 2: THE PROCESS OF MAKING LINK DUMP</p>
               <p>Beyond the end result, the process was equally as important. I created the bulk of this project between the months of March to May. I'm a designer who before this, only knew HTML, CSS and Javascript. I knew how components worked in React but I never did state management before or connected to a database.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/slides/newonboarding.png" data-image="./image/slides/output.gif">
+            <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/output.gif">
               <p>As I've mentioned before the typical design process success would be I'd explore a prototype and test on Figma and build in increments. But what I actually did was a linear process where I built out what I thought was the MVP and then kept on redoing it. The first version was just a draggable card canvas with a timer.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/demo.png">
+            <div class="slide-section" data-image="./image/slides/demo.webp">
               <p style="color:white">After that I wanted to demo it at an art event and have a participatory aspect where people contribute their links onto a group collaborative board. I then introduced a board that anyone could access via a link and had cross-device syncing and collaboration. People could upload an image from their phone and it would show up in the browser window.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/slides/newonboarding.png" data-image="./image/slides/modal.gif">
+            <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/modal.gif">
               <p>Then I decided it would be a good idea to show my app to some people and ask them if they would use it. At this point, a particular feature I was proud of was this glossy modal that smoothly transitioned from the onboarding directions to the board creation screen. When I tested it some friends told me that there was too much text and inputs in the modal and they weren't going to read it.That was when I realized I needed a new onboarding mode.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/fullonboarding.png">
+            <div class="slide-section" data-image="./image/slides/fullonboarding.webp">
               <p>I recoded it again and now on your first time viewing Link Dump, it immediately opens to a canvas that has some cards explaining what's going on. I also simplified the board creation modal to have more defaults so you don't really have to fill out much to get started and it begins.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/overload.png">
+            <div class="slide-section" data-image="./image/slides/overload.webp">
               <p>After showing it to some people, I decided it was time to use it myself to write an essay. I had been writing an essay about the underpinnings of this project, which I called the "Organic web". After importing and organizing the links from my <a href="https://www.are.na/connie-liu-kg4ypfp7ry0/organic-web" target="_blank">are.na board</a> I realized that I had put the links into groups. Unfortunately the CSV export did not remember these groups I had created and I couldn't label them. At this point I thought if I could just build out grouping, then I could finally be done with this project.</p>
             </div>
 
@@ -117,23 +127,23 @@
               <p>I started to wonder, is there even a way to make software that is "good"? What is good anyways? If you go to the silicon valley startup scene, "good" would be "what is a niche saas market where I can follow basic design principles to make it easy do the main task and also use AI".</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/slides/newonboarding.png" data-image="./image/slides/article.png">
+            <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/article.webp">
               <p>To me, I think of "good" software as a vector for reimagining. </p> </br> <p>
                 I recently read <a href="https://harpers.org/archive/2025/06/the-reenchanted-world-karl-ove-knausgaard-digital-age/" target="_blank">this article</a> in which two authors are discussing the state of the world. One of the authors, James, wrote this book in which he writes about all the data surveillance and bad things tech is doing. He comes to this conclusion that we are screwed because the current system we live in keeps the existing power dynamics and there's no interest in educating on how it works. After he writes the first book, he becomes quite depressed and the only way out of it is by making things (he makes several solar powered objects in the article). The conclusion he comes to is that when you make your own technology, you can make something different and upset the existing power balance. Making is something that people are doing all the time and that you can do yourself.
               </p></br> <p> That leads me to my answer which is values based software.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/slides/newonboarding.png" data-image="./image/slides/software.png">
+            <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/software.webp">
               <p>PART 3: VALUES BASED SOFTWARE</p>
             </br>
               <p>I'll explain this concept through an anecdote. There are so many websites where you save and categorize. There is Pinterest, and Cosmos, and Silk and River and if you're listening to this talk you are probably well aware of Are.na. So many people create the same app, but each is slightly different.</p>
             </div>
 
-            <div class="slide-section" data-image="./image/slides/arena.png">
+            <div class="slide-section" data-image="./image/slides/arena.webp">
               <p>I want to highlight Are.na in particular because it was made 14 years ago, around the same time Instagram was made. What really set it apart was its revenue model, in which it doesn't have ads or collect user data as a way of monetization or any sort of algorithm. It makes money through subscriptions that people who use the app pay. People often say Are.na is "hipster pinterest" but more accurately it is a platform in which you can participate in to resist the enshittification of technology.</p>
             </div>
 
-            <div class="slide-section" data-bg-image="./image/cover/talk.png">
+            <div class="slide-section" data-bg-image="./image/cover/talk.webp">
               <p>I believe that technology becomes a choice because we all these different options to choose from and we can choose the one that stands with our values and how we view the world. </p></br>
                 <p>I think technological disruption is more about seeing what you want to see in the world. One of the positive sides to vibe coding or AI assisted coding tools is a new sense of accessibility. People who were previously scared or didn't think they were smart enough to make software can now make it themselves and put into the world what they want to see.</p>
             </div>
@@ -144,7 +154,7 @@
           </div>
           
           <div class="slide-image-container">
-            <img id="slide-image" src="./image/cover/linkdump.png" alt="" />
+            <img id="slide-image" src="./image/cover/linkdump.webp" alt="" />
           </div>
         </div>
       </div>
@@ -161,11 +171,29 @@
     </div>
     <script src="./nav-loader.js"></script>
     <script>
+      // Prevent browser scroll restoration
+      if ('scrollRestoration' in history) {
+        history.scrollRestoration = 'manual';
+      }
+      
       document.addEventListener('DOMContentLoaded', function() {
         const slideSections = document.querySelectorAll('.slide-section');
         const slideImage = document.getElementById('slide-image');
         const scrollContainer = document.querySelector('.col');
         const backgroundLayer = document.getElementById('background-layer');
+        
+        // Ensure scroll position is at top on initial load (multiple attempts to override browser behavior)
+        if (scrollContainer) {
+          scrollContainer.scrollTop = 0;
+          // Force scroll to top after a brief delay to override any browser restoration
+          setTimeout(() => {
+            scrollContainer.scrollTop = 0;
+            window.scrollTo(0, 0);
+          }, 0);
+          setTimeout(() => {
+            scrollContainer.scrollTop = 0;
+          }, 50);
+        }
         
         // Cache for extracted GIF colors
         const gifColorCache = {};
@@ -488,9 +516,42 @@
           return;
         }
         
-        // Set initial image
+        // Set initial image and background immediately (before any scroll calculations)
         const firstSection = slideSections[0];
         const firstImage = firstSection.getAttribute('data-image');
+        const firstBgImage = firstSection.getAttribute('data-bg-image');
+        
+        // Set initial background immediately to prevent flash
+        if (firstBgImage) {
+          backgroundLayer.style.backgroundImage = `url(${firstBgImage})`;
+          backgroundLayer.style.backgroundColor = 'transparent';
+          backgroundLayer.classList.remove('color-mode');
+        } else if (firstImage) {
+          // For GIFs, we'll need to extract color, but set a temporary background first
+          if (isGif(firstImage)) {
+            backgroundLayer.style.backgroundColor = 'rgb(240, 240, 240)';
+            backgroundLayer.style.backgroundImage = 'none';
+            backgroundLayer.classList.add('color-mode');
+          } else {
+            backgroundLayer.style.backgroundImage = `url(${firstImage})`;
+            backgroundLayer.style.backgroundColor = 'transparent';
+            backgroundLayer.classList.remove('color-mode');
+          }
+        } else {
+          // Check for custom colors
+          const bgColor = firstSection.getAttribute('data-bg-color');
+          if (bgColor) {
+            backgroundLayer.style.backgroundColor = bgColor;
+            backgroundLayer.style.backgroundImage = 'none';
+            backgroundLayer.classList.add('color-mode');
+          } else {
+            backgroundLayer.style.backgroundColor = 'rgb(240, 240, 240)';
+            backgroundLayer.style.backgroundImage = 'none';
+            backgroundLayer.classList.add('color-mode');
+          }
+        }
+        
+        // Then update image and background properly
         if (firstImage) {
           slideImage.src = firstImage;
           updateBackground(firstImage, firstSection);
@@ -528,8 +589,17 @@
         
         let currentImageUrl = normalizeUrl(firstImage);
         
+        // Track if initial load is complete
+        let initialLoadComplete = false;
+        
         // Function to update image based on scroll position
         function updateImageOnScroll() {
+          // On initial load, ensure we're at the top
+          if (!initialLoadComplete && scrollContainer.scrollTop > 0) {
+            scrollContainer.scrollTop = 0;
+            initialLoadComplete = true;
+          }
+          
           const scrollTop = scrollContainer.scrollTop;
           const containerHeight = scrollContainer.clientHeight;
           const viewportCenter = scrollTop + containerHeight / 2;
@@ -588,14 +658,22 @@
         });
         
         // Also use requestAnimationFrame for smoother updates
+        let rafRunning = false;
         function rafUpdate() {
+          if (!rafRunning) return;
           updateImageOnScroll();
           requestAnimationFrame(rafUpdate);
         }
-        requestAnimationFrame(rafUpdate);
         
-        // Initial update
+        // Initial update (synchronous, before starting RAF loop)
         updateImageOnScroll();
+        
+        // Mark initial load as complete after a short delay
+        setTimeout(() => {
+          initialLoadComplete = true;
+          rafRunning = true;
+          requestAnimationFrame(rafUpdate);
+        }, 100);
       });
     </script>
   </body>

@@ -31,6 +31,9 @@ body{
   filter: blur(25px);
   transition: background-image 0.8s ease-in-out, background-color 0.8s ease-in-out;
   transform: scale(1.1);
+  /* Set initial background to prevent flash on load */
+  background-color: rgb(240, 240, 240);
+  background-image: none;
 }
 
 .background-layer.color-mode {
@@ -231,9 +234,7 @@ flex-shrink: 0;
 }
 @font-face {
   font-family: "AUTHENTIC Sans";
-  src:
-    url("/slides/authentic-sans-condensed-60.woff") format("woff"); /* fallback if variable not supported */
-  font-style: condensed;
+  src: url("./image/slides/authentic-sans-condensed-90.woff") format("woff");
   font-display: swap; /* improves perceived performance, avoids FOIT */
 }
 .slide-section .section-image {
