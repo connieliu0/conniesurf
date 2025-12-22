@@ -7,7 +7,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Software with a Point of View - Chinatown.js talk August 14 2025" />
-    <title>Software with a Point of View - Chinatown.js talk August 14 2025</title>
+    <title>Software with a Point of View</title>
     <style>
       /* Prevent scroll restoration and ensure page starts at top */
       html {
@@ -21,6 +21,182 @@
       @media only screen and (min-width: 40.01em) {
         body {
           background-image: none;
+        }
+      }
+      
+      /* Scroll snapping */
+      .col {
+        scroll-snap-type: y proximity;
+        scroll-behavior: smooth;
+      }
+      
+      .slide-section {
+        scroll-snap-align: center;
+        scroll-snap-stop: normal;
+      }
+      
+      /* Dark brown text for home.gif section */
+      .slide-section{
+        color: #503428;
+      }
+      
+      .slide-section p, em {
+        color: #503428;
+      }
+      
+      /* Lighter background filter */
+      .background-layer,
+      .background-layer.layer-2 {
+        filter: blur(24px);
+        opacity: 0.5;
+      }
+      
+      /* Grid-based layout overrides - keep grid structure stable */
+      .slide-container {
+        display: grid;
+        grid-template-columns: minmax(480px, 550px) minmax(600px, 700px);
+        gap: 164px;
+        width: 100%;
+        align-items: start;
+      }
+      
+      .slide-content {
+        padding-left: 32px;
+        padding-right: 24px;
+        max-width: 600px;
+        transition: grid-column 0.3s ease-out, max-width 0.3s ease-out, margin 0.3s ease-out;
+      }
+      
+      /* When there's no image, hide image container and let content span both columns */
+      .slide-container.no-image .slide-image-container {
+        display: none;
+      }
+      
+      .slide-container.no-image .slide-content {
+        grid-column: 1 / -1;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      
+      .back-link {
+        left: 32px;
+      }
+      
+      .slide-image-container {
+        width: 100%;
+        height: calc(100vh - 24px);
+        padding-right: 32px;
+      }
+      
+      .slide-image-container img {
+        max-width: 100%;
+        max-height: 100%;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+        transition: filter 0.15s ease-out;
+        will-change: filter;
+      }
+      
+      .embeds-section {
+        grid-template-columns: minmax(480px, 550px) minmax(600px, 700px);
+        padding: 0;
+        margin-top: 40px;
+      }
+      
+      .embeds-container {
+        display: grid;
+        gap: 48px;
+        width: 100%;
+        align-items: start;
+      }
+      
+      .embeds-content {
+        padding-left: 32px;
+        padding-right: 24px;
+      }
+      
+      .embeds-content p {
+        font-size: 1.2rem;
+        margin-bottom: 16px;
+      }
+      
+      .embeds-right {
+        width: 100%;
+        padding-right: 32px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      
+      .embeds-right iframe {
+        /* width: auto; */
+        /* max-width: 100%; */
+        margin-bottom: 0;
+      }
+      
+      /* Mobile: single column grid */
+      @media only screen and (max-width: 40em) {
+        .slide-container {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        
+        .slide-content {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+        
+        .back-link {
+          left: 16px;
+        }
+        
+        .embeds-container {
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+        }
+        
+        .embeds-content {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+        
+        .embeds-right {
+          padding-left: 16px;
+          padding-right: 16px;
+        }
+        
+        .embeds-right iframe {
+          width: 100%;
+          max-width: 100%;
+        }
+        
+        .slide-section .section-image {
+          width: 100%;
+          max-height: 60vh;
+          object-fit: contain;
+        }
+      }
+      
+      /* Larger screens (1920px and wider) - increase font sizes */
+      @media only screen and (min-width: 1920px) {
+        .slide-section p {
+          font-size: 1.75rem;
+          line-height: 1.7;
+        }
+        
+        .slide-section h3 {
+          font-size: 2.5rem;
+        }
+        
+        .slide-section h4 {
+          font-size: 2.2rem;
+        }
+        
+        .embeds-content p {
+          font-size: 1.4rem;
         }
       }
     </style>
@@ -55,40 +231,40 @@
           </br>
               <p>PART 1: THE CONCEPT BEHIND LINK DUMP</p>
         </br>
-              <p>The beginning of this talk is about <a href="https://linkdump.connie.surf" target="_blank">Link Dump</a>, which is an ephemeral link canvas I made where the links are designed to eventually disappear and remain only as an exportable csv.</p>
+              <p>The beginning of this talk is about <a href="https://linkdump.connie.surf" target="_blank">Link Dump</a>, an ephemeral link canvas I made where the links pasted will eventually disappear and remain as an exportable csv.</p>
             </div>
 
             <div class="slide-section" data-image="./image/slides/slide2.webp" data-bg-image="./image/slides/newonboarding.webp">
-              <p>While I was creating this project I went against the normal design process that I follow during my day job as a product designer. I ended up ultimately designing for myself. More specifically, I designed for the values I believe in. </p>
+              <p>While creating this project I went against the normal design process that I follow during my day job as a product designer. I ended up ultimately designing for myself, more specifically, for the values I believe in. </p>
               </br>
-              <p>The first being the urgency to finish creative work and the second as a manifestation of feelings I had about data on the internet.</p>
+              <p>The first value being the urgency to finish creative work and the second being a manifestation of feelings I had about data on the internet.</p>
             </div>
 
             <div class="slide-section" data-image="./image/slides/slide3.webp">
-              <p>The urgency was because I would take notoriously long to finish creative projects. As a serial digital hoarder writer, I used to save so much. I would save screenshots, notes, photos and links with the intent of synthesizing and creating... but in the end it would remain an ever running to-do list. </p>
+              <p>The urgency was because I would take notoriously long to finish creative projects. As a serial digital hoarder, I used to save so much - screenshots, notes, photos and links - with the intent of synthesizing and creating. In the end, it would remain an ever running to-do list. </p>
                 </br>
-                <p>At the same time I had read the <em>The Creative Act</em>, where Rick Rubin quotes creativity as a universal force where if you don't act upon it, it would eventually disappear.</p>
+                <p>At the same time I had read <em>The Creative Act</em>, where Rick Rubin quotes creativity as a universal force where if you don't act upon it, it would disappear and manifest elsewhere.</p>
             </div>
             <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/idle.gif">
-              <p>In essence, that sparked the first iteration of Link Dump. You could paste or import links as cards on the canvas and set a time limit for when you wanted to finish your project. The cards would age with time and when the time limit passed the canvas would erase itself. The passage of time also manifested as a screensaver that would appear if you left your tab idle for too long.</p>
+              <p>That sparked the first iteration of Link Dump. You could paste or import links as cards on the canvas and set a time limit for when you wanted to finish your project. The cards would age with time and when the time limit passed the canvas would erase itself. The passage of time also manifested as a screensaver that would appear if you left your tab idle for too long.</p>
             </div>
               <div class="slide-section" data-image="./image/slides/cloud.webp">
               <p>The second part was I wanted to create lighter software. The temporal aspect was important because I had a personal belief that the internet remembered too much.</p>
                 </br>
-                <p>When we think of cloud storage we think it as a weightless entity. However, the internet has an immense physicality to it from data centers in the midwest to huge cables under the ocean. As the internet becomes more integral to our lives, our physical presence only grows.</p>
+                <p>When we think of cloud storage, we think of it as a weightless entity. However, the internet has an immense physicality to it from data centers in the midwest to huge cables under the ocean. As the internet becomes more integral to our lives, its physical presence only grows.</p>
                 </br>
                 <p>Furthermore, data is actually a huge monetization lever, and companies don't have an incentive to make it easy to mass delete items. The easier solution is just to subscribe and upgrade to unlimited cloud storage and continue to accumulate.</p>
               </div>
               <div class="slide-section" data-image="./image/slides/save.webp">
-                <p>In my first iteration of this, you can do everything locally. Data would be locally stored in the browser and you could eventually export it to your own hard drive when the time was up.</p>
+                <p>As a result, in my first iteration you can do everything locally. Data would be locally stored in the browser and you could eventually export it to your own hard drive when the time was up.</p>
             </div>
 
             <div class="slide-section" data-image="./image/slides/tiktok.webp">
-              <p>Allowing the user to own their data was important to me because we don't realize that our data is owned by large corporations that can disappear at any second. Earlier in 2025, Tiktok was banned and they let you export your data as a huge CSV, but you couldn't actually save your Tiktoks because the CSV linked out to the Tiktok site as well.</p>
+              <p>Allowing the user to own their data was also important to me because we don't realize that our data is owned by large corporations that can disappear at any second. Earlier in 2025, Tiktok was banned and they let you export your data as a huge CSV, but you couldn't actually save your Tiktoks because the CSV linked out to the Tiktok site as well.</p>
             </div>
 
             <div class="slide-section" data-image="./image/slides/tumblr.webp">
-              <p class="desktop-only-text" style="color: rgb(206, 171, 98)" data-preserve-color="true">But beyond the technicalities of it all, as a whole my motivations can be summarized from this one picture I saw on tumblr when I was 16.</p>
+              <p class="desktop-only-text" style="color: rgb(206, 171, 98)" data-preserve-color="true">But beyond the technicalities of it all, my motivations can be summarized from this one picture I saw on tumblr when I was 16.</p>
             </div>
 
             <div class="slide-section" data-image="./image/slides/putitdown.webp" data-bg-image="./image/slides/arenabg2.webp">
@@ -101,7 +277,9 @@
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/output.gif">
-              <p>As I've mentioned before the typical design process success would be I'd explore a prototype and test on Figma and build in increments. But what I actually did was a linear process where I built out what I thought was the MVP and then kept on redoing it. The first version was just a draggable card canvas with a timer.</p>
+              <p>As I've mentioned before the typical design process would be exploring and testing a prototype on Figma and building it in increments.</p>
+            </br>
+              <p>What I actually did was a linear process where I built out what I thought was the MVP and then kept on redoing it. The first version was just a draggable card canvas with a timer.</p>
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/demo.webp">
@@ -117,28 +295,30 @@
             </div>
 
             <div class="slide-section" data-image="./image/slides/overload.webp">
-              <p>After showing it to some people, I decided it was time to use it myself to write an essay. I had been writing an essay about the underpinnings of this project, which I called the "Organic web". After importing and organizing the links from my <a href="https://www.are.na/connie-liu-kg4ypfp7ry0/organic-web" target="_blank">are.na board</a> I realized that I had put the links into groups. Unfortunately the CSV export did not remember these groups I had created and I couldn't label them. At this point I thought if I could just build out grouping, then I could finally be done with this project.</p>
+              <p>After showing it to some people, I decided it was time to use it myself to write an essay. I had been writing an <a href="decay.connie.surf" target="_blank"> essay</a> about the underpinnings of this project, which I called the "Organic web". After importing and organizing the links from my <a href="https://www.are.na/connie-liu-kg4ypfp7ry0/organic-web" target="_blank">are.na board</a> I realized that I had put the links into groups. Unfortunately the CSV export did not remember these groups I had created and I couldn't label them. At this point I thought if I could just build out grouping, then I could finally be done with this project.</p>
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/dark.webp">
-              <p>It was also around this point I did not understand some parts of my code base anymore. Because I was using AI to assist some of the more fullstack programming, I started to break my code a lot with the further changes I made. At this point I started to feel really frustrated, I had spent hundreds of hours creating slightly buggy software and I couldn't figure out how to add the final feature to allow myself to actually use it.</p>
+              <p>It was also around this point I did not understand some parts of my code base anymore. Because I was using AI to assist with the state management, I started to break my code with the further changes I made. At this point I started to feel really frustrated, I had spent hundreds of hours creating slightly buggy software and I couldn't figure out how to add the final feature to allow myself to actually use it.</p>
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/dark.webp">
               <p>So what was the reason to keep doing this?</p>
               </br>
-              <p> I'm a product designer and after a certain point you start to realize that essentially you will always be designing for a business, and a business it has to make money. A lot of things you design end up as monetization levers. When it occurs to an extreme, it's called enshittification.</p>
+              <p>After a certain point of doing product design you start to realize that you will always be designing for a business, and a business it has to make money. A lot of things you design end up as monetization levers. When it occurs to an extreme, it's called enshittification.</p>
             </br> <p> Enshittification describes how companies first offer high quality services but then because they are backed by venture capital, they have to implement some decisions at cost for the user to maximize profits and exhibit growth.</p>
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/dark.webp">
               <p>I started to wonder, is there even a way to make software that is "good"? What is good anyways? If you go to the silicon valley startup scene, "good" would be "what is a niche saas market where I can follow basic design principles to make it easy do the main task and also use AI".</p>
+            </br>
+            <p>To me, I think of "good" software as a vector for reimagining. </p>
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/newonboarding.webp" data-image="./image/slides/article.webp">
-              <p>To me, I think of "good" software as a vector for reimagining. </p> </br> <p>
-                I recently read <a href="https://harpers.org/archive/2025/06/the-reenchanted-world-karl-ove-knausgaard-digital-age/" target="_blank">this article</a> in which two authors are discussing the state of the world. One of the authors, James, wrote this book in which he writes about all the data surveillance and bad things tech is doing. He comes to this conclusion that we are screwed because the current system we live in keeps the existing power dynamics and there's no interest in educating on how it works. After he writes the first book, he becomes quite depressed and the only way out of it is by making things (he makes several solar powered objects in the article). The conclusion he comes to is that when you make your own technology, you can make something different and upset the existing power balance. Making is something that people are doing all the time and that you can do yourself.
-              </p></br> <p> That leads me to my answer which is values based software.</p>
+                <p>
+                I recently read <a href="https://harpers.org/archive/2025/06/the-reenchanted-world-karl-ove-knausgaard-digital-age/" target="_blank">this article</a> in which two authors are discussing the state of the world. One of the authors, James, wrote this book about all the bad things tech is doing. He comes to the conclusion that we are screwed because the current system we live in keeps the existing power dynamics and there's no interest in educating on how it works. After he writes the first book, he becomes quite depressed and finds his way out through making things. The conclusion he comes to is that when you make your own technology, you can make something different and upset the existing power balance. Making is something that people are doing all the time and that you can do yourself.
+              </p></br> <p> That leads me to my answer which is <strong>values based software</strong>.</p>
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/arenabg2.webp" data-image="./image/slides/software.webp">
@@ -148,17 +328,28 @@
             </div>
 
             <div class="slide-section" data-image="./image/slides/arena.webp">
-              <p>I want to highlight Are.na in particular because it was made 14 years ago, around the same time Instagram was made. What really set it apart was its revenue model, in which it doesn't have ads or collect user data as a way of monetization or any sort of algorithm. It makes money through subscriptions that people who use the app pay. People often say Are.na is "hipster pinterest" but more accurately it is a platform in which you can participate in to resist the enshittification of technology.</p>
+              <p>I want to highlight Are.na in particular because it was made 14 years ago, around the same time Instagram was made. What really set it apart was its revenue model, in which it doesn't have ads or collect user data as a way of monetization or any sort of algorithm. It makes money through users paying a premium subscription. People often say Are.na is "hipster pinterest" but more accurately it is a platform in which you can participate in to resist the enshittification of technology.</p>
             </div>
 
             <div class="slide-section" data-bg-image="./image/slides/light.webp">
-              <p>I believe that technology becomes a choice because we all these different options to choose from and we can choose the one that stands with our values and how we view the world. </p></br>
+              <p>I believe that technology becomes a choice because when there are different options to choose from and we can choose the one that stands with our values and how we view the world. </p></br>
                 <p>I think technological disruption is more about seeing what you want to see in the world. One of the positive sides to vibe coding or AI assisted coding tools is a new sense of accessibility. People who were previously scared or didn't think they were smart enough to make software can now make it themselves and put into the world what they want to see.</p>
             </div>
 
-            <div class="slide-section" data-image="" data-bg-image="./image/home.gif">
+            <div class="slide-section" data-image=""  data-bg-image="./image/slides/light.webp">
               <p><em>Building becomes a new kind of freedom. A freedom to reimagine the world and what we want to see it become.</em></p>
             </div>
+            <div class="slide-section" data-image=""  data-bg-image="./image/slides/light.webp">
+              <p>This is a transcript of my Chinatown.js talk. You can look through the slides here or the YouTube link below (warning: the microphone rings).</p>
+              </br>
+              <p>Related writing: <a href="https://decay.connie.surf/">The Organic Web</a>, <a href="https://corny.substack.com/p/on-collecting-and-saving-the-past">On Collecting and Saving the Past</a>, <a href="https://corny.substack.com/p/on-ui-as-a-metaphor">On UI as a Metaphor</a></p>
+               <p> For more of my writing and research, visit my substack <a href="https://corny.substack.com/" target="_blank">here</a>.</p>
+            </br>
+            <div class="line">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="400" height="300" src="https://embed.figma.com/proto/IkBSDHIleM3dVeXPGx2OPt/Presentation?page-id=0%3A1&node-id=1-3&p=f&viewport=-17554%2C-1576%2C0.31&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A3&embed-host=share" allowfullscreen></iframe>
+            
+            <iframe width="400" height="315" src="https://www.youtube.com/embed/LaKQvJyXimg?si=fxi3vqnpYuwcWkcN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>          </div>
+          </div>
           </div>
           
           <div class="slide-image-container" data-bg-image="./image/slides/light.webp">
@@ -167,16 +358,7 @@
         </div>
       </div>
       
-      <div class="embeds-section">
-        <p>This is a transcript of my Chinatown.js talk. You can look through the slides here or the YouTube link below (warning: the microphone rings).
-      </br>For more of my writing and research, visit my substack <a href="https://corny.substack.com/" target="_blank">here</a>.</p>
-        <div class="line">
-        <iframe style="border: 1px solid rgba(0, 0, 0, 0.1);" width="500" height="350" src="https://embed.figma.com/proto/IkBSDHIleM3dVeXPGx2OPt/Presentation?page-id=0%3A1&node-id=1-3&p=f&viewport=-17554%2C-1576%2C0.31&scaling=scale-down&content-scaling=fixed&starting-point-node-id=1%3A3&embed-host=share" allowfullscreen></iframe>
         
-        <iframe width="500" height="250" src="https://www.youtube.com/embed/LaKQvJyXimg?si=T5LjeKsR1ysX1Akn" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-      </div>
-      </div>
-    </div>
     <script src="./nav-loader.js"></script>
     <script>
       // Prevent browser scroll restoration
@@ -207,178 +389,6 @@
           setTimeout(() => {
             scrollContainer.scrollTop = 0;
           }, 50);
-        }
-        
-        // Cache for extracted GIF colors
-        const gifColorCache = {};
-        
-        // Check if URL is a GIF
-        function isGif(url) {
-          if (!url) return false;
-          return url.toLowerCase().endsWith('.gif');
-        }
-        
-        // Convert RGB to HSL
-        function rgbToHsl(r, g, b) {
-          r /= 255;
-          g /= 255;
-          b /= 255;
-          
-          const max = Math.max(r, g, b);
-          const min = Math.min(r, g, b);
-          let h, s, l = (max + min) / 2;
-          
-          if (max === min) {
-            h = s = 0;
-          } else {
-            const d = max - min;
-            s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
-            
-            switch (max) {
-              case r: h = ((g - b) / d + (g < b ? 6 : 0)) / 6; break;
-              case g: h = ((b - r) / d + 2) / 6; break;
-              case b: h = ((r - g) / d + 4) / 6; break;
-            }
-          }
-          
-          return [h * 360, s * 100, l * 100];
-        }
-        
-        // Convert HSL to RGB
-        function hslToRgb(h, s, l) {
-          h /= 360;
-          s /= 100;
-          l /= 100;
-          
-          let r, g, b;
-          
-          if (s === 0) {
-            r = g = b = l;
-          } else {
-            const hue2rgb = (p, q, t) => {
-              if (t < 0) t += 1;
-              if (t > 1) t -= 1;
-              if (t < 1/6) return p + (q - p) * 6 * t;
-              if (t < 1/2) return q;
-              if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
-              return p;
-            };
-            
-            const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
-            const p = 2 * l - q;
-            r = hue2rgb(p, q, h + 1/3);
-            g = hue2rgb(p, q, h);
-            b = hue2rgb(p, q, h - 1/3);
-          }
-          
-          return [Math.round(r * 255), Math.round(g * 255), Math.round(b * 255)];
-        }
-        
-        // Extract dominant color from image (GIF first frame)
-        function extractDominantColor(imageUrl) {
-          return new Promise((resolve, reject) => {
-            // Check cache first
-            if (gifColorCache[imageUrl]) {
-              resolve(gifColorCache[imageUrl]);
-              return;
-            }
-            
-            const img = new Image();
-            img.crossOrigin = 'anonymous';
-            
-            img.onload = function() {
-              try {
-                const canvas = document.createElement('canvas');
-                const ctx = canvas.getContext('2d');
-                canvas.width = Math.min(img.width, 200);
-                canvas.height = Math.min(img.height, 200);
-                
-                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
-                
-                // Sample pixels (every 10th pixel for performance)
-                const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-                const data = imageData.data;
-                const colorCounts = {};
-                
-                // Sample pixels
-                for (let i = 0; i < data.length; i += 40) { // Every 10th pixel (RGBA = 4 bytes)
-                  const r = data[i];
-                  const g = data[i + 1];
-                  const b = data[i + 2];
-                  const a = data[i + 3];
-                  
-                  // Skip transparent pixels
-                  if (a < 128) continue;
-                  
-                  // Quantize colors to reduce noise
-                  const qr = Math.floor(r / 10) * 10;
-                  const qg = Math.floor(g / 10) * 10;
-                  const qb = Math.floor(b / 10) * 10;
-                  const key = `${qr},${qg},${qb}`;
-                  
-                  colorCounts[key] = (colorCounts[key] || 0) + 1;
-                }
-                
-                // Find most common color
-                let maxCount = 0;
-                let dominantKey = null;
-                for (const key in colorCounts) {
-                  if (colorCounts[key] > maxCount) {
-                    maxCount = colorCounts[key];
-                    dominantKey = key;
-                  }
-                }
-                
-                if (dominantKey) {
-                  const [r, g, b] = dominantKey.split(',').map(Number);
-                  const color = { r, g, b };
-                  gifColorCache[imageUrl] = color;
-                  resolve(color);
-                } else {
-                  // Fallback to average color
-                  let totalR = 0, totalG = 0, totalB = 0, count = 0;
-                  for (let i = 0; i < data.length; i += 40) {
-                    if (data[i + 3] >= 128) {
-                      totalR += data[i];
-                      totalG += data[i + 1];
-                      totalB += data[i + 2];
-                      count++;
-                    }
-                  }
-                  if (count > 0) {
-                    const color = {
-                      r: Math.round(totalR / count),
-                      g: Math.round(totalG / count),
-                      b: Math.round(totalB / count)
-                    };
-                    gifColorCache[imageUrl] = color;
-                    resolve(color);
-                  } else {
-                    reject(new Error('Could not extract color'));
-                  }
-                }
-              } catch (error) {
-                reject(error);
-              }
-            };
-            
-            img.onerror = function() {
-              reject(new Error('Failed to load image'));
-            };
-            
-            img.src = imageUrl;
-          });
-        }
-        
-        // Lighten and desaturate color
-        function lightenAndDesaturate(r, g, b) {
-          const [h, s, l] = rgbToHsl(r, g, b);
-          // Increase lightness (target around 85-90%)
-          const newL = Math.min(90, l + (90 - l) * 0.6);
-          // Decrease saturation (reduce by 40-50%)
-          const newS = Math.max(10, s * 0.5);
-          const [newR, newG, newB] = hslToRgb(h, newS, newL);
-          return `rgb(${newR}, ${newG}, ${newB})`;
         }
         
         // Preload an image and return a promise
@@ -495,53 +505,23 @@
             });
           }
           
-          if (isGif(imageUrl)) {
-            // For GIFs, extract color and use as background
-            extractDominantColor(imageUrl)
-              .then(color => {
-                const bgColorValue = lightenAndDesaturate(color.r, color.g, color.b);
-                backLayer.style.backgroundColor = bgColorValue;
-                backLayer.style.backgroundImage = 'none';
-                backLayer.classList.add('color-mode');
-                backLayer.style.opacity = '0';
-                
-                frontLayer.style.opacity = '0';
-                backLayer.style.opacity = '0.8';
-                
-                currentLayer = currentLayer === 1 ? 2 : 1;
-              })
-              .catch(error => {
-                console.warn('Failed to extract color from GIF:', error);
-                const fallbackColor = bgColor || 'rgb(240, 240, 240)';
-                backLayer.style.backgroundColor = fallbackColor;
-                backLayer.style.backgroundImage = 'none';
-                backLayer.classList.add('color-mode');
-                backLayer.style.opacity = '0';
-                
-                frontLayer.style.opacity = '0';
-                backLayer.style.opacity = '0.8';
-                
-                currentLayer = currentLayer === 1 ? 2 : 1;
-              });
-          } else {
-            // For regular images, use blurred version with crossfade
-            preloadImage(imageUrl).then(() => {
-              backLayer.style.backgroundImage = `url(${imageUrl})`;
-              backLayer.style.backgroundColor = 'transparent';
-              backLayer.classList.remove('color-mode');
-              backLayer.style.opacity = '0';
-              
-              frontLayer.style.opacity = '0';
-              backLayer.style.opacity = '0.8';
-              
-              currentLayer = currentLayer === 1 ? 2 : 1;
-            }).catch(() => {
-              // If preload fails, update directly without crossfade
-              frontLayer.style.backgroundImage = `url(${imageUrl})`;
-              frontLayer.style.backgroundColor = 'transparent';
-              frontLayer.classList.remove('color-mode');
-            });
-          }
+          // For all images, use blurred version with crossfade
+          preloadImage(imageUrl).then(() => {
+            backLayer.style.backgroundImage = `url(${imageUrl})`;
+            backLayer.style.backgroundColor = 'transparent';
+            backLayer.classList.remove('color-mode');
+            backLayer.style.opacity = '0';
+            
+            frontLayer.style.opacity = '0';
+            backLayer.style.opacity = '0.8';
+            
+            currentLayer = currentLayer === 1 ? 2 : 1;
+          }).catch(() => {
+            // If preload fails, update directly without crossfade
+            frontLayer.style.backgroundImage = `url(${imageUrl})`;
+            frontLayer.style.backgroundColor = 'transparent';
+            frontLayer.classList.remove('color-mode');
+          });
         }
         
         // Function to check if mobile (40em = 640px)
@@ -608,17 +588,10 @@
             layer.classList.remove('color-mode');
             layer.style.opacity = '0.8';
           } else if (image && image.trim()) {
-            if (isGif(image)) {
-              layer.style.backgroundColor = 'rgb(240, 240, 240)';
-              layer.style.backgroundImage = 'none';
-              layer.classList.add('color-mode');
-              layer.style.opacity = '0.8';
-            } else {
-              layer.style.backgroundImage = `url(${image})`;
-              layer.style.backgroundColor = 'transparent';
-              layer.classList.remove('color-mode');
-              layer.style.opacity = '0.8';
-            }
+            layer.style.backgroundImage = `url(${image})`;
+            layer.style.backgroundColor = 'transparent';
+            layer.classList.remove('color-mode');
+            layer.style.opacity = '0.8';
           } else {
             const bgColor = section?.getAttribute('data-bg-color');
             if (bgColor) {
@@ -642,11 +615,28 @@
         backgroundLayer2.style.opacity = '0';
         
         // Then update image and background properly
+        const slideContainer = document.querySelector('.slide-container');
+        const imageContainer = document.querySelector('.slide-image-container');
+        
         if (firstImage && firstImage.trim()) {
           slideImage.src = firstImage;
+          slideImage.style.display = 'block';
+          if (imageContainer) {
+            imageContainer.style.display = '';
+          }
+          if (slideContainer) {
+            slideContainer.classList.remove('no-image');
+          }
           updateBackground(firstImage, firstSection);
         } else {
           // No image, check for custom colors or data-bg-image
+          slideImage.style.display = 'none';
+          if (imageContainer) {
+            imageContainer.style.display = 'none';
+          }
+          if (slideContainer) {
+            slideContainer.classList.add('no-image');
+          }
           updateBackground(null, firstSection);
         }
         
@@ -664,15 +654,6 @@
         allImageUrls.forEach(url => {
           const img = new Image();
           img.src = url;
-        });
-        
-        // Pre-extract colors for all GIFs
-        imageUrls.forEach(url => {
-          if (isGif(url)) {
-            extractDominantColor(url).catch(() => {
-              // Silently fail for pre-extraction
-            });
-          }
         });
         
         // Helper to normalize URLs for comparison
@@ -725,6 +706,17 @@
             const normalizedImageUrl = imageUrl && imageUrl.trim() ? normalizeUrl(imageUrl) : '';
             const normalizedUrl = normalizedImageUrl || '';
             
+            // Calculate blur based on distance from center
+            // Max blur when section is half a viewport height away, no blur when centered
+            const maxBlurDistance = containerHeight * 0.4; // Distance at which blur is maximum
+            const maxBlur = 8; // Maximum blur in pixels
+            const blurAmount = Math.min(maxBlur, (minDistance / maxBlurDistance) * maxBlur);
+            
+            // Apply blur to the image
+            if (slideImage) {
+              slideImage.style.filter = `blur(${blurAmount}px)`;
+            }
+            
             if (currentImageUrl !== normalizedUrl) {
               currentImageUrl = normalizedUrl;
               
@@ -732,20 +724,45 @@
               // Pass null if imageUrl is empty, otherwise pass the imageUrl
               updateBackground(imageUrl && imageUrl.trim() ? imageUrl : null, activeSection);
               
-              if (imageUrl && imageUrl.trim()) {
-                // Fade out
-                slideImage.style.display = 'block';
-                slideImage.classList.add('fade-out');
-                
-                // Change image after fade starts
-                setTimeout(() => {
-                  slideImage.src = imageUrl;
-                  slideImage.classList.remove('fade-out');
-                }, 250);
-              } else {
-                // No image, hide the image container
-                slideImage.style.display = 'none';
-              }
+              const slideContainer = document.querySelector('.slide-container');
+              const imageContainer = document.querySelector('.slide-image-container');
+              
+              // Use requestAnimationFrame to batch DOM updates and prevent flicker
+              requestAnimationFrame(() => {
+                if (imageUrl && imageUrl.trim()) {
+                  // Show image container first
+                  if (imageContainer) {
+                    imageContainer.style.display = '';
+                  }
+                  
+                  // Remove no-image class from container
+                  if (slideContainer) {
+                    slideContainer.classList.remove('no-image');
+                  }
+                  
+                  // Fade out
+                  slideImage.style.display = 'block';
+                  slideImage.classList.add('fade-out');
+                  
+                  // Change image after fade starts
+                  setTimeout(() => {
+                    slideImage.src = imageUrl;
+                    slideImage.classList.remove('fade-out');
+                  }, 250);
+                } else {
+                  // No image, hide the image container
+                  slideImage.style.display = 'none';
+                  
+                  // Add no-image class to container for CSS targeting
+                  if (slideContainer) {
+                    slideContainer.classList.add('no-image');
+                  }
+                  
+                  if (imageContainer) {
+                    imageContainer.style.display = 'none';
+                  }
+                }
+              });
             }
           }
         }
