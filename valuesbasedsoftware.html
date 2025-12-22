@@ -54,11 +54,25 @@
       /* Grid-based layout overrides - keep grid structure stable */
       .slide-container {
         display: grid;
-        grid-template-columns: minmax(480px, 550px) minmax(600px, 700px);
+        grid-template-columns: minmax(480px, 500px) minmax(500px, 700px);
         gap: 164px;
         width: 100%;
         align-items: start;
       }
+      
+      /* Responsive gap - decreases as window gets smaller */
+      @media only screen and (max-width: 1600px) {
+        .slide-container {
+          gap: 120px;
+        }
+      }
+      
+      @media only screen and (max-width: 1400px) {
+        .slide-container {
+          gap: 40px;
+        }
+      }
+      
       
       .slide-content {
         padding-left: 32px;
@@ -85,7 +99,8 @@
       .slide-image-container {
         width: 100%;
         height: calc(100vh - 24px);
-        padding-right: 32px;
+        padding-right: 24px;
+        box-sizing: border-box;
       }
       
       .slide-image-container img {
@@ -98,23 +113,7 @@
         will-change: filter;
       }
       
-      .embeds-section {
-        grid-template-columns: minmax(480px, 550px) minmax(600px, 700px);
-        padding: 0;
-        margin-top: 40px;
-      }
-      
-      .embeds-container {
-        display: grid;
-        gap: 48px;
-        width: 100%;
-        align-items: start;
-      }
-      
-      .embeds-content {
-        padding-left: 32px;
-        padding-right: 24px;
-      }
+     
       
       .embeds-content p {
         font-size: 1.2rem;
