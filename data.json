@@ -15,6 +15,22 @@
   ],
   "objects": [
     {
+      "year": "2026",
+      "desc": "investigating values based software",
+      "gallery": [
+        {
+          "type": "✧",
+          "title": "inprogress.works",
+          "cover": {
+            "src": "./image/cover/inprogress.png",
+            "alt": ""
+          },
+          "featured": "highlights",
+          "link": "https://inprogress.works"
+        }
+      ]
+    },
+    {
       "year": "2025",
       "desc": "going beyond sketching, investing time with larger and harder projects to define meaning",
       "gallery": [

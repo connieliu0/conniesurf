@@ -4,6 +4,7 @@
 // You can also use data-cards attribute on .thesis-cards containers for more control
 const thesisSections = {
   "VALUES BASED SOFTWARE": [
+    "inprogress.works",
     "software with a point of view - Chinatown.js talk",
     "link dump - a low fidelity archival tool",
     "the organic web",
@@ -19,12 +20,6 @@ const thesisSections = {
     "on change, on practice",
     "on identity",
     "poetic comics 101 workshop"
-  ],
-  "UI AS STORY": [
-    "RLG (Random Luck Generator)",
-    "Find Your Self",
-    "url message",
-    "Returning Thoughts"
   ]
 };
 
