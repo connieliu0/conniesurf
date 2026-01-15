@@ -188,6 +188,9 @@ flex-shrink: 0;
 }
 .thesis-section{
   padding-right: 100px;
+  overflow-y: visible;
+  overflow-x: visible;
+  height: auto;
 }
 /* Center align cat and desc when they're in a line together */
 .line:has(#cat):has(#desc) {
