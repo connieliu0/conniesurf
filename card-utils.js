@@ -20,7 +20,9 @@ function createCardElement(card) {
     anchorElement.style.backgroundImage = "url(" + card.cover.src + ")";
     anchorElement.innerHTML = `<p class="type">${card.type}</p><p class="title">${card.title}</p>`;
   } else if (card.type == "comic" || card.type == "illos") {
-    anchorElement.innerHTML = `<img src=${card.cover.src} class="zoomable" data-src="${card.cover.src}" alt="${card.title}"></img>`;
+    const imgAlt = (card.cover && card.cover.alt) || card.title || "";
+    const imgSrc = (card.cover && card.cover.src) || "";
+    anchorElement.innerHTML = `<img src="${imgSrc}" class="zoomable" data-src="${imgSrc}" alt="${imgAlt}"></img>`;
   } else {
     anchorElement.innerHTML = `<div class="text"><p class="type">${card.type}</p><p class="title">${card.title}</p><p class="desc">${card.cover.src}</p></div>`;
   }
@@ -30,13 +32,17 @@ function createCardElement(card) {
 
 // Lazy loading utility function
 function lazyLoadImage(img) {
-  img.src = img.getAttribute('data-src');
-  img.removeAttribute('data-src');
+  const url = img.getAttribute('data-src');
+  if (url) {
+    img.src = url;
+    img.removeAttribute('data-src');
+  }
 }
 
-// Initialize lazy loading for images
-function initLazyLoading() {
-  const lazyImages = document.querySelectorAll('img[data-src]');
+// Initialize lazy loading for images (optional container = only observe imgs inside it)
+function initLazyLoading(container) {
+  const root = container && container.nodeType === 1 ? container : document;
+  const lazyImages = root.querySelectorAll('img[data-src]');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {

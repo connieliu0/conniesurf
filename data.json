@@ -35,6 +35,16 @@
       "desc": "going beyond sketching, investing time with larger and harder projects to define meaning",
       "gallery": [
         {
+          "type": "✉",
+          "title": "on trying",
+          "cover": {
+            "src": "To make without expectation is to make because it’s fun.",
+            "alt": ""
+          },
+          "featured": "no",
+          "link": "https://substack.com/home/post/p-183113568"
+        },
+        {
           "type": "✧",
           "title": "software with a point of view - Chinatown.js talk",
           "cover": {
@@ -261,6 +271,7 @@
         },
         {
           "type": "comic",
+          "id": "zine2",
           "title": "",
           "cover": {
             "src": "./image/cover/zine2.jpeg",

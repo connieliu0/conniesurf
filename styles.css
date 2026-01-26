@@ -9,6 +9,19 @@
 html {
   margin: 0;
   padding: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 100%;
+}
+
+/* Allow vertical scrolling on gallery page */
+body.gallery-page,
+body.gallery-page html {
+  overflow-y: auto;
+}
+
+body.gallery-page .col {
+  overflow-y: auto;
   overflow-x: hidden;
 }
 
@@ -22,11 +35,25 @@ body{
   background-color: rgba(255, 255, 255, 0.503); 
   cursor:none;
   position: relative;
+  overflow-y: hidden;
+  height: 100vh;
+  width: 100%;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background-image: url("./image/everything.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
   background-attachment: fixed;
+  filter: blur(5px);
+  z-index: -1;
 }
 
 .background-layer {
@@ -69,9 +96,9 @@ body{
 .col{
   display:flex;
   flex-direction:column;
-  overflow-y: auto; 
-  overflow-x: hidden;
-  height: 99vh;
+  overflow-y: hidden; 
+  overflow-x: auto;
+  height: 100vh;
   padding-left: 0px;
   padding-right: 0px;
   margin-right: 0px;
@@ -120,6 +147,8 @@ align-items: center;
 flex-shrink: 0;
 opacity:0.75;
 border: 1px blue;
+break-inside: avoid;
+page-break-inside: avoid;
 }
 a.card{
   text-decoration: none;
@@ -187,10 +216,13 @@ flex-shrink: 0;
   /* align-items: flex-start; */
 }
 .thesis-section{
-  padding-right: 100px;
-  overflow-y: visible;
-  overflow-x: visible;
-  height: auto;
+  padding-top: 10px;
+  overflow-y: hidden;
+  overflow-x: auto;
+  height: 100%;
+  width: 100%;
+  padding-right: 40px; /* Add right padding so overflow shows spacing at end */
+  box-sizing: border-box; /* Ensure padding doesn't affect width */
 }
 /* Center align cat and desc when they're in a line together */
 .line:has(#cat):has(#desc) {
@@ -207,6 +239,7 @@ flex-shrink: 0;
 
 /* Allow cards to wrap in thesis sections */
 .thesis-cards {
+  padding-top: 10px;
   flex-wrap: wrap;
 }
 .slide {

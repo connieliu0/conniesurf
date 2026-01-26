@@ -7,29 +7,311 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>thesis - connie surf</title>
+    <script src="./card-utils.js"></script>
+    <script>
+      let cardData = null;
+      let cardQueue = [];
+      let cardDataPromise = fetch('data.json').then(r => r.json()).then(data => { 
+        cardData = data; 
+        cardQueue.forEach(({ titleOrId, container }) => {
+          const card = findCard(titleOrId);
+          if (card) {
+            const el = createCardElement(card);
+            container.appendChild(el);
+            initLazyLoading(el);
+          } else console.warn(`Card not found: ${titleOrId}`);
+        });
+        cardQueue = [];
+        return data; 
+      });
+      
+      function findCard(titleOrId) {
+        if (!cardData) return null;
+        for (const item of cardData.objects) {
+          for (const c of item.gallery) {
+            if (c.title === titleOrId || (c.id && c.id === titleOrId)) return c;
+          }
+        }
+        return null;
+      }
+      
+      function isRawCard(obj) {
+        return obj && typeof obj === 'object' && obj.type != null && obj.cover && typeof obj.cover === 'object' && obj.cover.src != null;
+      }
+      
+      function card(titleOrIdOrObj) {
+        const container = document.currentScript.parentElement;
+        if (isRawCard(titleOrIdOrObj)) {
+          const el = createCardElement(titleOrIdOrObj);
+          container.appendChild(el);
+          initLazyLoading(el);
+          return;
+        }
+        const key = String(titleOrIdOrObj);
+        if (cardData) {
+          const card = findCard(key);
+          if (card) {
+            const el = createCardElement(card);
+            container.appendChild(el);
+            initLazyLoading(el);
+          } else console.warn(`Card not found: ${key}`);
+        } else {
+          cardQueue.push({ titleOrId: key, container });
+        }
+      }
+    </script>
   </head>
   <body>
     <div class="blob"></div>
     <div id="nav-container"></div>
-    <div class="col">
+    <div class="col thesis-section">
       <h2 id="addendum">
         This website is meant for desktop so it'll probably look slightly off on
         mobile!
       </h2>
-      <div class="line">
-        <p id="cat">Thesis</p>
-        <em><p id="desc">a collection of themes I'm focused on</p></em>
-      </div>
-      <div class="col" style="padding-bottom: 80px;">
-        <div class="col thesis-section" data-section="VALUES BASED SOFTWARE">
-          <div class="line"><p id="cat">1</p><p id="desc">VALUES BASED SOFTWARE</p><em>          I still think software can make the world a better place. What if we didn't design software to maximize margins or revenue, but instead reflect our values and who we want to be?           </em></div>          <!-- Cards will be added here automatically -->
+      <div class="thesis-line">
+      <div class="thesis-col">
+        <p>Connie is a software artist, researcher, and image-maker. She is interested in critiquing and creating software tools and networks to propose new features and provide alternatives to current ones. 
+        </p>
+        <p>Specifically, she sees software as a way to express your values, a term she calls values-based software. We are drawn to what we want to make because of our past and present. What if we made design decisions driven from how we want to see the world instead of profit?
+        </p>
+        <p>For her, that manifests as: </p>
+        <p><sup>1</sup>Returning to natural cycles to incentivize thoughtful consumption and an impetus towards archival.</p>
+        <p><sup>2</sup>Our truest selves are not how we appear, but what we make.         </p>
+        <p><sup>3</sup>The world can become a better place if everyone was an artist.
+        <div class="line thesis-cards">
+          <script>card('on ui as a metaphor')</script>
         </div>
-        <div class="col thesis-section" data-section="THE WORLD CAN BECOME A BETTER PLACE IF EVERYONE WAS AN ARTIST">      
-          <div class="line"><p id="cat">2</p><p id="desc">THE WORLD CAN BECOME A BETTER PLACE IF EVERYONE WAS AN ARTIST</p><em>          Tools for expression </em></div>
+        
+        <h4> 1. Software closer to natural cycles to incentivize thoughtful consumption and an impetus towards archival.
+        </h4>
+        <p></p>Growing up I wanted to be an environmental scientist before a product designer. As I learned more about ways to bring my two interests together, I started to learn about sustainable web design. Everything on the internet takes weight and acts as if it will last forever when it reasonably doesn’t. Must temporality indicate loss? Or does it move us towards how we are meant to live?
+        </p>
+        <img src="./image/thesis/panning.gif" alt="panning" style="width: 100%; height: auto;">
+        <p>[2025] Link Dump, an ephemeral link canvas where links will expire after a prescribed period of time. </p>
+        <div class="line thesis-cards">
+          <script>card('link dump - a low fidelity archival tool')</script>
+          <script>card('software with a point of view - Chinatown.js talk')</script>
         </div>
+        <img src="./image/thesis/expire.gif" alt="panning" style="width: 100%; height: auto;">
+        
+        <div class="line thesis-cards">
+        <script>card('the organic web')</script>
+        <script>card('on collecting and saving the past')</script>
       </div>
+      <p>Are.na research channels: <a href="https://www.are.na/connie/organic-web">organic web</a></p>
+
+  <h4>2. Our truest selves are not how we appear, but what we make.</h4>
+  <p>We exist in networked environments, there is no escaping it. However it seems like social media these days purely serves to sell. We no longer go on to connect, but to watch and perform. What does it mean to be your true self online? 
+  </p>
+  <img src="./image/thesis/grid.gif" alt="panning" style="width: 100%; height: auto;">
+  <p>[2025-26] inprogress.works, a lightweight social network of posting weekly works-in-progresses. The key mechanic is you cannot see anyone else’s post until you post yours. Future iterations will explore creating a profile through more abstract prompts.
+  </p>
+  <img src="./image/thesis/post.gif" alt="panning" style="width: 100%; height: auto;">
+  <div class="line thesis-cards">
+  <script>
+        card('inprogress.works')
+
+  card('social media theory of everything')
+  card('on scrolling')
+</script>
+</div>
+<p>Are.na research channels: <a href="https://www.are.na/connie/small-networks">small networks</a>, <a href="https://www.are.na/connie/being-perceived-lljo8lm9naw">being perceived</a>, <a href="https://www.are.na/connie/offline-b-hamwcpw28">offline</a></p>
+
+  <h4>3. The world can become a better place if everyone was an artist.
+  </h4>
+  <p>Part of my art practice is self-expression to understand myself and heal, often I do this through poetic comics and net art. 
+  </p>
+  <div class="line thesis-cards">
+  <script>
+    card('poetic comics 101 workshop')
+    card('zine2')
+    card('url message')
+  </script>
+  </div>
+  <p>This year, I'm excited to explore toolmaking to make this easier for others. Creating and making things is the surest path towards self actualization and engaging with the world. 
+
+  </p>
+  <div class="line thesis-cards">
+  <script>
+  card("new interfaces for 'vibe coding'")
+</script>
+</div><p>Are.na research channels: <a href="https://www.are.na/connie/making-as-processing">making as processing</a>, <a href="https://www.are.na/connie/universal-feelings-of-self-expression">Universal feelings of self expression</a>, <a href="https://www.are.na/connie/poetic-comic-archive">poetic comic archive</a>
+  <p>Yearly artist reflections</p>
+<div class="line thesis-cards">
+  <script>
+   card("on trying")
+   card("on change, on practice")
+  card("on trying to be an artist")
+  card("on identity")
+</script>
+</div>
+
+      </div>
+    </div>
     <script src="./nav-loader.js"></script>
-    <script src="./card-utils.js"></script>
-    <script src="./thesis-script.js"></script>
+    <script>
+      // Split columns that exceed viewport height into multiple columns
+      (function() {
+        function splitOverflowingColumns() {
+          const thesisLine = document.querySelector('.thesis-line');
+          if (!thesisLine) return;
+          
+          const viewportHeight = window.innerHeight;
+          const columnWidth = 365;
+          const maxColumnHeight = viewportHeight - 20;
+          
+          // Get original columns (not auto-generated ones)
+          const originalColumns = Array.from(thesisLine.querySelectorAll('.thesis-col'))
+            .filter(col => !col.dataset.autoGenerated);
+          
+          originalColumns.forEach((col) => {
+            if (col.dataset.processed) return;
+            
+            const checkAndSplit = () => {
+              // Create a clone to measure natural height without affecting layout
+              const clone = col.cloneNode(true);
+              clone.style.position = 'absolute';
+              clone.style.visibility = 'hidden';
+              clone.style.height = 'auto';
+              clone.style.width = columnWidth + 'px';
+              clone.style.top = '-9999px';
+              document.body.appendChild(clone);
+              
+              // Wait for any async content
+              setTimeout(() => {
+                const naturalHeight = clone.offsetHeight;
+                document.body.removeChild(clone);
+                
+                if (naturalHeight > maxColumnHeight) {
+                  col.dataset.processed = 'true';
+                  applyColumnSplitting(col, maxColumnHeight, columnWidth);
+                }
+              }, 100);
+            };
+            
+            checkAndSplit();
+            setTimeout(checkAndSplit, 500);
+            if (typeof cardDataPromise !== 'undefined') {
+              cardDataPromise.then(() => {
+                setTimeout(checkAndSplit, 500);
+                setTimeout(checkAndSplit, 2000);
+              });
+            }
+          });
+        }
+        
+        function applyColumnSplitting(column, maxHeight, columnWidth) {
+          // Use CSS multi-column layout to automatically flow content
+          // This creates columns within the element when height is constrained
+          const columnGap = 80; // Match the gap in .thesis-line
+          column.style.height = maxHeight + 'px';
+          column.style.columnWidth = columnWidth + 'px';
+          column.style.columnGap = columnGap + 'px';
+          column.style.columnFill = 'auto';
+          column.style.overflow = 'visible';
+          
+          // Calculate total width needed based on content
+          const updateWidth = () => {
+            const scrollHeight = column.scrollHeight;
+            const columnsNeeded = Math.ceil(scrollHeight / maxHeight);
+            if (columnsNeeded > 1) {
+              const totalWidth = (columnsNeeded * columnWidth) + ((columnsNeeded - 1) * columnGap);
+              column.style.width = totalWidth + 'px';
+              column.style.maxWidth = totalWidth + 'px';
+            }
+          };
+          
+          updateWidth();
+          setTimeout(updateWidth, 500);
+          if (typeof cardDataPromise !== 'undefined') {
+            cardDataPromise.then(() => {
+              setTimeout(updateWidth, 500);
+              setTimeout(updateWidth, 2000);
+            });
+          }
+        }
+        
+        // Initialize
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', splitOverflowingColumns);
+        } else {
+          splitOverflowingColumns();
+        }
+        
+        // Handle resize
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(() => {
+            document.querySelectorAll('.thesis-col[data-processed]').forEach(col => {
+              delete col.dataset.processed;
+              col.style.height = '';
+              col.style.columnWidth = '';
+              col.style.columnGap = '';
+              col.style.columnFill = '';
+              col.style.width = '';
+              col.style.maxWidth = '';
+              col.style.overflow = '';
+            });
+            setTimeout(splitOverflowingColumns, 100);
+          }, 250);
+        });
+      })();
+    </script>
+    <script>
+      // Map vertical scroll to horizontal scroll
+      (function() {
+        const thesisSection = document.querySelector('.thesis-section');
+        if (!thesisSection) return;
+        
+        // Prevent default vertical scroll and convert to horizontal
+        function handleWheel(e) {
+          // Only handle vertical scroll (when deltaY is greater than deltaX)
+          if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // Convert vertical scroll to horizontal
+            const scrollAmount = e.deltaY;
+            thesisSection.scrollLeft += scrollAmount;
+          }
+        }
+        
+        // Handle wheel events on document level
+        document.addEventListener('wheel', handleWheel, { passive: false });
+        
+        // Prevent vertical scroll on arrow keys and map to horizontal
+        document.addEventListener('keydown', function(e) {
+          if (e.key === 'ArrowUp' || e.key === 'ArrowDown') {
+            e.preventDefault();
+            const scrollAmount = e.key === 'ArrowDown' ? 100 : -100;
+            thesisSection.scrollLeft += scrollAmount;
+          }
+        });
+        
+        // Prevent touch scrolling vertically on mobile
+        let touchStartX = 0;
+        let touchStartY = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+          touchStartX = e.touches[0].clientX;
+          touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+        
+        document.addEventListener('touchmove', function(e) {
+          const touchX = e.touches[0].clientX;
+          const touchY = e.touches[0].clientY;
+          const deltaX = touchX - touchStartX;
+          const deltaY = touchY - touchStartY;
+          
+          // If vertical movement is greater, prevent it and scroll horizontally instead
+          if (Math.abs(deltaY) > Math.abs(deltaX)) {
+            e.preventDefault();
+            thesisSection.scrollLeft -= deltaY;
+          }
+        }, { passive: false });
+      })();
+    </script>
   </body>
 </html>
